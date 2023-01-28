@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_Root.Head";
+}
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyStartHtmlTagAfter })
+@{
+    await Html.RenderPartialAsync("_Notifications");
+}
+@{
+    await Html.RenderPartialAsync("_JavaScriptDisabledWarning");
+}
+@{
+    await Html.RenderPartialAsync("_OldInternetExplorerWarning");
+}
+<div class="master-wrapper-page">
+    <div class="admin-header-link">
+        <ul>
+            @await Component.InvokeAsync("AdminHeaderLinks")
+        </ul>
+    </div>
+    @{
+        await Html.RenderPartialAsync("_Header");
+    }
+    <script asp-location="Footer">
+        var localized_data = {
+            AjaxCartFailure: "@T("AjaxCart.Failure")"
+        };
+        AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart', localized_data);
+    </script>
+    <section class="content-page">
+        <div class="container">
+            @if (IsSectionDefined("HomePageSlider"))
+            {
+                @RenderSection("HomePageSlider")
+            }
+
+            @RenderBody()
+        </div>
+    </section>
+    <my-footer>
+        @await Component.InvokeAsync("Footer")
+    </my-footer>
+
+</div>
+@*@await Component.InvokeAsync("EuCookieLaw")
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyEndHtmlTagBefore })*@

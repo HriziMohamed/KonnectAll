@@ -1,0 +1,910 @@
+﻿@using Nop.Core.Domain.Seo
+@inject SeoSettings seoSettings
+
+@{
+    Layout = "_ColumnsApps";
+
+    //title
+    if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
+    {
+        NopHtml.AddTitleParts(seoSettings.HomepageTitle);
+    }
+
+    //meta
+    if (!string.IsNullOrEmpty(seoSettings.HomepageDescription))
+    {
+        NopHtml.AddMetaDescriptionParts(seoSettings.HomepageDescription);
+    }
+
+    //page class
+    NopHtml.AppendPageCssClassParts("html-home-page");
+}
+
+
+<div class="slider">
+    <img src="../images/banner/home-banner.png" class="slid-img">
+    <div class="overly">
+    </div>
+    <div class="container">
+        <div class="container content-slid">
+            <div class="separate-line"></div>
+            <h1 class="title-slider">
+                Your all-in-one ecommerce partner
+            </h1>
+            <h4 class="menu-slider">
+                Technology
+                <span>|</span>
+                Catalogue
+                <span>|</span>
+                Dropshipping
+                <span>|</span>
+                Fulfillment
+                <span>|</span>
+                Marketplace Operations
+            </h4>
+        </div>
+    </div>
+</div>
+<div class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-4">
+                <div class="content-service">
+                    <h4 class="title-service text-black text-center">
+                        Solutions for dropshippers and for wholesale purchasing
+                    </h4>
+                    <div class="desc-service text-black text-center">
+                        we offer you solutions for your online busniess: find thousands of products on our wholesale platfrom. With dropshipping service.
+                    </div>
+                    <a href="#" class="btn btn-primary">More Information</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4">
+                <div class="content-service">
+                    <h4 class="title-service text-black text-center">
+                        Solutions for brands and suppliers
+                    </h4>
+                    <div class="desc-service text-black text-center">
+                        We help you to expand online sales of your stack throught networkor directly to the end consumer
+                    </div>
+                    <a href="#" class="btn btn-primary">More Information</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4">
+                <div class="content-service">
+                    <h4 class="title-service text-black font-semibold text-center">
+                        Auction management and liquidation solutions
+                    </h4>
+                    <div class="desc-service text-black text-center">
+                        Our Auction liquidationservices include: Conducting a comprehensive inventory, inspection, and appraisal of all machinery and equipment for sale.
+                    </div>
+                    <a href="#" class="btn btn-primary">More Information</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="online-sales">
+    <div class="container">
+        <h2 class="sec-title text-black text-center">An integral partner for boosting your online sales</h2>
+        <div class="sec-desc">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/categori.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Catalogue</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                Top brands at competitive prices. We are constantly searching to be the first to offer the latest.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/fullfilement.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Fulfillment and logistics</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We provide comprehensive storage, picking and packing solutions and competitive ecommerce rates with more than 5 couriers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/multi-channel.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Multi-channel strategy</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We have extensive experience in simplifying and boosting sales on marketplaces and other online sales channels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/technologie1.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Technology</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We are a company with our own technology. We offer an SaaS platform that you can use to centralise your ecommerce operations management.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/categori.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Catalogue</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                Top brands at competitive prices. We are constantly searching to be the first to offer the latest.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/fullfilement.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Fulfillment and logistics</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We provide comprehensive storage, picking and packing solutions and competitive ecommerce rates with more than 5 couriers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/multi-channel.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Multi-channel strategy</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We have extensive experience in simplifying and boosting sales on marketplaces and other online sales channels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="../images/sales/technologie1.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Technology</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We are a company with our own technology. We offer an SaaS platform that you can use to centralise your ecommerce operations management.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="black-friday">
+    <img src="../images/black-friday.png">
+    <div class="container">
+        <div class="content-text">
+            <div class="text-left text-white text-big">Pre Black Friday Offer</div>
+            <h4 class="text-left text-white">Marketplace connectors with a discount of up to 75%</h4>
+            <a href="#" class="button btn-second text-center text-black">Shop Now</a>
+        </div>
+    </div>
+</div>
+
+<div class="all-categories">
+    <div class="container">
+        <h2 class="sec-title text-black font-semibold text-center">We work with catalogues from all categories</h2>
+        <div class="sec-desc-categ">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Activity and entretainment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breastfeeding and diet</a>
+                                </li>
+                                <li>
+                                    <a href="#">Buggies, pushchairs and accessories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Bathing and personal hygiene</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Hair care</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Manicure categories</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Beers, wines and spirits</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Cereals and muesli</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Activity and entretainment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breastfeeding and diet</a>
+                                </li>
+                                <li>
+                                    <a href="#">Buggies, pushchairs and accessories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Bathing and personal hygiene</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Hair care</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Manicure categories</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Beers, wines and spirits</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Cereals and muesli</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-desc-categ">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Activity and entretainment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Hair care</a>
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manicure categories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+                                </li>
+                                <li>
+                                    <a href="#">Beers, wines and spirits</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cereals and muesli</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Activity and entretainment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breastfeeding and diet</a>
+                                </li>
+                                <li>
+                                    <a href="#">Buggies, pushchairs and accessories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Bathing and personal hygiene</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hair care</a>
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manicure categories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+                                </li>
+                                <li>
+                                    <a href="#">Beers, wines and spirits</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cereals and muesli</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-desc-categ">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Activity and entretainment</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Hair care</a>
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manicure categories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+                                </li>
+                                <li>
+                                    <a href="#">Beers, wines and spirits</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cereals and muesli</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Baby</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Bedroom</a>
+                                </li>
+                                <li>
+                                    <a href="#">Breastfeeding and diet</a>
+                                </li>
+                                <li>
+                                    <a href="#">Buggies, pushchairs and accessories</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">6 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Beauty</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Bathing and personal hygiene</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hair care</a>
+                                </li>
+                                <li>
+                                    <a href="#">Make-up</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">4 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Food &amp; Drink</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Aperitifs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Bakery and pastries</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">15 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="content-categories">
+                        <div class="content">
+                            <div class="title text-black font-semibold">Clothing</div>
+                            <ul class="desc">
+                                <li>
+                                    <a href="#">Baby</a>
+                                </li>
+                                <li>
+                                    <a href="#">Boys</a>
+                                </li>
+                                <li>
+                                    <a href="#">Girls</a>
+                                </li>
+                                <li>
+                                    <a href="#">Men</a>
+                                </li>
+                            </ul>
+                            <span><a href="#">2 more categories</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dots-item" id="dots-item"></div>
+    </div>
+</div>
+
+<my-newsletter>
+    <div class="newsletter">
+        <div class="container">
+            <div class="content-newsletter">
+                <h3>
+                    Subscribe to our newsletter!
+                </h3>
+                <form>
+                    <input type="text" placeholder="Entrer you email address" name="email">
+                    <select name="lang" aria-placeholder="Choose language" placeholder="Entrer you email address">
+                        <option value="Choose language">Choose language</option>
+                        <option value="fr">Fr</option>
+                        <option value="ar">Ar</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <span class="arrow-bottom"></span>
+    </div>
+</my-newsletter>
+
+<div class="channels">
+    <div class="container">
+        <h2 class="sec-title text-black font-semibold text-center">Sell on +50 online channels</h2>
+        <div class="sec-desc">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/carrefour.png">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/decathlon.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/lacoste.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/almarai.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/nedec.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/nofa.png">
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/carrefour.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/decathlon.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/lacoste.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/almarai.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/nedec.png">
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                    <div class="channel-img">
+                        <img class="img-channel" src="../images/channels/nofa.png">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

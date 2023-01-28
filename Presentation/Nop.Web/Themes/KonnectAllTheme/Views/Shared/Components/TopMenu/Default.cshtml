@@ -1,0 +1,236 @@
+﻿@model TopMenuModel
+
+@functions {
+    async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
+    {
+        <li>
+            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })">
+                @lineModel.Category.Name
+                @if (lineModel.Category.NumberOfProducts.HasValue)
+                {
+                    <text> </text>
+
+                    @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
+                }
+            </a>
+            @{
+                //subcategories
+                var subCategories = lineModel.ResponsiveMobileMenu ?
+                //responsive (all categories)
+                lineModel.Category.SubCategories :
+                //standard design (only categories with "IncludeInTopMenu")
+                lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+                var levelClass = "";
+                if (lineModel.Level == 0)
+                {
+                    levelClass = "first-level";
+                }
+                if (subCategories.Count > 0)
+                {
+                    <div class="sublist-toggle"></div>
+                    <ul class="sublist @levelClass">
+                        @foreach (var subCategory in subCategories)
+                        {
+                            var categoryLineModel = new TopMenuModel.CategoryLineModel
+                    {
+                        Category = subCategory,
+                        Level = lineModel.Level + 1,
+                        ResponsiveMobileMenu = lineModel.ResponsiveMobileMenu
+                    };
+                            await CategoryLine(categoryLineModel);
+                        }
+                    </ul>
+                }
+            }
+        </li>
+    }
+}
+
+
+<div class="navbar">
+    <div class="container">
+        <div class="horizantal-menu">
+            <ul class="menu">
+                <li class="menu-item menu-item-has-children">
+                    <a class="font-medium text-black" href="get-to-know.html">
+                        Get to know us
+                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                    <div class="mega-menu-wrap">
+                        <div class="mega-menu-products-inners container">
+                            <ul class="top-menu">
+                                <li class="top-menu-item">
+                                    <a href="#">What is Konnect all?</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">About us</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Join the team</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a class="font-medium text-black" href="our-solutions.html">
+                        Our Solutions
+                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a class="font-medium text-black" href="#">
+                        Technology and Operations
+                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a class="font-medium text-black" href="#">
+                        Grossiste dropshipping
+                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="font-medium text-black" href="#">Auctions</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a class="font-medium text-black" href="B2B-category.html">
+                        B2B Shop
+                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+
+                    <div class="mega-menu-wrap">
+                        <div class="mega-menu-products-inners container">
+                            <ul class="top-menu">
+                                <li class="top-menu-item">
+                                    <a href="#">
+                                        All Categories
+                                        <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
+                                    </a>
+
+                                    <div class="menu-children">
+                                        <div class="product-menu-item">
+                                            <ul class="top-1v1-menu">
+                                                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore, additionalData = Model })
+                                                @if (Model.DisplayHomepageMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("HomePage")"><i class="fa fa-home fa-fw"></i></a></li>
+                                                }
+                                                @if (!Model.UseAjaxMenu)
+                                                {
+                                                    var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+                                                    @foreach (var category in rootCategories)
+                                                    {
+                                                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                    {
+                        Category = category
+                    };
+                                                        @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                                                    }
+                                                }
+                                                @foreach (var topic in Model.Topics)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                                                }
+                                                @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+                                                }
+                                                @if (Model.DisplayProductSearchMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+                                                }
+                                                @if (Model.DisplayCustomerInfoMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+                                                }
+                                                @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+                                                }
+                                                @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+                                                }
+                                                @if (Model.DisplayContactUsMenuItem)
+                                                {
+                                                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                                                }
+                                                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter, additionalData = Model })
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">New Products</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Top-Selling</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Hot deals</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Back in Stock</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Refurbished</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">By supplier</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">Gifts</a>
+                                </li>
+                                <li class="top-menu-item">
+                                    <a href="#">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-display">
+            <div class="toggle-nav-menu" id="toggle-menu">
+                <div class="burg-icon">
+                    <div class="burg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu-wrap" id="mobile-menu">
+            <nav class="mobile-menu navigation-menu">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">Get to know us</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">Our Solutions</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">Technology and Operations</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">Grossiste dropshipping</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">Auctions</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="font-medium text-black" href="#">B2B Shop</a>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
