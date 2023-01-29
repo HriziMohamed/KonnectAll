@@ -1,5 +1,7 @@
-﻿@{
+﻿@inject IThemeContext themeContext
+@{
     Layout = "_Root";
+    var themeName = await themeContext.GetWorkingThemeNameAsync();
 }
 @{
     //current category ID
@@ -35,6 +37,21 @@
     }
 }
 @await RenderSectionAsync("Breadcrumb", false)
+<div class="slider">
+    @{
+        var banner = $"../Themes/{themeName}/Content/images";
+    }
+    <img src="@(banner+"/banner/banner-category.png")" class="slid-img">
+    <div class="overly">
+    </div>
+    <div class="container">
+        <div class="container content-slid">
+            <h2 class="text-white">Baverage</h2>
+            <h1 class="text-white">Coffee Collection</h1>
+            <a class="btn btn-primary" href="#"><span>SHOP NOW</span></a>
+        </div>
+    </div>
+</div>
 <div class="col-md-3 sidebar">
     @if (IsSectionDefined("left"))
     {
@@ -59,7 +76,13 @@
     }
 </div>
 <div class="main-content col-md-9">
+    <div class="banner">
+        <img src="@(banner+"/category/banner-categ.png")" class="categ-img">
+    </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
     @RenderBody()
+    <div class="banner">
+        <img src="@(banner+"/category/banner-categ2.png")" class="categ-img">
+    </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnAfter })
 </div>
