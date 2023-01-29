@@ -8,33 +8,35 @@
                 <strong>@T("Filtering.SpecificationFilter")</strong>
             </h5>
         </div>
-        @foreach (var attr in Model.Attributes)
-        {
-            <ul class="sidebar-content">
-                <li>
-                    <strong>@attr.Name</strong>
-                </li>
-                @foreach (var value in attr.Values)
-                {
-                    <li class="item @(!string.IsNullOrEmpty(value.ColorSquaresRgb) ? "color-item" : null)">
-                        <input id="attribute-option-@value.Id" type="checkbox" data-option-id="@value.Id" checked="@value.Selected" />
-                        @if (string.IsNullOrEmpty(value.ColorSquaresRgb))
-                        {
-                            <label for="attribute-option-@value.Id">
-                                @value.Name
-                            </label>
-                        }
-                        else
-                        {
-                            <label for="attribute-option-@value.Id" class="attribute-squares color-squares">
-                                <span class="attribute-square color" style="background-color: @(value.ColorSquaresRgb);"></span>
-                                @value.Name
-                            </label>
-                        }
+        <div class="sidebar-content">
+            @foreach (var attr in Model.Attributes)
+            {
+                <ul class="sidebar-content">
+                    <li>
+                        <strong>@attr.Name</strong>
                     </li>
-                }
-            </ul>
-        }
+                    @foreach (var value in attr.Values)
+                    {
+                        <li class="item @(!string.IsNullOrEmpty(value.ColorSquaresRgb) ? "color-item" : null)">
+                            <input id="attribute-option-@value.Id" type="checkbox" data-option-id="@value.Id" checked="@value.Selected" />
+                            @if (string.IsNullOrEmpty(value.ColorSquaresRgb))
+                            {
+                                <label for="attribute-option-@value.Id">
+                                    @value.Name
+                                </label>
+                            }
+                            else
+                            {
+                                <label for="attribute-option-@value.Id" class="attribute-squares color-squares">
+                                    <span class="attribute-square color" style="background-color: @(value.ColorSquaresRgb);"></span>
+                                    @value.Name
+                                </label>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
     </div>
 </div>
 <script asp-location="Footer">

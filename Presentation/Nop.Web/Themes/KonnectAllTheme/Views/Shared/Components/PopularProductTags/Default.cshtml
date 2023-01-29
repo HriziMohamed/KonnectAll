@@ -11,27 +11,28 @@
                     <strong>@T("Products.Tags.Popular")</strong>
                 </h5>
             </div>
-            <div class="listbox">
-                <div class="filter-content tags">
-                    <ul class="nav nav-pills">
-                        @foreach (var item in Model.Tags)
+            <div class="sidebar-content">
+                <div class="listbox">
+                    <div class="filter-content tags">
+                        <ul class="nav nav-pills">
+                            @foreach (var item in Model.Tags)
+                            {
+                                <li>
+                                    <a href="@Url.RouteUrl("ProductsByTag", new { item.SeName })" style="font-size:@(Model.GetFontSize(item))%;">@item.Name<span>,</span></a>&nbsp;
+                                </li>
+                            }
+                        </ul>
+                        @if (Model.TotalTags > Model.Tags.Count)
                         {
-                            <li>
-                                <a href="@Url.RouteUrl("ProductsByTag", new { item.SeName })" style="font-size:@(Model.GetFontSize(item))%;">@item.Name<span>,</span></a>&nbsp;
-                            </li>
+                            <div class="view-all">
+                                <a href="@Url.RouteUrl("ProductTagsAll")">@T("Products.Tags.Popular.ViewAll")</a>
+                            </div>
                         }
-                    </ul>
-                    @if (Model.TotalTags > Model.Tags.Count)
-                    {
-                        <div class="view-all">
-                            <a href="@Url.RouteUrl("ProductTagsAll")">@T("Products.Tags.Popular.ViewAll")</a>
-                        </div>
-                    }
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
 
-   
+
 }

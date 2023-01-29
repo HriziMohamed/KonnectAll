@@ -3,29 +3,31 @@
 @if (Model.Manufacturers.Count > 0)
 {
 
-    <div class="sidebar-inner Price" style="margin-bottom:1em">
+    <div class="sidebar-inner Manufacturers">
         <div class="sidebar-item">
             <div class="sidebar-title">
                 <h5 class="text-left">
                     <strong>@T("Manufacturers")</strong>
                 </h5>
             </div>
-            <div class="filter-content">
+            <div class="sidebar-content">
+                <div class="filter-content">
 
-                <ul class="nav nav-list">
-                    @foreach (var manufacturer in Model.Manufacturers)
+                    <ul class="nav nav-list">
+                        @foreach (var manufacturer in Model.Manufacturers)
+                        {
+                            <li class="@(manufacturer.IsActive ? "active" : "inactive")">
+                                <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })">@manufacturer.Name</a>
+                            </li>
+                        }
+                    </ul>
+                    @if (Model.TotalManufacturers > Model.Manufacturers.Count)
                     {
-                        <li class="@(manufacturer.IsActive ? "active" : "inactive")">
-                            <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacturer.SeName })">@manufacturer.Name</a>
-                        </li>
+                        <div class="view-all">
+                            <a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
+                        </div>
                     }
-                </ul>
-                @if (Model.TotalManufacturers > Model.Manufacturers.Count)
-                {
-                    <div class="view-all">
-                        <a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
-                    </div>
-                }
+                </div>
             </div>
         </div>
     </div>
