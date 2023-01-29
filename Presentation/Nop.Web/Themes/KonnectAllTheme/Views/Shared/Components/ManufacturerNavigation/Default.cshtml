@@ -13,7 +13,7 @@
             <div class="sidebar-content">
                 <div class="filter-content">
 
-                    <ul class="nav nav-list">
+                    <ul class="sidebar-content">
                         @foreach (var manufacturer in Model.Manufacturers)
                         {
                             <li class="@(manufacturer.IsActive ? "active" : "inactive")">
@@ -23,7 +23,7 @@
                     </ul>
                     @if (Model.TotalManufacturers > Model.Manufacturers.Count)
                     {
-                        <div class="view-all">
+                        <div class="view-all text-center">
                             <a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers.ViewAll")</a>
                         </div>
                     }
