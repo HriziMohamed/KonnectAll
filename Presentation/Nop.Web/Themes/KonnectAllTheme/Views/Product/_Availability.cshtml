@@ -5,11 +5,16 @@
     <div class="availability">
         @if (!string.IsNullOrWhiteSpace(Model.StockAvailability))
         {
+            var outStock = !Model.InStock ? "outOfStock" : "";
             <div class="stock">
                 <strong>@T("Products.Availability"):</strong>
-                <span class="value" id="stock-availability-value-@Model.Id">@Model.StockAvailability</span>
+                <span class="value @outStock" id="stock-availability-value-@Model.Id">@Model.StockAvailability</span>
             </div>
         }
     </div>
-     @await Html.PartialAsync("_BackInStockSubscription", Model)
+    @if (Model.InStock)
+    {
+        @await Html.PartialAsync("_BackInStockSubscription", Model)
+
+    }
 }

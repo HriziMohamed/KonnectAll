@@ -1,15 +1,17 @@
 ﻿@model SpecificationFilterModel
 
-<div class="product-filter product-spec-filter well">
-    <div class="filter-title">
-        <i class="fa fa-arrow-circle-right"></i>
-        <strong>@T("Filtering.SpecificationFilter")</strong>
-    </div>
-    <div class="filter-content">
+<div class="sidebar-inner Brand">
+    <div class="sidebar-item">
+        <div class="sidebar-title">
+            <h5 class="text-left">
+                <i class="fa fa-arrow-circle-right"></i>
+                <strong>@T("Filtering.SpecificationFilter")</strong>
+            </h5>
+        </div>
         @foreach (var attr in Model.Attributes)
         {
-            <ul class="nav nav-list group product-spec-group @(attr.Values.Any(x => !string.IsNullOrEmpty(x.ColorSquaresRgb)) ? "product-spec-color" : null )">
-                <li class="title name">
+            <ul class="sidebar-content">
+                <li>
                     <strong>@attr.Name</strong>
                 </li>
                 @foreach (var value in attr.Values)
@@ -26,7 +28,7 @@
                         {
                             <label for="attribute-option-@value.Id" class="attribute-squares color-squares">
                                 <span class="attribute-square color" style="background-color: @(value.ColorSquaresRgb);"></span>
-                                    @value.Name
+                                @value.Name
                             </label>
                         }
                     </li>

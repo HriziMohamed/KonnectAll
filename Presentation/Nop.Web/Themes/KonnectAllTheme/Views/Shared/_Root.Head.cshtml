@@ -33,6 +33,7 @@
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/lib_npm/jquery/jquery.min.js");
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/main.js");
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/slider.js");
+    NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/listerners.js");
 
     //custom tag(s)
     if (!string.IsNullOrEmpty(seoSettings.CustomHeadTags))
@@ -55,7 +56,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="generator" content="nopCommerce" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preload" as="font" href="@Url.Content($"~/Themes/NobleTheme/Content/fonts/fontawesome-webfont.woff2")" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet" />
     @NopHtml.GenerateHeadCustom()
     @*This is used so that themes can inject content into the header*@
