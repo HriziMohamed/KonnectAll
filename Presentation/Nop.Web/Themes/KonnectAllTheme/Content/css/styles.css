@@ -3869,6 +3869,7 @@ select {
     margin-left: 15px;
 }
 
+
 .accordeon-container {
     margin-top: 20px;
 }
@@ -4356,7 +4357,14 @@ a, .owl-prev, .owl-next, .login-page .remember-me .checkbox label {
     height: 40px;
     width: 40px;
     text-indent: -999999px;
+    color: transparent !important;
+    background-color: transparent !important;
 }
+
+    .item-box .btn.btn-primary.product-box-add-to-cart-button:before {
+        color: transparent !important;
+        background-color: transparent !important;
+    }
 
 .product-grid .prices {
     width: 40%;
@@ -4378,6 +4386,16 @@ a, .owl-prev, .owl-next, .login-page .remember-me .checkbox label {
     text-overflow: ellipsis;
     float: left;
 }
+
+    .item-box .prices span.old-price {
+        text-decoration: line-through;
+        color: red;
+    }
+
+    .item-box .prices span.actual-price {
+        font-size: 16px !important;
+        color: #28befe;
+    }
 
 .product-grid .wishlist-btn-wrapper {
     float: right;
@@ -4404,6 +4422,24 @@ a, .owl-prev, .owl-next, .login-page .remember-me .checkbox label {
     height: 40px;
     width: 40px;
     text-indent: -999999px;
+    color: transparent !important;
+    background-color: transparent !important;
+}
+
+    .item-box .add-to-wishlist-button:before {
+        color: transparent !important;
+        background-color: transparent !important;
+    }
+
+
+.item-box button:hover {
+    color: #28befe !important;
+    background-color: #28befe !important;
+}
+
+.item-box .btn.btn-primary.product-box-add-to-cart-button:hover {
+    color: #28befe !important;
+    background-color: #28befe !important;
 }
 
 .item-box .picture a img {
@@ -5416,9 +5452,10 @@ a .at-icon-wrapper {
     display: inline-flex;
 }
 
-.selected-price-range span{
-    font-size:12px;
+.selected-price-range span {
+    font-size: 12px;
 }
+
 .selected-price-range .to {
     float: right;
 }
@@ -5437,9 +5474,9 @@ a .at-icon-wrapper {
     opacity: 0.95;
 }
 
-.bar-notification a{
-    font-weight:bolder;
-    font-style:initial;
+.bar-notification a {
+    font-weight: bolder;
+    font-style: initial;
 }
 
 .bar-notification.success {
