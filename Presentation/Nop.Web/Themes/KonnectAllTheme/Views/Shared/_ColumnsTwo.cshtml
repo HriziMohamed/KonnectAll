@@ -33,10 +33,16 @@
 @if (IsSectionDefined("HomePageSlider"))
 {
     @section HomePageSlider {
-    @RenderSection("HomePageSlider")
+        @RenderSection("HomePageSlider")
     }
 }
 @await RenderSectionAsync("Breadcrumb", false)
+
+
+
+
+@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+
 <div class="slider">
     @{
         var banner = $"../Themes/{themeName}/Content/images";
@@ -52,6 +58,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="col-md-3 sidebar">
     @if (IsSectionDefined("left"))
     {
@@ -62,7 +70,7 @@
     else
     {
         <div class="sidebar-content" id="sidebar-content">
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
             @await RenderSectionAsync("CatalogFilters", false)
             @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
@@ -71,7 +79,7 @@
             @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
             @await Component.InvokeAsync("PopularProductTags")
             @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
         </div>
     }
 </div>

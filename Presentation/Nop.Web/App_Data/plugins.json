@@ -86,6 +86,34 @@
     {
       "SystemName": "ExternalAuth.Facebook",
       "Version": "1.73"
+    },
+    {
+      "SystemName": "NopAdvance.Core",
+      "Version": "1.1"
+    },
+    {
+      "SystemName": "NopAdvance.Plugin.AdminLayoutChanger",
+      "Version": "2.10"
+    },
+    {
+      "SystemName": "Widgets.nopplustawkchat",
+      "Version": "1.41"
+    },
+    {
+      "SystemName": "Widgets.SkypeChat",
+      "Version": "1.33"
+    },
+    {
+      "SystemName": "Admin.GKSCore",
+      "Version": "1.00"
+    },
+    {
+      "SystemName": "Widgets.UserNotify",
+      "Version": "0.95"
+    },
+    {
+      "SystemName": "Widgets.SmartargetLuckyWheel",
+      "Version": "1.00"
     }
   ],
   "PluginNamesToUninstall": [],

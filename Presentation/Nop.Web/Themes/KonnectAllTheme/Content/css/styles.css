@@ -1512,7 +1512,7 @@ ul li a:hover {
 
             .slider .content-slid .btn-primary:after {
                 content: "";
-                background-image: url('./images/banner/arrow-banner.png');
+                background-image: url('../images/banner/arrow-banner.png');
                 display: inline-block;
                 background-repeat: no-repeat;
                 width: 32px;
@@ -5724,3 +5724,297 @@ a .at-icon-wrapper {
         .eu-cookie-bar-notification a:focus {
             text-decoration: underline;
         }
+
+
+.change-device {
+    clear: both;
+    text-align: right;
+}
+
+.designedby {
+    text-align: right;
+}
+
+.footer-store-theme {
+    text-align: center;
+}
+
+
+
+.newsletter-subscribe-block .newsletter-email {
+    float: left;
+}
+
+.newsletter-subscribe-block .form-group, .newsletter-subscribe-block .buttons {
+    float: left;
+    margin-bottom: 10px;
+}
+
+.newsletter-subscribe-block .form-group {
+    width: 100%;
+}
+
+.form-group.inputs.accept-consent label {
+    float: none;
+    display: inline;
+}
+
+#newsletter-email, #newsletter-subscribe-button {
+    border-radius: 0;
+}
+
+.newsletter {
+    border-top: 1px solid #dddddd;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.newsletter-subscribe-block {
+    display: inline-block;
+    width: auto;
+}
+
+.add-info .buttons input {
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    margin-right: 5px;
+    float: left;
+}
+
+    .add-info .buttons input:last-child {
+        margin-right: 0px;
+    }
+
+
+.footer-disclaimer, .poweredby {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 5px 5px;
+}
+
+#newsletter-subscribe-block #newsletter-email {
+    float: left;
+    width: 160px;
+}
+
+.block.block-newsletter .newsletter-result-block {
+    margin: 5px 0px 10px;
+}
+
+.footer .social-icons {
+    display: inline-flex;
+}
+
+
+.block.block-newsletter span {
+    font-weight: bold
+}
+
+.newsletter-email {
+    margin: 15px 0px 0px;
+    float: left;
+    width: 100%;
+}
+
+    .newsletter-email .newsletter-subscribe-text {
+        float: left;
+        width: 66%;
+    }
+
+    .newsletter-email .newsletter-subscribe-button {
+        height: 34px;
+        float: left;
+        background: #65c178;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: capitalize;
+        padding: 7px 12px;
+    }
+
+        .newsletter-email .newsletter-subscribe-button:hover {
+            background: #464744;
+        }
+
+h4 {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 0px;
+}
+
+.footer-upper ul li {
+    margin-bottom: 5px;
+}
+
+    .footer-upper ul li a {
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 0px;
+        transition: all 0.5s ease-in-out 0s;
+        -webkit-transition: all 0.5s ease-in-out 0s;
+        -moz-transition: all 0.5s ease-in-out 0s;
+        -o-transition: all 0.5s ease-in-out 0s;
+    }
+
+        .footer-upper ul li a:hover, .footer-upper ul li a:focus {
+            margin-left: 5px;
+            background-color: transparent;
+            color: #65c178;
+            outline: none;
+        }
+
+.footer-upper ul li {
+    float: left;
+    margin-right: 8px;
+}
+
+    .footer-upper ul li a:hover {
+        margin-left: 0px;
+    }
+
+    .footer-upper ul li a {
+        float: left !important;
+        height: 44px !important;
+        width: 44px;
+        padding: 8px 15px !important;
+        font-size: 20px !important;
+    }
+
+    .footer-upper ul li.facebook a {
+        background: #3c599b !important;
+        padding: 8px 17px !important;
+    }
+
+    .footer-upper ul li.twitter a {
+        background: #2eacf6 !important;
+    }
+
+    .footer-upper ul li.rss a {
+        background: #f49e22 !important;
+    }
+
+    .footer-upper ul li.youtube a {
+        background: #f13d3a !important;
+        padding: 8px 14px !important;
+    }
+
+    .footer-upper ul li.google-plus a {
+        background: #c42c29 !important;
+        padding: 8px 10px !important;
+    }
+
+    .footer-upper ul li.facebook a:hover {
+        background: #fff !important;
+        color: #3c599b !important;
+    }
+
+    .footer-upper ul li.twitter a:hover {
+        background: #fff !important;
+        color: #2eacf6 !important;
+    }
+
+    .footer-upper ul li.rss a:hover {
+        background: #fff !important;
+        color: #f49e22 !important;
+    }
+
+    .footer-upper ul li.youtube a:hover {
+        background: #fff !important;
+        color: #f13d3a !important;
+    }
+
+    .footer-upper ul li.google-plus a:hover {
+        background: #fff !important;
+        color: #c42c29 !important;
+    }
+
+    .footer-upper ul li a:focus {
+        margin-left: 0px !important;
+        color: #fff !important;
+    }
+
+
+    /* SEARCH PAGE STYLE */
+.search-box .search-box-button {background:url("../images/search.png") no-repeat scroll center center #65c178;padding: 16px 19px;height:0;width:0;  }
+.search-box .search-nav {float:left; height:34px; padding:0px 12px;margin-right:-3px;width:210px;background:#e5e5e5;border:none;box-shadow:none;}
+.search-input .basic-search .forum-search-text.form-control{padding:0px 12px; border-radius:0; height:34px; margin-right:-3px;}
+.btn.btn-primary.search-button{float:right;}
+.price-range {float:left;margin-top:7px;width:100%;}
+.price-range-from {float:left;margin-left: 16px;}
+.price-from.form-control {float:left;margin-left:10px;width: 19%;}
+.price-range-to {float:left;margin:0 10px;}
+.price-to.form-control {float:left;width:19%;}
+.search-page .search-results strong{ float:left; width:100%;text-align:center;}
+.header .search-box .form-control , .header .search-box .btn{border-radius:0;}
+.search-page .form-group label{text-align:left;padding-top:5px;padding-right:0px;}
+.search-page .form-group label.checkbox{text-align:left;}
+.search-page .product-selectors{margin-top:30px;clear:both;float:left;width:100%;}
+.search-box .navbar-form{ padding-right:0px;}
+.search-input label{padding-bottom: 5px;}
+.search-page .checkbox > label{ padding-left:0px;}
+.remove_right_padding{padding-left:15px;}
+.blogpost-page .page-title.panel-heading h1,.blog-page .page-title.panel-heading h1,.search-page .page-title.panel-heading h1,.news-list-page .page-title.panel-heading h1,.news-item-page .page-title.panel-heading h1{text-align:left;}
+.new-comment .title{text-align:center;}
+.search-page .search-input.form-horizontal{clear:both;margin-bottom:20px;}
+.forums-main-page .topic-block {
+    margin: 0 0 35px;
+    text-align: center;
+}
+
+    .forums-main-page .topic-block p {
+        text-align: center;
+    }
+
+.forums-main-page .pager {
+    display: none;
+}
+
+.forum-breadcrumb {
+    margin: 0 0 40px;
+}
+
+.forums-header {
+    margin: 0 0 50px;
+    overflow: hidden;
+}
+
+    .forums-header:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .forums-header .current-time {
+        margin: 0 0 15px;
+        color: #444;
+    }
+
+.forum-search-box .basic {
+    overflow: hidden;
+    margin: 0 0 10px;
+}
+
+.forum-search-box .advanced a {
+    line-height: 22px;
+    color: #444;
+    text-decoration: underline;
+}
+
+    .forum-search-box .advanced a:hover,
+    .forum-search-box .advanced a:focus {
+        color: #4ab2f1;
+    }
+
+.forum-search-page .page-title {
+    margin: 0 0 -1px;
+}
+
+.forum-search-page .search-error,
+.forum-search-page .no-result {
+    margin: 0 0 15px;
+    text-align: center;
+    color: #e4434b;
+}
