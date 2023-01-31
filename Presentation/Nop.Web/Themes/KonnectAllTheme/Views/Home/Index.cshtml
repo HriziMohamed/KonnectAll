@@ -29,30 +29,32 @@
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
     </div>
 </div>
-<div class="slider">
-    <img src="../images/banner/home-banner.png" class="slid-img">
-    <div class="overly">
-    </div>
-    <div class="container">
-        <div class="container content-slid">
-            <div class="separate-line"></div>
-            <h1 class="title-slider">
-                Your all-in-one ecommerce partner
-            </h1>
-            <h4 class="menu-slider">
-                Technology
-                <span>|</span>
-                Catalogue
-                <span>|</span>
-                Dropshipping
-                <span>|</span>
-                Fulfillment
-                <span>|</span>
-                Marketplace Operations
-            </h4>
+@section HomePageSlider{
+        <div class="slider">
+        <img src="../images/banner/home-banner.png" class="slid-img">
+        <div class="overly">
+        </div>
+        <div class="container">
+            <div class="container content-slid">
+                <div class="separate-line"></div>
+                <h1 class="title-slider">
+                    Your all-in-one ecommerce partner
+                </h1>
+                <h4 class="menu-slider">
+                    Technology
+                    <span>|</span>
+                    Catalogue
+                    <span>|</span>
+                    Dropshipping
+                    <span>|</span>
+                    Fulfillment
+                    <span>|</span>
+                    Marketplace Operations
+                </h4>
+            </div>
         </div>
     </div>
-</div>
+}
 <div class="services">
     <div class="container">
         <div class="row">

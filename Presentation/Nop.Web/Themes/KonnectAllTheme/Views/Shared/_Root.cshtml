@@ -27,14 +27,32 @@
         AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart', localized_data);
     </script>
     <section class="content-page">
-        <div class="container">
-            @if (IsSectionDefined("HomePageSlider"))
-            {
-                @RenderSection("HomePageSlider")
-            }
-            <div class="row">
-                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
+        @if (IsSectionDefined("HomePageSlider"))
+        {
+            @RenderSection("HomePageSlider")
+        }
+        else
+        {
+            <div class="slider">
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.AccountNavigationAfter })
+
+
+                <div class="overly">
+                </div>
+                <div class="container">
+                    <div class="container content-slid">
+                        <h2 class="text-white">Baverage</h2>
+                        <h1 class="text-white">Coffee Collection</h1>
+                        <a class="btn btn-primary" href="#"><span>SHOP NOW</span></a>
+                    </div>
+                </div>
             </div>
+        }
+        <div class="row">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
+        </div>
+        <div class="container">
+
             @RenderBody()
         </div>
 

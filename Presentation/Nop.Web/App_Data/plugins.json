@@ -114,6 +114,22 @@
     {
       "SystemName": "Widgets.SmartargetLuckyWheel",
       "Version": "1.00"
+    },
+    {
+      "SystemName": "NopAdvance.Plugin.SmartSlider",
+      "Version": "1.0"
+    },
+    {
+      "SystemName": "NopStation.Core",
+      "Version": "4.50.1.0"
+    },
+    {
+      "SystemName": "NopStation.Plugin.Widgets.AnywhereSlider",
+      "Version": "4.50.1.0"
+    },
+    {
+      "SystemName": "NopStation.Plugin.Widgets.Announcement",
+      "Version": "4.50.1.0"
     }
   ],
   "PluginNamesToUninstall": [],

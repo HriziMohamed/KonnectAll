@@ -3,8 +3,8 @@
 @if (Model.Tags.Count > 0)
 {
 
-    <div class="sidebar-inner ">
-        <div class="sidebar-item">
+    <div class="sidebar-inner tagsPopular">
+        <div class="sidebar-item active">
             <div class="sidebar-title">
                 <h5 class="text-left">
                     <i class="fa fa-arrow-circle-right"></i>
@@ -12,7 +12,7 @@
                 </h5>
             </div>
             <div class="sidebar-content">
-                <div class="listbox">
+                <div class="sidebar-content">
                     <div class="filter-content tags">
                         <ul class="nav nav-pills">
                             @foreach (var item in Model.Tags)
