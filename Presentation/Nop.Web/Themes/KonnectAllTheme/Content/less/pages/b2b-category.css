@@ -1,0 +1,34 @@
+.b2b-category .slider .sidebar-title {
+  cursor: pointer;
+}
+.b2b-category .slider .content-slid {
+  text-align: left;
+  align-items: start;
+}
+.b2b-category .category-content .sidebar .filter {
+  display: flex;
+  justify-content: space-between;
+}
+.b2b-category .category-content .sidebar .sidebar-inner .sidebar-title {
+  cursor: pointer;
+}
+.b2b-category .category-content .categ-img {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+.b2b-category .category-content .product {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.b2b-category .category-content .product .product-img {
+  min-height: 200px;
+}
+.b2b-category .category-content .product .name-product {
+  text-align: center;
+}
+.b2b-category .category-content .accordeon-item.active .accordeon-content {
+  display: block;
+}
