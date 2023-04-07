@@ -1,11 +1,26 @@
 ﻿@model SearchBoxModel
-<form asp-route="ProductSearch" method="get" class="navbar-form navbar-left" id="small-search-box-form">
+<form asp-route="ProductSearch" method="get" class="products-search" id="small-search-box-form">
     @if (Model.ShowSearchBox)
     {
-        <div class="search">
-            <input type="text" id="small-searchterms" autocomplete="off" placeholder="@T("Search.SearchBox.Tooltip")" name="q" aria-label="@T("Search.SearchBox.Text.Label")" />
-            <img id="search-icon" class="search-icon" onclick="$('#small-search-box-form').submit()" src="../images/header/search.png">
+        <div class="psearch-content">
+            <div class="product-cat">
+                <div class="product-cat-label">All</div>
+                <select name="product-cat" id="" class="product-cat-dd">
+                    <option value="0" selected="selected">All</option>
+                    <option class="level-0" value="clothing-apparel">Clothing &amp; Apparel</option>
+                    <option class="level-1" value="accessories-clothing-apparel">&nbsp;&nbsp;&nbsp;Accessories</option>
+                </select>
+            </div>
+            <div class="search-wrapper">
+                <input type="text" class="search-field" id="small-searchterms" autocomplete="off" placeholder="@T("Search.SearchBox.Tooltip")" name="q" aria-label="@T("Search.SearchBox.Text.Label")" />
+            </div>
+            <div class="search-btn">
+                <a class="submit-btn" href="#">search</a>
+            </div>
         </div>
+
+
+      
         <div class="form-group" style="display:none">
 
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.SearchBoxBeforeSearchButton, additionalData = Model })

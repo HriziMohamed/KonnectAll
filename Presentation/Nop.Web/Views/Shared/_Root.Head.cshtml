@@ -11,7 +11,6 @@
 @inject AppSettings appSettings
 
 @{
-
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/public.countryselect.js");
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/public.ajaxcart.js");
     NopHtml.AppendScriptParts(ResourceLocation.Footer, "~/js/public.common.js");
@@ -65,6 +64,7 @@
     {
         <mini-profiler />
     }
+
     @NopHtml.GenerateScripts(ResourceLocation.Head)
     @NopHtml.GenerateInlineScripts(ResourceLocation.Head)
     <!--Powered by nopCommerce - https://www.nopCommerce.com-->
