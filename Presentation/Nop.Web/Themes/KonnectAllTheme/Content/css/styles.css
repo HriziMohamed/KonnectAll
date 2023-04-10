@@ -11,6 +11,14 @@
 # Typography
 --------------------------------------------------------------*/
 body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    color: #333 !important;
+    background-color: #fff !important;
+}
+
+body {
     color: #000;
     background-color: #FFF;
     font: normal 16px/24px "Gotham", sans-serif;
@@ -334,6 +342,28 @@ ul {
         font-size: 19px;
         color: #1f1f1f;
     }
+
+.btn-primary {
+    padding: 13px 20px;
+    font-size: 18px;
+    line-height: 1;
+    background-color: #28befe !important;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-weight: 300;
+    border-color: transparent !important;
+    border: 0 !important;
+}
+
+.btn-primary, input[type="submit"].btn-primary, .woocommerce a.button, .product a.button, .xoo-wsc-ft-btn, .product-loop-item .product .button, .woocommerce div.product form.cart .single_add_to_cart_button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .checkout-button, .woocommerce button {
+    background-color: #ffffff;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    padding: 10px 22px !important;
+    border-color: unset !important;
+}
 
 @media (max-width: 576px) {
     ul li a {
@@ -726,11 +756,11 @@ ul li a:hover {
 /*--------------------------------------------------------------
 #  get to know us style
 --------------------------------------------------------------*/
-.get-to-know-us .content-page .slider {
+.slider {
     position: relative;
 }
 
-    .get-to-know-us .content-page .slider .slid-img {
+    .slider .slid-img {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -741,7 +771,7 @@ ul li a:hover {
         min-height: 350px;
     }
 
-    .get-to-know-us .content-page .slider .overly {
+    .slider .overly {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -753,7 +783,7 @@ ul li a:hover {
         opacity: 0.3;
     }
 
-    .get-to-know-us .content-page .slider .content-slid {
+    .slider .content-slid {
         position: absolute;
         height: 100%;
         top: 0;
@@ -767,12 +797,12 @@ ul li a:hover {
     }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .slider .content-slid {
+    .slider .content-slid {
         width: 100%;
     }
 }
 
-.get-to-know-us .content-page .slider .content-slid .separate-line {
+.slider .content-slid .separate-line {
     width: 96px;
     height: 8px;
     border-radius: 4px;
@@ -780,7 +810,7 @@ ul li a:hover {
     background-color: #28befe;
 }
 
-.get-to-know-us .content-page .slider .content-slid .title-slider {
+.slider .content-slid .title-slider {
     font-size: 28px !important;
     padding: 15px 30px;
     border-radius: 1rem;
@@ -791,7 +821,7 @@ ul li a:hover {
 }
 
 @media (max-width: 991px) {
-    .get-to-know-us .content-page .slider .content-slid .title-slider {
+    .slider .content-slid .title-slider {
         margin: 20px;
         font-size: 20px !important;
         padding: 10px 20px;
@@ -799,19 +829,19 @@ ul li a:hover {
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .slider .content-slid .title-slider {
+    .slider .content-slid .title-slider {
         margin: 10px;
         font-size: 1rem !important;
         padding: 7px 14px;
     }
 }
 
-.get-to-know-us .content-page .slider .content-slid .menu-slider {
+.slider .content-slid .menu-slider {
     color: #ffffff;
     font-size: 18px;
 }
 
-    .get-to-know-us .content-page .slider .content-slid .menu-slider span {
+    .slider .content-slid .menu-slider span {
         background-color: #ffffff;
         margin: 0 24px;
         padding: 0;
@@ -819,45 +849,45 @@ ul li a:hover {
     }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .slider .content-slid .menu-slider {
+    .slider .content-slid .menu-slider {
         font-size: 14px;
     }
 }
 
-.get-to-know-us .content-page .panel {
+.panel {
     display: none;
 }
 
-    .get-to-know-us .content-page .panel.show {
+    .panel.show {
         display: block !important;
     }
 
-.get-to-know-us .content-page .global {
+.global {
     margin: 80px 0;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .global {
+    .global {
         margin: 30px 0;
     }
 }
 
-.get-to-know-us .content-page .global .row {
+.global .row {
     display: flex;
     align-items: center;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .global .row {
+    .global .row {
         display: unset;
     }
 }
 
-.get-to-know-us .content-page .global .row h3.title {
+.global .row h3.title {
     position: relative;
 }
 
-    .get-to-know-us .content-page .global .row h3.title:before {
+    .global .row h3.title:before {
         content: "";
         width: 60px;
         height: 5px;
@@ -870,35 +900,35 @@ ul li a:hover {
     }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .global .row .img-global {
+    .global .row .img-global {
         margin-right: 15px;
     }
 }
 
-.get-to-know-us .content-page .global .row .img-global .global-img {
+.global .row .img-global .global-img {
     max-width: 100%;
     box-shadow: 15px -12px #28befe;
     border-radius: 8px;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .global .row .img-global .global-img {
+    .global .row .img-global .global-img {
         margin-top: 5rem;
     }
 }
 
-.get-to-know-us .content-page .global .accordeon-container {
+.global .accordeon-container {
     margin-top: 20px;
 }
 
-    .get-to-know-us .content-page .global .accordeon-container .accordeon-item .accordeon-title {
+    .global .accordeon-container .accordeon-item .accordeon-title {
         margin: 5px 0;
         padding: 5px;
         background-color: #f1f1f1;
         text-transform: capitalize;
     }
 
-        .get-to-know-us .content-page .global .accordeon-container .accordeon-item .accordeon-title h5 {
+        .global .accordeon-container .accordeon-item .accordeon-title h5 {
             cursor: pointer;
             position: relative;
             margin: 0;
@@ -907,34 +937,34 @@ ul li a:hover {
             font-weight: 400 !important;
         }
 
-            .get-to-know-us .content-page .global .accordeon-container .accordeon-item .accordeon-title h5:after {
+            .global .accordeon-container .accordeon-item .accordeon-title h5:after {
                 content: '+';
                 position: absolute;
                 right: 7px;
             }
 
-        .get-to-know-us .content-page .global .accordeon-container .accordeon-item .accordeon-title.active h5:after {
+        .global .accordeon-container .accordeon-item .accordeon-title.active h5:after {
             content: '-';
         }
 
-    .get-to-know-us .content-page .global .accordeon-container .accordeon-item .accordeon-content {
+    .global .accordeon-container .accordeon-item .accordeon-content {
         display: none;
         padding: 10px 15px;
     }
 
-.get-to-know-us .content-page .statistic {
+.statistic {
     background-color: #f6f6f6;
     padding: 70px 0;
     position: relative;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .statistic {
+    .statistic {
         padding: 35px 0;
     }
 }
 
-.get-to-know-us .content-page .statistic:after {
+.statistic:after {
     content: "";
     position: absolute;
     left: 50%;
@@ -945,7 +975,7 @@ ul li a:hover {
     transform: translateX(-50%);
 }
 
-.get-to-know-us .content-page .statistic:before {
+.statistic:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -956,75 +986,75 @@ ul li a:hover {
     transform: translateX(-50%);
 }
 
-.get-to-know-us .content-page .statistic .content-statistic {
+.statistic .content-statistic {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .statistic .content-statistic {
+    .statistic .content-statistic {
         margin: 20px 0;
     }
 }
 
-.get-to-know-us .content-page .statistic .content-statistic .statistic-icon {
+.statistic .content-statistic .statistic-icon {
     max-width: 95px;
     max-height: 75px;
 }
 
-    .get-to-know-us .content-page .statistic .content-statistic .statistic-icon:hover {
+    .statistic .content-statistic .statistic-icon:hover {
         transform: perspective(600px) rotateX(10deg) rotateY(-10deg);
     }
 
-.get-to-know-us .content-page .statistic .content-statistic h2 {
+.statistic .content-statistic h2 {
     margin-bottom: 0;
 }
 
-.get-to-know-us .content-page .statistic .content-statistic .title {
+.statistic .content-statistic .title {
     font-size: 16px;
     color: #000;
     font-weight: 300 !important;
 }
 
-.get-to-know-us .content-page .bar-menu {
+.bar-menu {
     background-color: #28befe;
     padding: 15px 0;
 }
 
-    .get-to-know-us .content-page .bar-menu h4 {
+    .bar-menu h4 {
         color: #ffffff;
     }
 
-        .get-to-know-us .content-page .bar-menu h4 span {
+        .bar-menu h4 span {
             padding: 0 1rem;
         }
 
-.get-to-know-us .content-page .services {
+.services {
     background-color: #f6f6f6;
     padding: 70px 0;
     position: relative;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .services {
+    .services {
         padding: 30px 0;
     }
 }
 
-.get-to-know-us .content-page .services .content-services {
+.services .content-services {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 18px;
 }
 
 @media (max-width: 768px) {
-    .get-to-know-us .content-page .services .content-services {
+    .services .content-services {
         margin: 15px 0;
     }
 }
 
-.get-to-know-us .content-page .services .content-services h4 {
+.services .content-services h4 {
     text-align: left;
 }
 /*--------------------------------------------------------------
@@ -3590,40 +3620,40 @@ ul li a:hover {
 /*--------------------------------------------------------------
 # login page style
 --------------------------------------------------------------*/
-.login-page .slider {
+.slider {
     margin-bottom: 30px;
 }
 
-    .login-page .slider .slid-img {
+    .slider .slid-img {
         min-height: 170px;
         height: 100%;
     }
 
-    .login-page .slider .sidebar-title {
+    .slider .sidebar-title {
         cursor: pointer;
     }
 
-    .login-page .slider .content-slid {
+    .slider .content-slid {
         text-align: left;
         align-items: start;
     }
 
-        .login-page .slider .content-slid h2 {
+        .slider .content-slid h2 {
             font-weight: 400 !important;
             margin-top: 0 !important;
         }
 
-        .login-page .slider .content-slid h1 {
+        .slider .content-slid h1 {
             line-height: 0.5 !important;
             margin: 0;
             padding: 0;
         }
 
-        .login-page .slider .content-slid .btn-primary {
+        .slider .content-slid .btn-primary {
             margin-top: 3.5rem;
         }
 
-            .login-page .slider .content-slid .btn-primary:after {
+            .slider .content-slid .btn-primary:after {
                 content: "";
                 background-image: url('../img/banner/arrow-banner.png');
                 display: inline-block;
@@ -3636,24 +3666,24 @@ ul li a:hover {
                 transition: all 0.4s;
             }
 
-            .login-page .slider .content-slid .btn-primary:hover:after {
+            .slider .content-slid .btn-primary:hover:after {
                 margin-left: 20px;
                 background-image: url('assets/img/category/arrow-sidebar.png');
             }
 
-.login-page .account {
+.account {
     margin: 30px 0;
 }
 
 @media (max-width: 768px) {
-    .login-page .account > div {
+    .account > div {
         padding-left: 0;
         padding-right: 0;
     }
 }
 
-.login-page .account .login-sec,
-.login-page .account .account-sec {
+.account .login-sec,
+.account .account-sec {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 10px;
@@ -3661,37 +3691,37 @@ ul li a:hover {
 }
 
 @media (max-width: 991px) {
-    .login-page .account .login-sec,
-    .login-page .account .account-sec {
+    .account .login-sec,
+    .account .account-sec {
         padding: 10px;
     }
 }
 
-.login-page .account .login-sec h5,
-.login-page .account .account-sec h5 {
+.account .login-sec h5,
+.account .account-sec h5 {
     margin-top: 0;
 }
 
-.login-page .account .login-sec a,
-.login-page .account .account-sec a {
+.account .login-sec a,
+.account .account-sec a {
     color: #393939;
 }
 
 @media (max-width: 991px) {
-    .login-page .account .login-sec a,
-    .login-page .account .account-sec a {
+    .account .login-sec a,
+    .account .account-sec a {
         font-size: 13px;
     }
 }
 
-.login-page .account .login-sec .remember,
-.login-page .account .account-sec .remember {
+.account .login-sec .remember,
+.account .account-sec .remember {
     display: flex;
     align-items: center;
 }
 
-.login-page .account .login-sec .toggle,
-.login-page .account .account-sec .toggle {
+.account .login-sec .toggle,
+.account .account-sec .toggle {
     position: relative;
     height: 30px;
     display: flex;
@@ -3700,8 +3730,8 @@ ul li a:hover {
     margin-right: 5px;
 }
 
-    .login-page .account .login-sec .toggle input[type="checkbox"],
-    .login-page .account .account-sec .toggle input[type="checkbox"] {
+    .account .login-sec .toggle input[type="checkbox"],
+    .account .account-sec .toggle input[type="checkbox"] {
         position: absolute;
         left: 0;
         top: 0;
@@ -3712,8 +3742,8 @@ ul li a:hover {
         appearance: none;
     }
 
-    .login-page .account .login-sec .toggle label,
-    .login-page .account .account-sec .toggle label {
+    .account .login-sec .toggle label,
+    .account .account-sec .toggle label {
         position: relative;
         display: flex;
         height: 100%;
@@ -3721,8 +3751,8 @@ ul li a:hover {
         box-sizing: border-box;
     }
 
-        .login-page .account .login-sec .toggle label:before,
-        .login-page .account .account-sec .toggle label:before {
+        .account .login-sec .toggle label:before,
+        .account .account-sec .toggle label:before {
             content: '';
             display: inline-block;
             box-sizing: border-box;
@@ -3735,8 +3765,8 @@ ul li a:hover {
             border: 1px solid #ccc;
         }
 
-        .login-page .account .login-sec .toggle label:after,
-        .login-page .account .account-sec .toggle label:after {
+        .account .login-sec .toggle label:after,
+        .account .account-sec .toggle label:after {
             content: '';
             height: 30px;
             width: 45px;
@@ -3748,18 +3778,18 @@ ul li a:hover {
             transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
         }
 
-    .login-page .account .login-sec .toggle input[type="checkbox"]:checked + label:after,
-    .login-page .account .account-sec .toggle input[type="checkbox"]:checked + label:after {
+    .account .login-sec .toggle input[type="checkbox"]:checked + label:after,
+    .account .account-sec .toggle input[type="checkbox"]:checked + label:after {
         transform: translate3d(30px, 0, 0);
     }
 
-.login-page .account .login-sec input,
-.login-page .account .account-sec input {
+.account .login-sec input,
+.account .account-sec input {
     margin: 5px 0;
 }
 
-.login-page .account .login-sec .btn-login,
-.login-page .account .account-sec .btn-login {
+.account .login-sec .btn-login,
+.account .account-sec .btn-login {
     position: absolute;
     background-color: #414141;
     color: #fff;
@@ -3769,8 +3799,8 @@ ul li a:hover {
     font-size: 19px;
 }
 
-.login-page .account .login-sec .btn-register,
-.login-page .account .account-sec .btn-register {
+.account .login-sec .btn-register,
+.account .account-sec .btn-register {
     position: absolute;
     background-color: #1390c6;
     color: #fff;
@@ -3783,18 +3813,18 @@ ul li a:hover {
 }
 
 @media (max-width: 768px) {
-    .login-page .account .login-sec {
+    .account .login-sec {
         margin-bottom: 40px;
     }
 }
 
 @media (max-width: 768px) {
-    .login-page .account .account-sec {
+    .account .account-sec {
         margin-top: 40px;
     }
 }
 
-.login-page .account .link-sec {
+.account .link-sec {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6202,7 +6232,7 @@ select {
 }
 
 .registration-page .message-error,
-.login-page .message-error,
+.message-error,
 .account-page .message-error {
     margin: 0 0 10px;
 }
@@ -6523,7 +6553,7 @@ vendor-grid .item-box .vendor-item:hover, .manufacturer-grid .item-box .manufact
     position: relative;
 }
 
-a, .owl-prev, .owl-next, .login-page .remember-me .checkbox label {
+a, .owl-prev, .owl-next, .remember-me .checkbox label {
     transition: all .3s ease-in-out 0s;
     -webkit-transition: all .3s ease-in-out 0s;
     -moz-transition: all .3s ease-in-out 0s;

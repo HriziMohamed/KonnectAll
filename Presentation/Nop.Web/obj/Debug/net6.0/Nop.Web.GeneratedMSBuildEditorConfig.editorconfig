@@ -3672,6 +3672,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXEtvbm5lY3RBbGxUaGVtZVxWaWV3c1xTaGFyZWRcX0NvbHVtbnNBcHBzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Personnel Trainner/Source/Repos/Konnectall/Presentation/Nop.Web/Themes/KonnectAllTheme/Views/Shared/_ColumnsKonnectAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXEtvbm5lY3RBbGxUaGVtZVxWaWV3c1xTaGFyZWRcX0NvbHVtbnNLb25uZWN0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Personnel Trainner/Source/Repos/Konnectall/Presentation/Nop.Web/Themes/KonnectAllTheme/Views/Shared/_ColumnsOne.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXEtvbm5lY3RBbGxUaGVtZVxWaWV3c1xTaGFyZWRcX0NvbHVtbnNPbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -4522,6 +4526,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Personnel Trainner/Source/Repos/Konnectall/Presentation/Nop.Web/Themes/NobleTheme/Views/Shared/_CheckoutAttributes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXE5vYmxlVGhlbWVcVmlld3NcU2hhcmVkXF9DaGVja291dEF0dHJpYnV0ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Personnel Trainner/Source/Repos/Konnectall/Presentation/Nop.Web/Themes/NobleTheme/Views/Shared/_ColumnsKonnectAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGhlbWVzXE5vYmxlVGhlbWVcVmlld3NcU2hhcmVkXF9Db2x1bW5zS29ubmVjdEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Personnel Trainner/Source/Repos/Konnectall/Presentation/Nop.Web/Themes/NobleTheme/Views/Shared/_ColumnsOne.cshtml]

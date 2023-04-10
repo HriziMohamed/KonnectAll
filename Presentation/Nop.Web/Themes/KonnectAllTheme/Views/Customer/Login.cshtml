@@ -3,7 +3,7 @@
 @using Nop.Core.Domain.Customers
 @inject IWebHelper webHelper
 @{
-    Layout = "_ColumnsOne";
+    Layout = "_Root";
 
     //title
     NopHtml.AddTitleParts(T("PageTitle.Login").Text);
@@ -13,13 +13,66 @@
     //register URL with return URL (if specified)
     var registerUrl = Url.RouteUrl("Register", new { returnUrl = this.Context.Request.Query["returnUrl"] }, webHelper.GetCurrentRequestProtocol());
 }
-<div class="page login-page">
-    <div class="page-title">
-        <h1>@T("Account.Login.Welcome")</h1>
+@section HomePageSlider{
+    <div class="slider">
+        <img alt="" src="../assets/img/banner/auction-banner.png" class="slid-img">
+        <div class="overly"></div>
+        <div class="container">
+            <div class="container content-slid">
+                <h1 class="text-left text-capitalize">seasonal vegetable auction</h1>
+                <a class="btn btn-primary text-uppercase text-black" href="#"><span>shop now</span></a>
+            </div>
+        </div>
     </div>
+}
+<div class="page login-page">
     @await Html.PartialAsync("_ExternalAuthentication.Errors")
     <div class="container second-section">
-        <div class="row">
+        <div class="row account">
+
+            <div class="col-sm-6 col-md-6">
+                <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off">
+                    <div class="login-sec">
+                        <h5 class="text-capitalize  text-left">@T("Account.Login.ReturningCustomer")</h5>
+                        <div asp-validation-summary="ModelOnly" class="message-error  alert alert-danger">@T("Account.Login.Unsuccessful")</div>
+                        @if (Model.UsernamesEnabled)
+                        {
+                            <input asp-for="Username" class="username form-control" autofocus="autofocus" />
+                            <span asp-validation-for="Username"></span>
+                        }
+                        else
+                        {
+                            <input asp-for="Email" class="email form-control" autofocus="autofocus" />
+                            <span asp-validation-for="Email"></span>
+                        }
+                        <input asp-for="Password" class="password form-control" />
+                        <span asp-validation-for="Password"></span>
+
+                        <div class="link-sec">
+                            <div class="remember">
+                                <div class="toggle">
+                                    <input asp-for="RememberMe" type="checkbox" />
+                                    <label asp-for="RememberMe"></label>
+                                </div>
+                            </div>
+                            <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+
+                            @if (Model.DisplayCaptcha)
+                            {
+                                <div class="captcha-box col-md-12">
+                                    <nop-captcha />
+                                </div>
+                            }
+
+
+                        </div>
+                        <button class="btn-login" type="submit">@T("Account.Login.LoginButton")</button>
+                    </div>
+
+
+                </form>
+            </div>
+
             @if (Model.RegistrationType == UserRegistrationType.Disabled)
             {
 
@@ -71,67 +124,7 @@
                     </fieldset>
                 </div>
             }
-            <div class="col-sm-6 col-md-6">
-                <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post" autocomplete="off">
-                    <legend>@T("Account.Login.ReturningCustomer")</legend>
-                    <div class="returning-wrapper">
-                        <fieldset>
-                            <div class="row field">
-                                <div asp-validation-summary="ModelOnly" class="message-error  alert alert-danger">@T("Account.Login.Unsuccessful")</div>
-                                @if (Model.UsernamesEnabled)
-                                {
-                                    <div class="col-md-12">
-                                        <label asp-for="Username" class="col-md-2 control-label" asp-postfix=":"></label>
-                                        <div class="col-md-12">
-                                            <input asp-for="Username" class="username form-control" autofocus="autofocus" />
-                                            <span asp-validation-for="Username"></span>
-                                        </div>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="col-md-12">
-                                        <label asp-for="Email" class="col-md-2 control-label" asp-postfix=":"></label>
-                                        <div class="col-md-12">
-                                            <input asp-for="Email" class="email form-control" autofocus="autofocus" />
-                                            <span asp-validation-for="Email"></span>
-                                        </div>
-                                    </div>
-                                }
-                                <div class="col-md-12">
-                                    <label asp-for="Password" class="col-md-2 control-label" asp-postfix=":"></label>
-                                    <div class="col-md-12">
-                                        <input asp-for="Password" class="password form-control" />
-                                        <span asp-validation-for="Password"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="remember-me">
-                                        <div class="checkbox">
-                                            <input asp-for="RememberMe" class="checkbox" />
-                                            <label asp-for="RememberMe"></label>
-                                            <span class="forgot-password">
-                                                <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                @if (Model.DisplayCaptcha)
-                                {
-                                    <div class="col-md-12">
-                                        <div class="captcha-box col-md-12">
-                                            <nop-captcha />
-                                        </div>
-                                    </div>
-                                }
-                                <div class="controls col-md-2">
-                                    <button class="btn btn-primary" type="submit">@T("Account.Login.LoginButton")</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </form>
-            </div>
+
         </div>
         <div class="row field">
             <div class="external-authentication col-sm-12 col-md-12">
@@ -141,13 +134,4 @@
 
     </div>
 </div>
-<div class="container">
-    <div class="row field">
-        <div class="col-sm-12 col-md-12 login-abouts">
-            <p>
 
-                @await Component.InvokeAsync("TopicBlock", new { systemName = "LoginRegistrationInfo" })
-            </p>
-        </div>
-    </div>
-</div>
