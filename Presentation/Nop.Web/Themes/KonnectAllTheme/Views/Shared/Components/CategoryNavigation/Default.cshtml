@@ -66,11 +66,11 @@
 @if (Model.Categories.Count > 0)
 {
     <div class="sidebar-inner all-categ">
-        <div class="sidebar-item">
-            <div class="sidebar-title">
-                <h5 class="text-left"> <strong>@T("Categories")</strong></h5>
+        <div class="sidebar-item accordeon-item ">
+            <div class="sidebar-title accordeon-title">
+                <h5>@T("Categories")</h5>
             </div>
-            <ul class="sidebar-content">
+            <ul class="sidebar-content accordeon_content show">
                 @foreach (var category in Model.Categories)
                 {
                     var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
@@ -83,6 +83,8 @@
             </ul>
         </div>
     </div>
+
+
 }
 
 

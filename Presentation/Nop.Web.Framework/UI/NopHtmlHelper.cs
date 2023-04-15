@@ -100,7 +100,7 @@ namespace Nop.Web.Framework.UI
         /// <returns>The bundle</returns>
         private IAsset GetOrCreateBundle(string bundlePath, Func<string, string[], IAsset> createAsset, params string[] sourceFiles)
         {
-            if(string.IsNullOrEmpty(bundlePath))
+            if (string.IsNullOrEmpty(bundlePath))
                 throw new ArgumentNullException(nameof(bundlePath));
 
             if (createAsset is null)
@@ -199,6 +199,15 @@ namespace Nop.Web.Framework.UI
                 result = _seoSettings.DefaultTitle;
             }
             return new HtmlString(_htmlEncoder.Encode(result));
+        }
+
+        public virtual IHtmlContent GenerateBodyClass(string className = "")
+        {
+            if (string.IsNullOrEmpty(className))
+            {
+                className = "b2b-category";
+            }
+            return new HtmlString(_htmlEncoder.Encode(className));
         }
 
         /// <summary>

@@ -3,7 +3,7 @@
 
 @{
     Layout = "_ColumnsApps";
-
+    ViewBag.BodyClass = "home";
     //title
     if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
     {
@@ -19,15 +19,13 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-home-page");
 }
-<div class="page home-page">
-    <div class="page-body">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
-    </div>
+<div class="page-body">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
 </div>
 @section HomePageSlider{
         <div class="slider">
@@ -815,26 +813,7 @@
     </div>
 </div>
 
-<my-newsletter>
-    <div class="newsletter">
-        <div class="container">
-            <div class="content-newsletter">
-                <h3>
-                    Subscribe to our newsletter!
-                </h3>
-                <form>
-                    <input type="text" placeholder="Entrer you email address" name="email">
-                    <select name="lang" aria-placeholder="Choose language" placeholder="Entrer you email address">
-                        <option value="Choose language">Choose language</option>
-                        <option value="fr">Fr</option>
-                        <option value="ar">Ar</option>
-                    </select>
-                </form>
-            </div>
-        </div>
-        <span class="arrow-bottom"></span>
-    </div>
-</my-newsletter>
+ @await Component.InvokeAsync("NewsletterBox")
 
 <div class="channels">
     <div class="container">

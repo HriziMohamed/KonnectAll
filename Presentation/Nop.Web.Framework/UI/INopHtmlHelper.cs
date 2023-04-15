@@ -27,6 +27,8 @@ namespace Nop.Web.Framework.UI
         /// <returns>Generated HTML string</returns>
         IHtmlContent GenerateTitle(bool addDefaultTitle = true, string part = "");
 
+        IHtmlContent GenerateBodyClass(string className = "");
+
         /// <summary>
         /// Add meta description element to the <![CDATA[<head>]]>
         /// </summary>
