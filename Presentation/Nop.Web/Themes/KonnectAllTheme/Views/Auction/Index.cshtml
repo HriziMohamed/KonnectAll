@@ -17,9 +17,21 @@
     }
 
     //page class
-    NopHtml.AppendPageCssClassParts("html-home-page");
+    NopHtml.AppendPageCssClassParts("html-auction-page");
 }
+<div class="auction-page">    
+    <section class="content-page ">
+
 <div class="slider">
+    <img alt="" src="./assets/img/banner/auction-banner.png" class="slid-img">
+    <div class="overly">
+    </div>
+    <div class="container">
+        <div class="container content-slid">
+            <h1 class="text-left text-capitalize">seasonal vegetable auction</h1>
+            <a class="btn btn-primary text-uppercase text-black" href="#"><span>shop now</span></a>
+        </div>
+    </div>
 </div>
 
 
@@ -1325,9 +1337,10 @@
         </div>
     </div>
 </my-newsletter>*@
-
+</section>
+</div>
 <script>
-    $(document).ready(function(){
-       $("body").removeClass("home").addClass("auction-page");
+    $(document).ready(function () {
+        $("body").removeClass("home").addClass("auction-page");
     });
 </script>

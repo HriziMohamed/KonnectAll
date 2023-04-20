@@ -1,0 +1,332 @@
+﻿@using Nop.Core.Domain.Seo
+@inject SeoSettings seoSettings
+
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
+    {
+        NopHtml.AddTitleParts(seoSettings.HomepageTitle);
+    }
+
+    //meta
+    if (!string.IsNullOrEmpty(seoSettings.HomepageDescription))
+    {
+        NopHtml.AddMetaDescriptionParts(seoSettings.HomepageDescription);
+    }
+
+    //page class
+    NopHtml.AppendPageCssClassParts("html-ourSolution-page");
+}
+
+<div class="slider">
+    <img alt="" src="./assets/img/banner/our-solution-banner.png" class="slid-img">
+    <div class="overly">
+    </div>
+    <div class="container">
+        <div class="container content-slid">
+            <div class="separate-line"></div>
+            <h4 class="menu-slider">
+                Solutions for dropdhippers and wholesale purchasing
+            </h4>
+        </div>
+    </div>
+</div>
+
+<div class="online-sales">
+    <div class="container">
+        <h2 class="sec-title text-black text-center">An integral partner for boosting your online sales</h2>
+        <div class="sec-desc">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/categori.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Catalogue</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                Top brands at competitive prices. We are constantly searching to be the first to offer the latest.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/fullfilement.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Fulfillment and logistics</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We provide comprehensive storage, picking and packing solutions and competitive ecommerce rates with more than 5 couriers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img class="sales-icon" src="./assets/img/sales/multi-channel.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Multi-channel strategy</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We have extensive experience in simplifying and boosting sales on marketplaces and other online sales channels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/technologie1.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Technology</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We are a company with our own technology. We offer an SaaS platform that you can use to centralise your ecommerce operations management.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/categori.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Catalogue</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                Top brands at competitive prices. We are constantly searching to be the first to offer the latest.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/fullfilement.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Fulfillment and logistics</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We provide comprehensive storage, picking and packing solutions and competitive ecommerce rates with more than 5 couriers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/multi-channel.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Multi-channel strategy</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We have extensive experience in simplifying and boosting sales on marketplaces and other online sales channels.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="sales">
+                        <div class="info-sales">
+                            <div class="icons">
+                                <img alt="" class="sales-icon" src="./assets/img/sales/technologie1.png">
+                            </div>
+                            <h5 class="title text-black font-semibold">Technology</h5>
+                        </div>
+                        <div class="content-sales">
+                            <div class="desc">
+                                We are a company with our own technology. We offer an SaaS platform that you can use to centralise your ecommerce operations management.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bar-menu">
+    <div class="container">
+        <h5 class="menu-slider">
+            <span class="text-white">SOLUTIONS FOR:</span>
+            <a href="#dropshippers">Dropshippers</a>
+            <a href="#wholesalers">Wholesalers</a>
+            <a href="#marketplaces">Marketplace</a>
+            <a href="#distributors">Detail distributions</a>
+            <a href="#">Retaillers</a>
+            <a href="#">Liquidations Dealers</a>
+            <a href="#">Auctions</a>
+            </h4>
+    </div>
+</div>
+
+<div class="our-vision gray-sec" id="dropshippers">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 left-content">
+                <div class="info-vision">
+                    <div class="title-sec">
+                        <h4 class="text-black text-left">
+                            Solution for dropshippers
+                        </h4>
+                        <span class="line-after"></span>
+                    </div>
+                    <div class="desc-vision">
+                        <ul>
+                            <li>For online businesses that sell on ecommerces, marketplaces and social networks</li>
+                            <li>Thousands of products, including top brands. With daily new items and winning products.</li>
+                            <li>Real time integration solutions for the catalogue, stock, orders and tracking</li>
+                            <li>24 European languages with native translations</li>
+                            <li>Wholesale prices for single units, with no minimum order</li>
+                            <li>Anonymised dropshipping with your business name and logo</li>
+                            <li>Consolidated, multi-product and category orders in just one shipment and paying only one fee</li>
+                            <li>Cloud software (SaaS) for the centralised management of multi-channel orders.</li>
+                            <li>Integration with more than 200 marketplaces and ecommerce platforms</li>
+                            <li>Extensive experience and solutions for boosting cross-border sales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 img-global">
+                <img alt="" class="global-img global-img-right" src="./assets/img/global-img.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="our-vision" id="wholesalers">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 img-global img-global-left">
+                <img alt="" class="global-img global-img-left" src="./assets/img/global.png">
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 left-content">
+                <div class="info-vision">
+                    <div class="title-sec">
+                        <h4 class="text-black text-left">
+                            Solution for wholesalers
+                        </h4>
+                        <span class="line-after"></span>
+                    </div>
+                    <div class="desc-vision">
+                        <ul>
+                            <li>For online businesses that sell on ecommerces, marketplaces and social networks</li>
+                            <li>Thousands of products, including top brands. With daily new items and winning products.</li>
+                            <li>Real time integration solutions for the catalogue, stock, orders and tracking</li>
+                            <li>24 European languages with native translations</li>
+                            <li>Wholesale prices for single units, with no minimum order</li>
+                            <li>Anonymised dropshipping with your business name and logo</li>
+                            <li>Consolidated, multi-product and category orders in just one shipment and paying only one fee</li>
+                            <li>Cloud software (SaaS) for the centralised management of multi-channel orders.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="our-vision gray-sec" id="marketplaces">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 left-content">
+                <div class="info-vision">
+                    <div class="title-sec">
+                        <h4 class="text-black text-left">
+                            Solution for Marketplaces
+                        </h4>
+                        <span class="line-after"></span>
+                    </div>
+                    <div class="desc-vision">
+                        <ul>
+                            <li>For online businesses that sell on ecommerces, marketplaces and social networks</li>
+                            <li>Thousands of products, including top brands. With daily new items and winning products.</li>
+                            <li>Real time integration solutions for the catalogue, stock, orders and tracking</li>
+                            <li>24 European languages with native translations</li>
+                            <li>Wholesale prices for single units, with no minimum order</li>
+                            <li>Anonymised dropshipping with your business name and logo</li>
+                            <li>Consolidated, multi-product and category orders in just one shipment and paying only one fee</li>
+                            <li>Cloud software (SaaS) for the centralised management of multi-channel orders.</li>
+                            <li>Integration with more than 200 marketplaces and ecommerce platforms</li>
+                            <li>Extensive experience and solutions for boosting cross-border sales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 img-global">
+                <img alt="" class="global-img global-img-right" src="./assets/img/global-img.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="our-vision" id="distributors">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 img-global img-global-left">
+                <img alt="" class="global-img global-img-left" src="./assets/img/global.png">
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 left-content">
+                <div class="info-vision">
+                    <div class="title-sec">
+                        <h4 class="text-black text-left">
+                            Solution Distributors
+                        </h4>
+                        <span class="line-after"></span>
+                    </div>
+                    <div class="desc-vision">
+                        <ul>
+                            <li>For online businesses that sell on ecommerces, marketplaces and social networks</li>
+                            <li>Thousands of products, including top brands. With daily new items and winning products.</li>
+                            <li>Real time integration solutions for the catalogue, stock, orders and tracking</li>
+                            <li>24 European languages with native translations</li>
+                            <li>Wholesale prices for single units, with no minimum order</li>
+                            <li>Anonymised dropshipping with your business name and logo</li>
+                            <li>Consolidated, multi-product and category orders in just one shipment and paying only one fee</li>
+                            <li>Cloud software (SaaS) for the centralised management of multi-channel orders.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<my-newsletter></my-newsletter>
+<script>
+    $(document).ready(function () {
+        $("body").removeClass("home").addClass("our-solutions");
+    });
+</script>
+
+
+
+
