@@ -2,8 +2,8 @@
 @inject SeoSettings seoSettings
 
 @{
-    Layout = "_ColumnsOne";
-
+    Layout = "_Root";
+    ViewBag.BodyClass = "about-us";
     //title
     if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
     {
@@ -19,24 +19,27 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-home-page");
 }
-
-<div class="slider">
-    <img alt="" src="./assets/img/banner/about-banner.webp" class="slid-img">
-    <div class="overly">
-    </div>
-    <div class="container">
-        <div class="container content-slid">
-            <div class="separate-line"></div>
-            <h2 class="title-slider">
-                About us
-            </h2>
-            <h4 class="menu-slider">
-                We speed up online, cross-border and multi-channel
-                sales of brands and retailers
-            </h4>
+@section HomePageSlider{
+    <div class="slider">
+        <img alt="" src="./assets/img/banner/about-banner.webp" class="slid-img">
+        <div class="overly">
+        </div>
+        <div class="container">
+            <div class="container content-slid">
+                <div class="separate-line"></div>
+                <h2 class="title-slider">
+                    About us
+                </h2>
+                <h4 class="menu-slider">
+                    We speed up online, cross-border and multi-channel
+                    sales of brands and retailers
+                </h4>
+            </div>
         </div>
     </div>
-</div>
+}
+
+
 
 <div class="your-ecommerce">
     <div class="container">

@@ -2,8 +2,8 @@
 @inject SeoSettings seoSettings
 
 @{
-    Layout = "_ColumnsOne";
-
+    Layout = "_Root";
+    ViewBag.BodyClass = "join-the-team";
     //title
     if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
     {
@@ -19,7 +19,7 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-home-page");
 }
-<section class="content-page">
+@section HomePageSlider{
     <div class="slider">
         <img alt="" src="./assets/img/banner/join-team-banner.png" class="slid-img">
         <div class="overly">
@@ -36,6 +36,9 @@
             </div>
         </div>
     </div>
+}
+<section class="content-page">
+   
 
     <div class="first-section">
         <div class="container">
