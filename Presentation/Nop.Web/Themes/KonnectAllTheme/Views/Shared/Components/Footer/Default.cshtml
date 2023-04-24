@@ -111,9 +111,7 @@
             <div class="container">
                 <div class="left-footer">
                     @await Component.InvokeAsync("StoreThemeSelector")
-                    <div class="footer-disclaimer">
-                        @T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), Model.StoreName)
-                    </div>
+                    <p>@T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), Model.StoreName)</p>
                 </div>
                 <div class="right-footer">
                     <ul>

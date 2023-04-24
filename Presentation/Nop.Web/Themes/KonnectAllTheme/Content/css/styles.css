@@ -1500,7 +1500,7 @@ ul li a:hover {
 
             .b2b-category .slider .content-slid .btn-primary:hover:after {
                 margin-left: 20px;
-                background-image: url('../images/category/arrow-sidebar.png');
+                background-image: url('assets/img/category/arrow-sidebar.png');
             }
 
 @media (max-width: 1200px) {
@@ -3134,7 +3134,7 @@ ul li a:hover {
 
             .auction-page .slider .content-slid .btn-primary:hover:after {
                 margin-left: 20px;
-                background-image: url('../images/category/arrow-sidebar.png');
+                background-image: url('assets/img/category/arrow-sidebar.png');
             }
 
 .auction-page .first-section .auction-all {
@@ -5234,7 +5234,7 @@ section.header .navbar .toggle-nav-menu .burg:after {
         }
 
         .footer .footer-midelle .row .last-footer-sec {
-            /*position: absolute ;*/
+            position: absolute;
             right: 0;
             height: 100%;
             display: flex;
