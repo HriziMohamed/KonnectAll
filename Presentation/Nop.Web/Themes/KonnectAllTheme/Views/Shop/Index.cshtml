@@ -2,8 +2,8 @@
 @inject SeoSettings seoSettings
 
 @{
-    Layout = "_ColumnsOne";
-
+    Layout = "_Root";
+    ViewBag.BodyClass = "shop-page";
     //title
     if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
     {
@@ -19,9 +19,11 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-shop-page");
 }
-<section class="slider">
+@section HomePageSlider{
+<div class="slider">
     <img alt="" src="./assets/img/banner/slid-categ.png" class="banner-slid" />
-</section>
+</div>
+}
 
 <section class="container services">
     <div class="row">
@@ -2032,8 +2034,8 @@
 </section>
 <my-decoracrafts></my-decoracrafts>
 <our-clients></our-clients>
-<script>
+@*<script>
     $(document).ready(function () {
         $("body").removeClass("home").addClass("shop-page");
     });
-</script>
+</script>*@
