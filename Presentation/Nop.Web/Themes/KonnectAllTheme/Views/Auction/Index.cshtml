@@ -2,8 +2,8 @@
 @inject SeoSettings seoSettings
 
 @{
-    Layout = "_ColumnsOne";
-
+    Layout = "_Root";
+    ViewBag.BodyClass = "auction-page";
     //title
     if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
     {
@@ -19,8 +19,19 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-home-page");
 }
-<div class="slider">
-</div>
+@section HomePageSlider{
+    <div class="slider">
+        <img alt="" src="./assets/img/banner/auction-banner.png" class="slid-img">
+        <div class="overly">
+        </div>
+        <div class="container">
+            <div class="container content-slid">
+                <h1 class="text-left text-capitalize">seasonal vegetable auction</h1>
+                <a class="btn btn-primary text-uppercase text-black" href="#"><span>shop now</span></a>
+            </div>
+        </div>
+    </div>
+}
 
 
 <div class="container">
@@ -1326,8 +1337,8 @@
     </div>
 </my-newsletter>*@
 
-<script>
+@*<script>
     $(document).ready(function(){
        $("body").removeClass("home").addClass("auction-page");
     });
-</script>
+</script>*@
