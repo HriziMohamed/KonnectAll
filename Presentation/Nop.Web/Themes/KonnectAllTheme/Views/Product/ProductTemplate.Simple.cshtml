@@ -4,7 +4,8 @@
 @inject Nop.Core.IWebHelper webHelper
 @inject SeoSettings seoSettings
 @{
-    Layout = "_ColumnsTwo";
+    Layout = "_ColumnsOne";
+    ViewBag.BodyClass = "product-page";
 
     //title
     NopHtml.AddTitleParts(!string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
@@ -45,149 +46,249 @@
         NopHtml.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + webHelper.GetThisPageUrl(false) + "\" />");
     }
 }
-<!--product breadcrumb-->
-<div class="breadcrumb-wrapper">
-    @await Html.PartialAsync("_ProductBreadcrumb", Model.Breadcrumb)
-</div>
-@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsAfterBreadcrumb, additionalData = Model })
-<div class="page product-details-page">
-    <div class="page-body">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsTop, additionalData = Model })
+<div class="container">
+    <!--product breadcrumb-->
+    <div class="breadcrumb-wrapper">
+        @await Html.PartialAsync("_ProductBreadcrumb", Model.Breadcrumb)
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsAfterBreadcrumb, additionalData = Model })
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsTop, additionalData = Model })
+    <div class="row card-section">
         <form asp-route="Product" asp-route-sename="@Model.SeName" method="post" id="product-details-form">
             @if (seoSettings.MicrodataEnabled)
             {
                 @await Html.PartialAsync("_Microdata", Model)
             }
-            <div data-productid="@Model.Id">
-                <div class="product-name panel-heading">
-                    <h1>
-                        @Model.Name
-                    </h1>
-                </div>
-                <div class="product-essential from-panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsEssentialTop, additionalData = Model })
-                                <!--product pictures-->
-                                @await Html.PartialAsync("_ProductDetailsPictures", Model)
-                            </div>
-                            <div class="col-md-6">
-                                @await Html.PartialAsync("_Discontinued", Model)
-                                <div class="overview">
-                                    @if (!string.IsNullOrEmpty(Model.ShortDescription))
-                                    {
-                                        <div class="short-description">
-                                            @Html.Raw(Model.ShortDescription)
-                                        </div>
-                                    }
-                                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsOverviewTop, additionalData = Model })
-                                    <!--SKU, MAN, GTIN, vendor-->
-                                    @await Html.PartialAsync("_SKU_Man_GTIN_Ven", Model)
-                                    <!--delivery-->
-                                    @await Html.PartialAsync("_DeliveryInfo", Model)
-                                    <!--product manufacturers-->
-                                    @await Html.PartialAsync("_ProductManufacturers", Model.ProductManufacturers)
-                                    <!--product reviews-->
-                                    @await Html.PartialAsync("_ProductReviewOverview", Model.ProductReviewOverview)
-                                    <!--sample download-->
-                                    @await Html.PartialAsync("_DownloadSample", Model)
-                                    <!--attributes-->
-                                    @{
-                                        var dataDictAttributes = new ViewDataDictionary(ViewData);
-                                        dataDictAttributes.TemplateInfo.HtmlFieldPrefix = $"attributes_{Model.Id}";
-                                        @await Html.PartialAsync("_ProductAttributes", Model, dataDictAttributes)
-                                    }
-                                    <!--gift card-->
-                                    @{
-                                        var dataDictGiftCard = new ViewDataDictionary(ViewData);
-                                        dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = $"giftcard_{Model.Id}";
-                                        @await Html.PartialAsync("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
-                                    }
-                                    <!--rental info-->
-                                    @{
-                                        var dataDictRental = new ViewDataDictionary(ViewData);
-                                        dataDictRental.TemplateInfo.HtmlFieldPrefix = $"rental_{Model.Id}";
-                                        @await Html.PartialAsync("_RentalInfo", Model, dataDictRental)
-                                    }
-                                    <!--price & add to cart & estimate shipping-->
-                                    <div class="price-availability">
-                                        @{
-                                            var dataDictPrice = new ViewDataDictionary(ViewData);
-                                            dataDictPrice.TemplateInfo.HtmlFieldPrefix = $"price_{Model.Id}";
-                                            @await Html.PartialAsync("_ProductPrice", Model.ProductPrice, dataDictPrice)
- <!--availability-->
-                                            @await Html.PartialAsync("_Availability", Model)
-                                            var dataDictAddToCart = new ViewDataDictionary(ViewData);
-                                            dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
-                                            @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
 
-                                            @await Html.PartialAsync("_ProductEstimateShipping", Model.ProductEstimateShipping)
-                                        }
-                                    </div>
-                                    @await Html.PartialAsync("_ProductTierPrices", Model.TierPrices)
-                                    <div class="form-group email-friend-btn">
-                                        <div class="email-compare-button">
-                                            <!--wishlist, compare, email a friend-->
-                                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsInsideOverviewButtonsBefore, additionalData = Model })
-                                            @{
-                                                var dataDictAddToWishlist = new ViewDataDictionary(ViewData);
-                                                dataDictAddToWishlist.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
-                                                @await Html.PartialAsync("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)
-                                            }
-                                            @await Html.PartialAsync("_CompareProductsButton", Model)
-                                            @await Html.PartialAsync("_ProductEmailAFriendButton", Model)
-                                            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsInsideOverviewButtonsAfter, additionalData = Model })
+            <div data-productid="@Model.Id" class="col-md-9 left-section">
+                <div class="row product-section">
+                    <div class="col-md-7 product-img">
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsEssentialTop, additionalData = Model })
+                        <!--product pictures-->
+                        @await Html.PartialAsync("_ProductDetailsPictures", Model)
+
+                    </div>
+                    <div class="col-md-5 content-product">
+                        <div class="product-info">
+                            <h4 class="title-product text-left text-capitalize">coca-cola original taste</h4>
+                            <div class="review">
+                                <div class="reviews-star">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-gray.png">
+                                </div>
+                                <span class="text-capitalize">(3 reviews)</span>
+                            </div>
+                            <div class="price">
+                                @{
+                                    var dataDictPrice = new ViewDataDictionary(ViewData);
+                                    dataDictPrice.TemplateInfo.HtmlFieldPrefix = $"price_{Model.Id}";
+                                    @await Html.PartialAsync("_ProductPrice", Model.ProductPrice, dataDictPrice)
+                                    <!--availability-->
+                                    @await Html.PartialAsync("_Availability", Model)
+
+
+                                    @await Html.PartialAsync("_ProductEstimateShipping", Model.ProductEstimateShipping)
+                                }
+                            </div>
+                            <div class="available">
+                                Availability:56 in stock
+                            </div>
+                            <ul class="desc-product">
+                                <li>Ultrices eros in cursus turpis massa crusus.</li>
+                                <li>Volutpat ac tincidunt vitae semper quis lectus.</li>
+                                <li>Aliquam id diam maeccenas ultricies mi eget.</li>
+                            </ul>
+                            <div class="info-product">
+                                <div class="numb-visitor">
+                                    <h5 class="">Real time <span class="visitor-num">24</span> visitor right now!</h5>
+                                    <p>Hurry up! left 29 in stock</p>
+
+                                    <div class="line-middle"></div>
+                                    <div class="run-time">
+                                        <div class="timing">
+                                            <div class="time-run num-day">
+                                                <span class="number">35</span>
+                                                <span class="text-capitalize text-time">Days</span>
+                                            </div>
+                                            <div class="time-run num-hour">
+                                                <span class="number">19</span>
+                                                <span class="text-capitalize">Hours</span>
+                                            </div>
+                                            <div class="time-run num-min">
+                                                <span class="number">56</span>
+                                                <span class="text-capitalize text-time">Min</span>
+                                            </div>
+                                            <div class="time-run num-sec">
+                                                <span class="number">45</span>
+                                                <span class="text-capitalize text-time">Sec</span>
+                                            </div>
                                         </div>
+                                        <div>Time is Running Out!</div>
+
                                     </div>
-                                    @await Html.PartialAsync("_ShareButton", Model)
-                                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsOverviewBottom, additionalData = Model })
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="product-details-tabs">
-                                    <ul class="nav nav-tabs">
-                                        @if (!string.IsNullOrEmpty(Model.FullDescription))
-                                        {
-                                        <li class="active"><a href="#description" data-toggle="tab">@T("products.compare.fulldescription")</a></li>
-                                        }
-                                        @if (!string.IsNullOrEmpty(@Html.PartialAsync("_ProductTags", Model).ToString()))
-                                        {
-                                        <li><a href="#tags" data-toggle="tab">@T("Products.Tags")</a></li>
-                                        }
-                                        @if (!string.IsNullOrEmpty(@Html.PartialAsync("_ProductSpecifications", Model).ToString()))
-                                        {
-                                        <li><a href="#specification" data-toggle="tab">@T("Products.Specs")</a></li>
-                                        }
-                                    </ul>
-                                    <div class="tab-content">
-                                        @if (!string.IsNullOrEmpty(Model.FullDescription))
-                                        {
-                                        <div class="full-description tab-pane fade in active" id="description">
-                                            @Html.Raw(Model.FullDescription)
-                                        </div>
-                                        }
-                                        <div class="product-tags tab-pane fade" id="tags">
-                                            @await Html.PartialAsync("_ProductTags", Model.ProductTags)
-                                        </div>
-                                        <div class="product-specification fade tab-pane" id="specification">
-                                            @await Html.PartialAsync("_ProductSpecifications", Model.ProductSpecificationModel)
+                            <ul class="color">
+                                color:
+                                <li class="attribute yellow"></li>
+                                <li class="attribute marron"></li>
+                                <li class="attribute blue"></li>
+                                <li class="attribute gray"></li>
+                                <li class="attribute black"></li>
+                            </ul>
+
+                            <ul class="size">
+                                Size
+                                <li class="text-capitalize">small</li>
+                                <li class="text-capitalize">medium</li>
+                                <li class="text-capitalize">large</li>
+                                <li class="text-capitalize">extra large</li>
+                            </ul>
+
+                            <div class="bottom-info-deals">
+                                <div class="row">
+                                    @{
+                                        var dataDictAddToCart = new ViewDataDictionary(ViewData);
+                                        dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
+                                        @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                                    }
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 social-media-icon">
+                                        <div class="social-media">
+                                            <a href="#" target="_blank" class="icon-facebook">
+                                                <i class="share-media fab fa-facebook-f"></i>
+                                            </a>
+                                            <a href="#" target="_blank" class="icon-twitter">
+                                                <i class="share-media fab fa-twitter"></i>
+                                            </a>
+                                            <a href="#" target="_blank" class="icon-instagram">
+                                                <i class="share-media fab fa-instagram"></i>
+                                            </a>
                                         </div>
                                     </div>
-
-                                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsEssentialBottom, additionalData = Model })
+                                    <div class="col-md-6 wishlist-icon">
+                                        <a href="#" class="wishlist">
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                        <span class="font-light">Add to favorites</span>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsBeforeCollateral, additionalData = Model })
                 </div>
-                <div class="product-collateral">
-                    @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
-                    @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
+                <div class="product-details">
+                    <ul class="sub-title">
+                        <li class="product-descr active">
+                            <a onclick="openDetails('Description')">Description</a>
+                        </li>
+                        <li class="product-descr info-ventor">
+                            <a class="" onclick="openDetails('Vendor')">Vendor Info</a>
+                        </li>
+                        <li class="product-descr">
+                            <a onclick="openDetails('Customer')">Customer Reviews (3)</a>
+                        </li>
+                    </ul>
+
+                    <div class="product-item details" id="Description">
+                        <h6 class="text-capitalize">detail</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt arcu cursus
+                            vitae  congue mauris.
+                            Sagittis id consectetur purus ut. Tellus rutrum tellus pelle Vel pretium lectus quam id leo in vitae turpis
+                            massa.
+
+                            Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit. Vivamus finibus vel mauris ut vehicula.
+                            Nullam a magna porttitor, dictum risus nec, faucibus sapien.
+                        </p>
+                    </div>
+
+                    <div class="product-item vender" id="Vendor" style="display:none">
+                        <h6 class="text-capitalize">Vendor Info</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt arcu cursus
+                            vitae  congue mauris.
+                            Sagittis id consectetur purus ut. Tellus rutrum tellus pelle Vel pretium lectus quam id leo in vitae turpis
+                            massa.
+
+                            Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit. Vivamus finibus vel mauris ut vehicula.
+                            Nullam a magna porttitor, dictum risus nec, faucibus sapien.
+                        </p>
+                    </div>
+
+                    <div class="product-item vender" id="Customer" style="display:none">
+                        <h6 class="text-capitalize">Customer Reviews (3)</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt arcu cursus
+                            vitae  congue mauris.
+                            Sagittis id consectetur purus ut. Tellus rutrum tellus pelle Vel pretium lectus quam id leo in vitae turpis
+                            massa.
+
+                            Nunc nec porttitor turpis. In eu risus enim. In vitae mollis elit. Vivamus finibus vel mauris ut vehicula.
+                            Nullam a magna porttitor, dictum risus nec, faucibus sapien.
+                        </p>
+                    </div>
                 </div>
+
             </div>
         </form>
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsBottom, additionalData = Model })
+        <div class="col-md-3 right-section">
+            <div class="services-section">
+                <div class="content-service">
+                    <img alt="" class="icon-service" src="./assets/img/services/free-shepping.png">
+                    <div class="desc-service">
+                        <div class="title font-semibold text-capitalize">
+                            free shipping &amp; returns
+                        </div>
+                        <p class="font-light">For all orders over 1000 <span class="text-uppercase">SAR</span></p>
+                    </div>
+                </div>
+                <div class="content-service">
+                    <img alt="" class="icon-service" src="./assets/img/services/payement.png">
+                    <div class="desc-service">
+                        <div class="title font-semibold text-capitalize">
+                            secure payment
+                        </div>
+                        <p class="font-light">We ensure secure payment</p>
+                    </div>
+                </div>
+                <div class="content-service">
+                    <img alt="" class="icon-service" src="./assets/img/services/money-back.png">
+                    <div class="desc-service">
+                        <div class="title font-semibold text-capitalize">
+                            monez back guarantee
+                        </div>
+                        <p class="font-light">Any back within 30 days</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-img">
+                <img alt="" class="img-sidebar" src="./assets/img/category/sidebar-banner.png">
+                <div class="content-sidebar">
+                    <h3 class="text-white">Our Catalog</h3>
+                    <h2 class="text-white">Electronics</h2>
+                    <a class="btn btn-primary" href="#"><span>SHOP NOW</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
+          
+            <div class="product-collateral">
+                @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
+               
+            </div>
+        </div>
     </div>
+
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductDetailsBottom, additionalData = Model })
 </div>
+

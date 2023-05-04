@@ -1,33 +1,63 @@
 ﻿@model IList<ProductOverviewModel>
+@using Nop.Core.Domain.Orders
 @if (Model.Count > 0)
 {
-    <div class="related-products-grid">
-        <div class="title panel-heading">
-             <h2>@T("Products.RelatedProducts")</h2>
+    <div class="more-product">
+        <div class="head-product">
+            <div class="title">
+                <h5>@T("Products.RelatedProducts")</h5>
+            </div>
+            <a class="btn-sm-black btn-border">
+                <span class="btn-sm text-black-light  font-normal">shop now</span>
+            </a>
         </div>
-        <div class="row">
-            @if (Model.Count <= 3)
-            {    
-                foreach (var item in Model)
+
+        <div class="slide-container">
+            <div id="slide-left" class="arrow-prev">&lt;</div>
+            <section class="container" id="slider">
+                @foreach (var item in Model)
                 {
-                    <div class="item-box col-xs-12 col-sm-4 col-md-4">
-                        <div class="thumbnail">
-                            @await Html.PartialAsync("_ProductBox", item)
+                    //prepare "Add to cart" AJAX link
+                    var addtocartlink = "";
+                    var shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart;
+                    var quantity = 1;
+                    if (item.ProductPrice.ForceRedirectionAfterAddingToCart)
+                    {
+                        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = item.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, forceredirection = item.ProductPrice.ForceRedirectionAfterAddingToCart });
+                    }
+                    else
+                    {
+                        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = item.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity });
+                    }
+
+                    var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = item.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+                    var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = item.Id });
+
+                    <div class="thumbnail">
+                        <img width="167" height="195" class="prod-img" alt="@item.DefaultPictureModel.AlternateText" data-src="@item.DefaultPictureModel.ImageUrl" src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" />
+                        <div class="product-details">
+                          
+                            <a class="name-product text-black" href="@Url.RouteUrl("Product", new {SeName = item.SeName})">@item.Name</a>
+                            <div class="price-product">
+                                @if (!string.IsNullOrEmpty(item.ProductPrice.OldPrice))
+                                {
+                                    <del>@item.ProductPrice.Price</del>
+
+                                    <br />
+                                    <span class="price old-price">@item.ProductPrice.OldPrice</span>
+                                }
+                                else
+                                {
+                                    @item.ProductPrice.Price
+
+                                }
+                            </div>
+                            <a class="add-cart" href="#">Add to Cart</a>
                         </div>
                     </div>
                 }
-            }
-            else
-            {
-                <div id="related-products-slider" class="related-products-slider owl-carousel owl-theme">
-                    @foreach (var item in Model)
-                    {
-                        <div class="item-box col-xs-12 col-sm-12 col-md-12">
-                            <div class="thumbnail">@await Html.PartialAsync("_ProductBox", item)</div>
-                        </div>
-                    }
-                </div>
-            }
+            </section>
+            <div id="slide-right" class="arrow-next">&gt;</div>
         </div>
-    </div> 
+    </div>
 }

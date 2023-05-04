@@ -54,9 +54,8 @@
 
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
 </section>
-<my-footer>
-    @await Component.InvokeAsync("Footer")
-</my-footer>
+
+@await Component.InvokeAsync("Footer")
 
 
 @await Component.InvokeAsync("EuCookieLaw")
