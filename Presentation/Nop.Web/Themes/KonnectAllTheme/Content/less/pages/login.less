@@ -36,10 +36,10 @@
 
             .btn-primary {
                 margin-top: 3.5rem;
-            
+
                 &:after {
                     content: "";
-                    background-image: url('./assets/img/banner/arrow-banner.png');
+                    background-image: url('../../images/banner/arrow-banner.png');
                     display: inline-block;
                     background-repeat: no-repeat;
                     width: 35px;
@@ -52,7 +52,7 @@
 
                 &:hover:after {
                     margin-left: 20px;
-                    background-image: url('assets/img/category/arrow-sidebar.png');
+                    background-image: url('../../images/category/arrow-sidebar.png');
                 }
             }
         }
@@ -61,14 +61,14 @@
     .account {
         margin: 30px 0;
 
-        @media(max-width:768px){
-            >div {
+        @media(max-width:768px) {
+            > div {
                 padding-left: 0;
                 padding-right: 0;
             }
         }
 
-        .login-sec , .account-sec {
+        .login-sec, .account-sec {
             border: 1px solid #ccc;
             padding: 20px;
             border-radius: 10px;
@@ -78,18 +78,19 @@
                 padding: 10px;
             }
 
-            h5{
+            h5 {
                 margin-top: 0;
             }
 
             a {
                 color: @gray-darck;
+
                 @media (max-width:991px) {
                     font-size: 13px;
                 }
             }
 
-            .remember{
+            .remember {
                 display: flex;
                 align-items: center;
             }
@@ -99,10 +100,11 @@
                 height: 30px;
                 display: flex;
                 align-items: center;
-                box-sizing:border-box;
+                box-sizing: border-box;
                 margin-right: 5px;
-              }
-              .toggle input[type="checkbox"] {
+            }
+
+            .toggle input[type="checkbox"] {
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -111,18 +113,20 @@
                 height: 100%;
                 cursor: pointer;
                 appearance: none;
-              }
-              .toggle label {
+            }
+
+            .toggle label {
                 position: relative;
                 display: flex;
                 height: 100%;
                 align-items: center;
-                box-sizing:border-box;
-              }
-              .toggle label:before {
+                box-sizing: border-box;
+            }
+
+            .toggle label:before {
                 content: '';
                 display: inline-block;
-                box-sizing:border-box;
+                box-sizing: border-box;
                 transition: 0.2s ease-in;
                 isolation: isolate;
                 position: relative;
@@ -130,8 +134,9 @@
                 width: 75px;
                 border-radius: 15px;
                 border: 1px solid #ccc;
-              }
-              .toggle label:after {
+            }
+
+            .toggle label:after {
                 content: '';
                 height: 30px;
                 width: 45px;
@@ -141,16 +146,17 @@
                 left: 0;
                 top: 0;
                 transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-              }
-              .toggle input[type="checkbox"]:checked + label:after {
+            }
+
+            .toggle input[type="checkbox"]:checked + label:after {
                 transform: translate3d(30px, 0, 0);
-              }
-    
+            }
+
             input {
                 margin: 5px 0;
             }
 
-            .btn-login{
+            .btn-login {
                 position: absolute;
                 background-color: #414141;
                 color: #fff;
@@ -160,7 +166,7 @@
                 font-size: 19px;
             }
 
-            .btn-register{
+            .btn-register {
                 position: absolute;
                 background-color: #1390c6;
                 color: #fff;
@@ -184,7 +190,7 @@
                 margin-top: 40px;
             }
         }
-    
+
         .link-sec {
             display: flex;
             justify-content: space-between;
@@ -192,6 +198,4 @@
             padding: 20px 0;
         }
     }
-
-   
 }

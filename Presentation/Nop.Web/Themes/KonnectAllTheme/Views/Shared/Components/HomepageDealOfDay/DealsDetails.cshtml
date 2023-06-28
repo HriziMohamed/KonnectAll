@@ -1,0 +1,182 @@
+﻿@model CategoryModel
+@using Nop.Core.Domain.Common
+@using Nop.Core.Domain.Seo
+@inject Nop.Core.IWebHelper webHelper
+@inject SeoSettings seoSettings
+@inject CommonSettings commonSettings
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+    .imgBrand img {
+        transition-duration: 0.4s;
+        border-radius: 25px;
+    }
+
+        .imgBrand img:hover {
+            border: 8px solid #28befe;
+            border-radius: 25px;
+            transition-duration: 0.4s;
+        }
+
+    .Hover {
+        border: 1px solid #000;
+    }
+</style>
+@functions {
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    }
+}
+@{
+    string idDivSubCatProd = Model.Id.ToString();
+}
+<input type="hidden" id="RequestVerificationToken"
+       name="RequestVerificationToken" value="@GetAntiXsrfRequestToken()">
+
+<section class="container beverages">
+    <div class="head-beverage">
+        <div class="title-sec">
+            <h4 class="text-black text-left">
+                @Model.Name
+            </h4>
+            <span class="line-after"></span>
+        </div>
+        <div class="right-section">
+            <div id="arrow-next" class="arrow-next"><</div>
+            <div id="arrow-prev" class="arrow-prev">></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 banner-beverage">
+            <img alt="" src="@Model.PictureModel.FullSizeImageUrl" class="beverage-banner">
+
+            <div class="content-banner-beverage">
+                <div class="font-light text-black-light text-capitalize text-small">for your need</div>
+                <h2 class="text-black-light text-left text-capitalize">fruit collection</h2>
+                <span class="font-light text-black-light text-small">from <h2 class="text-red text-uppercase font-normal">sar 5.00</h2></span>
+                <a href="#" class="btn-sm-black btn-border">
+                    <span class="btn-sm text-black-light  font-normal">shop now</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row brand-beverages">
+                <div class="row">
+                    <div class="slide-container">
+                        <div id="slider1">
+                            @foreach (var item in Model.SubCategories)
+                            {
+
+                                <div class="beverages-brand" id="divSubCategory" onclick="ShowProductsOfCategory_details(@Model.Id,@item.Id)">
+
+                                    <div class="img-brand">
+                                        <img alt="" class="prod-img" src="@item.PictureModel.FullSizeImageUrl">
+
+                                    </div>
+
+                                    <div class="product-details text-capitalize">
+                                        <h6>@item.Name</h6>
+                                    </div>
+
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @* TO DO: Changer nom div pour etre dynamique et non  categoryProducts *@
+                @* <div data-type="SubCategories" id="categoryProducts" > *@
+                <div data-type="SubCategories" id="@idDivSubCatProd"></div>
+                @if (Model.SubCategories != null && Model.SubCategories.Count > 0)
+                {
+                    var selectedCat = Model.SubCategories[0].Id;
+                    @foreach (var subCat in Model.SubCategories)
+                    {
+                        string displayStyle = subCat.Id == selectedCat ? "display:block" : "display:none";
+                        <div data-type="SubCategories" id="@subCat.Id" style="@displayStyle">
+                            @await Component.InvokeAsync("HomepageProducts", new { categoryId = subCat.Id })
+                        </div>
+
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<script>
+    function ShowProductsOfCategory_details(parentCategId, selectedSubCateg) {
+        console.log("selectedSubCateg");
+        console.log(selectedSubCateg);
+        console.log("parentCategId");
+        console.log(parentCategId);
+        var categoryId = selectedSubCateg;
+        /* $.ajax({
+                 type: "POST",
+                 url: "/Shop/ProductList",
+                 data: { "categoryId": categoryId },
+                 success: function (response) {
+                     console.log(response);
+                     $("#categoryProducts").html(response);
+                 },
+                 failure: function (response) {
+                     alert(response.responseText);
+                 },
+                 error: function (response) {
+                     alert(response.responseText);
+                 }
+             }); */
+        loadComponentView(parentCategId, categoryId);
+    }
+    function loadComponentView(parentCategId, categoryId) {
+
+        /* var paramsFromForm = {};
+         $.each($("#partialformAjaxWithComponent").serializeArray(), function (index, value) {
+             paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
+         }); */
+
+        var componentData = { "categoryId": categoryId };
+
+        /* componentData.standardValidation = paramsFromForm;
+         componentData.screenWidth = document.documentElement.clientWidth;*/
+        var idDiv = @idDivSubCatProd ;
+        console.log(idDiv);
+        console.log(componentData);
+
+        $.ajax({
+            url: window.location.origin + "/Shop/LoadComponent",
+            type: "post",
+            dataType: "json",
+            beforeSend: function (x) {
+                if (x && x.overrideMimeType) {
+                    x.overrideMimeType("application/json;charset=UTF-8");
+                };
+                x.setRequestHeader('RequestVerificationToken', document.getElementById('RequestVerificationToken').value);
+            },
+            data: componentData,
+            complete: function (result) {
+                //console.log(result.responseText);
+                //$("#categoryProducts").html(result.responseText);
+                //$('#'+categoryId).css("display", "block");
+                //$('#'+categoryId).html(result.responseText);
+                $('#' + parentCategId).html(result.responseText);
+
+            }
+        });
+    };
+</script>
+
+
+
+
+
+
+
+
+
+

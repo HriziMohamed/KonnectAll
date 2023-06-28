@@ -471,7 +471,7 @@ namespace Nop.Services.Common
             {
                 //excluding tax
 
-                var orderSubtotalExclTaxInCustomerCurrency = 
+                var orderSubtotalExclTaxInCustomerCurrency =
                     _currencyService.ConvertCurrency(order.OrderSubtotalExclTax, order.CurrencyRate);
                 var orderSubtotalExclTaxStr = await _priceFormatter.FormatPriceAsync(orderSubtotalExclTaxInCustomerCurrency, true,
                     order.CustomerCurrencyCode, languageId, false);
@@ -491,7 +491,7 @@ namespace Nop.Services.Common
                 {
                     //including tax
 
-                    var orderSubTotalDiscountInclTaxInCustomerCurrency =  
+                    var orderSubTotalDiscountInclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.OrderSubTotalDiscountInclTax, order.CurrencyRate);
                     var orderSubTotalDiscountInCustomerCurrencyStr = await _priceFormatter.FormatPriceAsync(
                         -orderSubTotalDiscountInclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, true);
@@ -505,7 +505,7 @@ namespace Nop.Services.Common
                 {
                     //excluding tax
 
-                    var orderSubTotalDiscountExclTaxInCustomerCurrency =  
+                    var orderSubTotalDiscountExclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.OrderSubTotalDiscountExclTax, order.CurrencyRate);
                     var orderSubTotalDiscountInCustomerCurrencyStr = await _priceFormatter.FormatPriceAsync(
                         -orderSubTotalDiscountExclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, false);
@@ -523,12 +523,12 @@ namespace Nop.Services.Common
                 if (order.CustomerTaxDisplayType == TaxDisplayType.IncludingTax)
                 {
                     //including tax
-                    var orderShippingInclTaxInCustomerCurrency =  
+                    var orderShippingInclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.OrderShippingInclTax, order.CurrencyRate);
                     var orderShippingInclTaxStr = await _priceFormatter.FormatShippingPriceAsync(
                         orderShippingInclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, true);
 
-                    var p = GetPdfCell($"{ await _localizationService.GetResourceAsync("PDFInvoice.Shipping", languageId)} {orderShippingInclTaxStr}", font);
+                    var p = GetPdfCell($"{await _localizationService.GetResourceAsync("PDFInvoice.Shipping", languageId)} {orderShippingInclTaxStr}", font);
                     p.HorizontalAlignment = Element.ALIGN_RIGHT;
                     p.Border = Rectangle.NO_BORDER;
                     totalsTable.AddCell(p);
@@ -536,9 +536,9 @@ namespace Nop.Services.Common
                 else
                 {
                     //excluding tax
-                    var orderShippingExclTaxInCustomerCurrency =  
+                    var orderShippingExclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.OrderShippingExclTax, order.CurrencyRate);
-                    var orderShippingExclTaxStr =  await _priceFormatter.FormatShippingPriceAsync(
+                    var orderShippingExclTaxStr = await _priceFormatter.FormatShippingPriceAsync(
                         orderShippingExclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, false);
 
                     var p = GetPdfCell($"{await _localizationService.GetResourceAsync("PDFInvoice.Shipping", languageId)} {orderShippingExclTaxStr}", font);
@@ -554,7 +554,7 @@ namespace Nop.Services.Common
                 if (order.CustomerTaxDisplayType == TaxDisplayType.IncludingTax)
                 {
                     //including tax
-                    var paymentMethodAdditionalFeeInclTaxInCustomerCurrency =  
+                    var paymentMethodAdditionalFeeInclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.PaymentMethodAdditionalFeeInclTax, order.CurrencyRate);
                     var paymentMethodAdditionalFeeInclTaxStr = await _priceFormatter.FormatPaymentMethodAdditionalFeeAsync(
                         paymentMethodAdditionalFeeInclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, true);
@@ -567,9 +567,9 @@ namespace Nop.Services.Common
                 else
                 {
                     //excluding tax
-                    var paymentMethodAdditionalFeeExclTaxInCustomerCurrency =  
+                    var paymentMethodAdditionalFeeExclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(order.PaymentMethodAdditionalFeeExclTax, order.CurrencyRate);
-                    var paymentMethodAdditionalFeeExclTaxStr =  await _priceFormatter.FormatPaymentMethodAdditionalFeeAsync(
+                    var paymentMethodAdditionalFeeExclTaxStr = await _priceFormatter.FormatPaymentMethodAdditionalFeeAsync(
                         paymentMethodAdditionalFeeExclTaxInCustomerCurrency, true, order.CustomerCurrencyCode, languageId, false);
 
                     var p = GetPdfCell($"{await _localizationService.GetResourceAsync("PDFInvoice.PaymentMethodAdditionalFee", languageId)} {paymentMethodAdditionalFeeExclTaxStr}", font);
@@ -636,7 +636,7 @@ namespace Nop.Services.Common
             //discount (applied to order total)
             if (order.OrderDiscount > decimal.Zero)
             {
-                var orderDiscountInCustomerCurrency =  
+                var orderDiscountInCustomerCurrency =
                     _currencyService.ConvertCurrency(order.OrderDiscount, order.CurrencyRate);
                 var orderDiscountInCustomerCurrencyStr = await _priceFormatter.FormatPriceAsync(-orderDiscountInCustomerCurrency,
                     true, order.CustomerCurrencyCode, false, languageId);
@@ -867,7 +867,7 @@ namespace Nop.Services.Common
                 if (order.CustomerTaxDisplayType == TaxDisplayType.IncludingTax)
                 {
                     //including tax
-                    var unitPriceInclTaxInCustomerCurrency =  
+                    var unitPriceInclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(orderItem.UnitPriceInclTax, order.CurrencyRate);
                     unitPrice = await _priceFormatter.FormatPriceAsync(unitPriceInclTaxInCustomerCurrency, true,
                         order.CustomerCurrencyCode, lang.Id, true);
@@ -875,7 +875,7 @@ namespace Nop.Services.Common
                 else
                 {
                     //excluding tax
-                    var unitPriceExclTaxInCustomerCurrency =  
+                    var unitPriceExclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(orderItem.UnitPriceExclTax, order.CurrencyRate);
                     unitPrice = await _priceFormatter.FormatPriceAsync(unitPriceExclTaxInCustomerCurrency, true,
                         order.CustomerCurrencyCode, lang.Id, false);
@@ -895,7 +895,7 @@ namespace Nop.Services.Common
                 if (order.CustomerTaxDisplayType == TaxDisplayType.IncludingTax)
                 {
                     //including tax
-                    var priceInclTaxInCustomerCurrency =  
+                    var priceInclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(orderItem.PriceInclTax, order.CurrencyRate);
                     subTotal = await _priceFormatter.FormatPriceAsync(priceInclTaxInCustomerCurrency, true, order.CustomerCurrencyCode,
                         lang.Id, true);
@@ -903,7 +903,7 @@ namespace Nop.Services.Common
                 else
                 {
                     //excluding tax
-                    var priceExclTaxInCustomerCurrency =  
+                    var priceExclTaxInCustomerCurrency =
                         _currencyService.ConvertCurrency(orderItem.PriceExclTax, order.CurrencyRate);
                     subTotal = await _priceFormatter.FormatPriceAsync(priceExclTaxInCustomerCurrency, true, order.CustomerCurrencyCode,
                         lang.Id, false);
@@ -994,7 +994,7 @@ namespace Nop.Services.Common
                         shippingAddressPdf.AddCell(new Paragraph(addressLine, font));
                     }
 
-                    if (_addressSettings.CountryEnabled &&  await _countryService.GetCountryByAddressAsync(shippingAddress) is Country country)
+                    if (_addressSettings.CountryEnabled && await _countryService.GetCountryByAddressAsync(shippingAddress) is Country country)
                     {
                         shippingAddressPdf.AddCell(
                             new Paragraph(indent + await _localizationService.GetLocalizedAsync(country, x => x.Name, lang.Id), font));
@@ -1191,7 +1191,20 @@ namespace Nop.Services.Common
             if (logoExists)
             {
                 var logoFilePath = await _pictureService.GetThumbLocalPathAsync(logoPicture, 0, false);
-                var logo = Image.GetInstance(logoFilePath);
+                //var logo = Image.GetInstance(logoFilePath);
+                Image logo;
+
+                if (logoPicture.MimeType == MimeTypes.ImageSvg)
+                {
+                    //we must first convert the SVG to PNG to show the image in the PDF document
+                    var picturePng = await _pictureService.ConvertSvgToPngAsync(logoFilePath);
+                    logo = Image.GetInstance(picturePng);
+                }
+                else
+                {
+                    logo = Image.GetInstance(logoFilePath);
+                }
+
                 logo.Alignment = GetAlignment(lang, true);
                 logo.ScaleToFit(65f, 65f);
 
@@ -1251,7 +1264,7 @@ namespace Nop.Services.Common
 
             var pageSize = PageSize.A4;
 
-            if (_pdfSettings.LetterPageSizeEnabled) 
+            if (_pdfSettings.LetterPageSizeEnabled)
                 pageSize = PageSize.Letter;
 
             var doc = new Document(pageSize);
@@ -1302,7 +1315,7 @@ namespace Nop.Services.Common
                 PrintFooter(pdfSettingsByStore, pdfWriter, pageSize, lang, font);
 
                 ordNum++;
-                if (ordNum < ordCount) 
+                if (ordNum < ordCount)
                     doc.NewPage();
             }
 
@@ -1512,7 +1525,7 @@ namespace Nop.Services.Common
                 doc.Add(productsTable);
 
                 shipmentNum++;
-                if (shipmentNum < shipmentCount) 
+                if (shipmentNum < shipmentCount)
                     doc.NewPage();
             }
 
@@ -1595,7 +1608,7 @@ namespace Nop.Services.Common
                 if (pictures.Any())
                 {
                     var table = new PdfPTable(2) { WidthPercentage = 100f };
-                    if (lang.Rtl) 
+                    if (lang.Rtl)
                         table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
 
                     foreach (var pic in pictures)

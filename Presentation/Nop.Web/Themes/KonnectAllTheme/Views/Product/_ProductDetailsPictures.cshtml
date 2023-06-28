@@ -9,32 +9,39 @@
                 <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" id="main-product-img-@Model.Id" />
             </a>
             <script asp-location="Footer">
-                 $(document).ready(function () {
-                     $('#main-product-img-lightbox-anchor-@Model.Id').magnificPopup({ type: 'image' });
+                $(document).ready(function () {
+                    $('#main-product-img-lightbox-anchor-@Model.Id').magnificPopup({ type: 'image' });
                 });
             </script>
         }
         else
         {
-            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" id="main-product-img-@Model.Id" />
+            <div class="main-img">
+                <img alt="@Model.DefaultPictureModel.AlternateText" class="img-main active" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" id="main-product-img-@Model.Id">
+            </div>
+
         }
     </div>
     @if (Model.PictureModels.Count > 1 && Model.DefaultPictureZoomEnabled)
     {
         <link rel="stylesheet" href="~/lib_npm/magnific-popup/magnific-popup.css" />
         <script asp-exclude-from-bundle="true" src="~/lib_npm/magnific-popup/jquery.magnific-popup.min.js" asp-location="Footer"></script>
+
         <div class="picture-thumbs">
+
             @foreach (var picture in Model.PictureModels)
             {
-                <a class="thumb-item" href="@picture.FullSizeImageUrl" alt="@picture.AlternateText" title="@picture.Title">
-                    <img src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" data-defaultsize="@picture.ImageUrl" data-fullsize="@picture.FullSizeImageUrl" />
-                </a>
+                <div class="img-second">
+                    <img class="img-product" src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" data-defaultsize="@picture.ImageUrl" data-fullsize="@picture.FullSizeImageUrl" />
+                </div>
+
             }
+
         </div>
         <script asp-location="Footer">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('.picture-thumbs').magnificPopup(
-                     {
+                    {
                         type: 'image',
                         delegate: 'a',
                         removalDelay: 300,
@@ -48,20 +55,20 @@
                         },
                         tClose: '@T("Media.MagnificPopup.Close")',
                         tLoading: '@T("Media.MagnificPopup.Loading")'
-                     });
-                });
+                    });
+            });
         </script>
         <script asp-location="Footer">
-                $(document).ready(function() {
-                    $('.thumb-item > img').on('click',
-                        function() {
-                            $('#main-product-img-@Model.Id').attr('src', $(this).attr('data-defaultsize'));
-                            $('#main-product-img-@Model.Id').attr('title', $(this).attr('title'));
-                            $('#main-product-img-@Model.Id').attr('alt', $(this).attr('alt'));
-                            $('#main-product-img-lightbox-anchor-@Model.Id').attr('href', $(this).attr('data-fullsize'));
-                            $('#main-product-img-lightbox-anchor-@Model.Id').attr('title', $(this).attr('title'));
-                        });
-                });
+            $(document).ready(function () {
+                $('.thumb-item > img').on('click',
+                    function () {
+                        $('#main-product-img-@Model.Id').attr('src', $(this).attr('data-defaultsize'));
+                        $('#main-product-img-@Model.Id').attr('title', $(this).attr('title'));
+                        $('#main-product-img-@Model.Id').attr('alt', $(this).attr('alt'));
+                        $('#main-product-img-lightbox-anchor-@Model.Id').attr('href', $(this).attr('data-fullsize'));
+                        $('#main-product-img-lightbox-anchor-@Model.Id').attr('title', $(this).attr('title'));
+                    });
+            });
         </script>
     }
     else
@@ -85,22 +92,23 @@
                     @foreach (var picture in Model.PictureModels)
                     {
                         <a class="thumb-popup-link thumb-item">
-                            <img class="lazyOwl" data-src="@picture.ThumbImageUrl" src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" data-defaultsize="@picture.ImageUrl" data-fullsize="@picture.FullSizeImageUrl" />
+                            <img class="lazyOwl" data-src="@picture.ThumbImageUrl" src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" 
+                            data-defaultsize="@picture.ImageUrl" data-fullsize="@picture.FullSizeImageUrl" />
                         </a>
                     }
                 </div>
             }
             <script asp-location="Footer">
-            $(document).ready(function () {
-                 $('.thumb-item img').on('click', function () {
-                    $('#main-product-img-@Model.Id').attr('src', $(this).attr('data-defaultsize'));
-                    $('#main-product-img-@Model.Id').attr('title', $(this).attr('title'));
-                    $('#main-product-img-@Model.Id').attr('alt', $(this).attr('alt'));
-                    $('#main-product-img-lightbox-anchor-@Model.Id').attr('href', $(this).attr('data-fullsize'));
-                    $('#main-product-img-lightbox-anchor-@Model.Id').attr('title', $(this).attr('title'));
+                $(document).ready(function () {
+                    $('.thumb-item img').on('click', function () {
+                        $('#main-product-img-@Model.Id').attr('src', $(this).attr('data-defaultsize'));
+                        $('#main-product-img-@Model.Id').attr('title', $(this).attr('title'));
+                        $('#main-product-img-@Model.Id').attr('alt', $(this).attr('alt'));
+                        $('#main-product-img-lightbox-anchor-@Model.Id').attr('href', $(this).attr('data-fullsize'));
+                        $('#main-product-img-lightbox-anchor-@Model.Id').attr('title', $(this).attr('title'));
 
+                    });
                 });
-            });
             </script>
         }
     }

@@ -236,7 +236,7 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
     
     &::after{
         content: '';
-        background-image: url("./assets/img/arrow-right-black.svg");
+        background-image: url("../images/arrow-right-black.svg");
         background-repeat: no-repeat;
         display: inline-block;
         transition-property: width;
@@ -253,7 +253,7 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
     }
 
     &.best-sellers::after{
-        background-image: url("./assets/img/arrow-right-yellow.svg");
+        background-image: url("../images/arrow-right-yellow.svg");
     }
     
     &.best-sellers:hover:after, &.best-sellers:active:after {
@@ -275,9 +275,10 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
     position: relative;
     display: flex;
     text-transform: uppercase;
+
     &:after {
         content: "";
-        background-image: url('assets/img/category/arrow-sidebar.png');
+        background-image: url('../images/category/arrow-sidebar.png');
         width: 35px;
         height: 20px;
         transform: scale(0.6);
@@ -305,9 +306,10 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
     display: flex;
     align-items: center;
     text-transform: uppercase;
+
     &:after {
         content: "";
-        background-image: url('assets/img/banner/arrow-banner.png');
+        background-image: url('../images/banner/about-banner.png');
         width: 35px;
         height: 20px;
         transform: scale(0.6);
@@ -329,7 +331,7 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
     position: relative;
     /*::after {
         content: "";
-        background-image: url('assets/img/category/arrow-sidebar.png');
+        background-image: url('../images/category/arrow-sidebar.png');
         display: inline-block;
         background-repeat: no-repeat;
         width: 32px;
@@ -340,9 +342,9 @@ button, .button, .btn, input[type="button"], input[type="reset"], input[type="su
         transition: all 0.4s;
       }*/
 
-      &:hover {
+    &:hover {
         padding-left: 10px;
-      }
+    }
 }
 
 /* Other forms */

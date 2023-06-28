@@ -1,4 +1,4 @@
-﻿@model CategoryNavigationModel
+﻿@*@model CategoryNavigationModel
 
 @functions {
     bool BreadCrumbContainsCurrentCategoryId(CategorySimpleModel category)
@@ -79,6 +79,11 @@
                         Category = category
                     };
                     await CategoryLine(categoryLineModel);
+
+                    //<li>
+                    //    <input type="checkbox" method="post" name="checked">
+                    //    @category.Name
+                    //</li>
                 }
             </ul>
         </div>
@@ -86,9 +91,221 @@
 
 
 }
+*@
+
+@model CategoryNavigationModel
+
+@functions {
+    bool BreadCrumbContainsCurrentCategoryId(CategorySimpleModel category)
+    {
+        if (Model.CurrentCategoryId == 0)
+            return false;
+
+        if (category.Id == Model.CurrentCategoryId)
+            return true;
+
+        foreach (var subCategory in category.SubCategories)
+        {
+            if (BreadCrumbContainsCurrentCategoryId(subCategory))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    async Task CategoryLine(CategoryNavigationModel.CategoryLineModel lineModel)
+    {
+        var active = lineModel.Category.Id == lineModel.CurrentCategoryId || lineModel.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0;
+        var last = lineModel.Category.Id == lineModel.CurrentCategoryId;
+        var liClass = active ? "active" : "inactive";
+        if (last)
+        {
+            liClass += " last";
+        }
+
+        <li class="@liClass" style="list-style: square;">
+            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })" style="font-size:18px;position: relative;">
+                @lineModel.Category.Name
+                @if (lineModel.Category.NumberOfProducts.HasValue)
+                {
+                    <text> </text>
+
+                    @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
+                }
+            </a>
+            @{
+                if (lineModel.Category.Id == lineModel.CurrentCategoryId ||
+                lineModel.Category.SubCategories.Count(BreadCrumbContainsCurrentCategoryId) > 0)
+                {
+                    if (lineModel.Category.SubCategories.Count > 0)
+                    {
+                        <ul class="sublist" style="padding-left:30px;">
+                            @foreach (var subCategory in lineModel.Category.SubCategories)
+                            {
+                                var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
+                        {
+                            CurrentCategoryId = lineModel.CurrentCategoryId,
+                            Category = subCategory
+                        };
+                                await CategoryLine(categoryLineModel);
+                            }
+                        </ul>
+                    }
+                }
+            }
+        </li>
+    }
+}
+<style>
+    /*********** SIDE COLUMN ***********/
 
 
+    .block .title strong {
+        font-weight: normal !important;
+    }
+
+    .block {
+        max-width: 600px /*width limit in mobile*/
+        min-height: 50px !important;
+        margin: auto !important;
+        text-align: left !important;
+    }
+
+        .block .title {
+            position: relative !important;
+            margin: 0 0 10px !important;
+            border-bottom: 1px solid #ddd !important;
+            background: #f6f6f6 url('../images/toggle-gray.png') right 14px no-repeat !important;
+            padding: 12px 30px 12px 10px !important;
+            font-size: 20px !important;
+            color: #444 !important;
+            cursor: pointer !important;
+        }
+
+        .block .listbox {
+            @*display: none !important ;*@ 
+            border-bottom: 1px solid #ddd !important;
+            padding: 10px 5px !important;
+        }
+
+        .block .list li {
+            padding: 5px 0 5px 15px !important;
+        }
+
+        .block .list a {
+            display: inline-block !important;
+            position: relative !important;
+            padding: 5px 0 !important;
+            font-size: 16px !important;
+            color: #444 !important;
+            -webkit-transition: all 0.1s ease !important;
+            transition: all 0.1s ease !important;
+        }
+
+            .block .list a:before {
+                content: "" !important;
+                position: absolute !important;
+                top: 12px !important;
+                left: -15px !important;
+                width: 5px !important;
+                height: 5px !important;
+                background-color: #ddd !important;
+            }
+
+        .block .list .active > a {
+            color: #4ab2f1 !important;
+        }
+
+        .block .list a:hover,
+        .block .list a:focus {
+            color: #4ab2f1 !important;
+        }
+
+        .block a.product-picture {
+            display: none !important;
+        }
+
+            .block a.product-picture:before {
+                display: none !important;
+            }
+
+        .block .sublist {
+            margin: 15px 0 5px !important;
+        }
+
+            .block .sublist a {
+                font-size: 14px !important;
+            }
+
+        .block .view-all {
+            margin: 10px 0 0 !important;
+        }
+
+            .block .view-all a {
+                display: inline-block !important;
+                padding: 10px 15px !important;
+                font-size: 16px !important;
+                color: #4ab2f1 !important;
+            }
+
+                .block .view-all a:hover,
+                .block .view-all a:focus {
+                    text-decoration: underline !important;
+                }
+
+        .block .tags {
+            margin: 5px 0 10px !important;
+        }
+
+            .block .tags ul {
+                font-size: 0 !important;
+            }
+
+            .block .tags li,
+            .product-tags-all-page li {
+                display: inline-block !important;
+                position: relative !important;
+                margin: 0 10px !important;
+                overflow: hidden !important;
+                font-size: 17px !important !important; /*setting base size*/
+            }
+
+                .block .tags li a,
+                .product-tags-all-page li a {
+                    float: left !important;
+                    line-height: 30px !important;
+                    color: #444 !important;
+                }
+
+                    .block .tags li a:hover,
+                    .block .tags li a:focus,
+                    .product-tags-all-page li a:hover,
+                    .product-tags-all-page li a:focus {
+                        color: #4ab2f1 !important;
+                    }
 
 
-
-
+</style>
+@if (Model.Categories.Count > 0)
+{
+    <div class="block block-category-navigation well box-shadow-wrapper">
+        <div class="title main-title">
+            <strong>@T("Categories")</strong>
+        </div>
+        <div class="listbox">
+            <ul class="nav nav-list" style="list-style: square !important;">
+                @foreach (var category in Model.Categories)
+                {
+                    var categoryLineModel = new CategoryNavigationModel.CategoryLineModel
+                    {
+                        CurrentCategoryId = Model.CurrentCategoryId,
+                        Category = category
+                    };
+                    await CategoryLine(categoryLineModel);
+                }
+            </ul>
+        </div>
+    </div>
+}

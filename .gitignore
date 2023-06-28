@@ -30,8 +30,9 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Oo]ut/
-[Ll]og/
-[Ll]ogs/
+# Folder Log exist in Plugin Tax.Avalara
+#[Ll]og/
+#[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -362,3 +363,25 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Presentation/Nop.Web/wwwroot/images/thumbs
+*.dll
+/Plugins/KonnectAll.Front.Api/Validators
+/Plugins/KonnectAll.Front.Api/Services
+/Plugins/KonnectAll.Front.Api/Models
+/Plugins/KonnectAll.Front.Api/ModelBinders
+/Plugins/KonnectAll.Front.Api/Maps
+/Plugins/KonnectAll.Front.Api/MappingExtensions
+/Plugins/KonnectAll.Front.Api/JSON
+/Plugins/KonnectAll.Front.Api/Infrastructure
+/Plugins/KonnectAll.Front.Api/Helpers
+/Plugins/KonnectAll.Front.Api/Factories
+/Plugins/KonnectAll.Front.Api/DTOs
+/Plugins/KonnectAll.Front.Api/Domain
+/Plugins/KonnectAll.Front.Api/Delta
+/Plugins/KonnectAll.Front.Api/DataStructures
+/Plugins/KonnectAll.Front.Api/Converters
+/Plugins/KonnectAll.Front.Api/Controllers
+/Plugins/KonnectAll.Front.Api/Configuration
+/Plugins/KonnectAll.Front.Api/AutoMapper
+/Plugins/KonnectAll.Front.Api/Authorization
+/Plugins/KonnectAll.Front.Api/Attributes
+/Plugins/KonnectAll.Front.Api/Areas/Admin

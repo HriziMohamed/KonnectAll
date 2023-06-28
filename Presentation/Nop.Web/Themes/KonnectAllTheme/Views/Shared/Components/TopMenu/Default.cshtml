@@ -4,7 +4,7 @@
     async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
     {
         <li>
-            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })">
+                                                                                    <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })">
                 @lineModel.Category.Name
                 @if (lineModel.Category.NumberOfProducts.HasValue)
                 {
@@ -12,7 +12,7 @@
 
                     @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
                 }
-            </a>
+                                                                                    </a>
             @{
                 //subcategories
                 var subCategories = lineModel.ResponsiveMobileMenu ?
@@ -28,8 +28,8 @@
                 }
                 if (subCategories.Count > 0)
                 {
-                    <div class="sublist-toggle"></div>
-                    <ul class="sublist @levelClass">
+                                                                                                                                                                    <div class="sublist-toggle"></div>
+                                                                                                                                                                    <ul class="sublist @levelClass">
                         @foreach (var subCategory in subCategories)
                         {
                             var categoryLineModel = new TopMenuModel.CategoryLineModel
@@ -40,7 +40,7 @@
                     };
                             await CategoryLine(categoryLineModel);
                         }
-                    </ul>
+                                                                                                                                                                    </ul>
                 }
             }
         </li>
@@ -96,7 +96,7 @@
                     <a class="font-medium text-black" href="/Auction">Auctions</a>
                 </li>
                 <li class="menu-item menu-item-has-children">
-                    <a class="font-medium text-black" href="B2B-category.html">
+                    <a class="font-medium text-black" href="/Shop">
                         B2B Shop
                         <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </a>
@@ -116,7 +116,7 @@
                                                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore, additionalData = Model })
                                                 @if (Model.DisplayHomepageMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("HomePage")"><i class="fa fa-home fa-fw"></i></a></li>
+                                                                                        <li><a href="@Url.RouteUrl("HomePage")"><i class="fa fa-home fa-fw"></i></a></li>
                                                 }
                                                 @if (!Model.UseAjaxMenu)
                                                 {
@@ -127,104 +127,156 @@
                     {
                         Category = category
                     };
-                                                        @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                                                            //@await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+
+
+                                                        @if (category.SubCategories.Count > 0)
+                                                        {
+                                                            int i = 1;
+                                                                                                                                                                        <div class="col-md-6">
+                                                                                                                                                                            <div class="menu-item-mega">
+                                                                                                                                                                                <li class="menu-item">
+                                                                                                                                                                                    <a style="font-size: 12px;font-weight: 500; padding: 8px;color: #000 !important;position: relative;display: inline-block; line-height: 1;">@category.Name</a>
+                                                                                                                                                                                </li>
+                                                                                                                                                                            </div>
+                                                                                                                                                                            <div class="mega-menu-submenu">
+                                                                                                                                                                                <ul class="sub-menu">
+                                                                        @foreach (var item in @category.SubCategories)
+                                                                        {                                                                                        
+                                                                            @* <li class="menu-item">
+                                                                                        <a href="#">@item.Name</a>
+                                                                                        </li> *@
+                                                                            if (i <= 6)
+                                                                            {
+                                                                                                                                                                                                                                                                                <li style="border:0;margin: 0;padding: 0;text-decoration: none;list-style-type: none;display: list-item;font-size: 14px;line-height: 1.42857143;color: #333;font: normal 16px/24px " Gotham", sans-serif;font-weight: 300;">
+                                                                                                                                                                                                                                                                                                        <a href="@Url.RouteUrl("Category", new { SeName = @item.SeName })" >@item.Name</a>
+                                                                                                                                                                                                                                                                                </li>
+                                                                            }
+                                                                            i++;
+                                                                        }
+                                                                                                                                                                                </ul>
+                                                                                                                                                                            </div>
+                                                                                                                                                                      </div>
+                                                        }
+
+
                                                     }
                                                 }
                                                 @foreach (var topic in Model.Topics)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                                                                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
                                                 }
                                                 @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
                                                 }
                                                 @if (Model.DisplayProductSearchMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
                                                 }
                                                 @if (Model.DisplayCustomerInfoMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
                                                 }
                                                 @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
                                                 }
                                                 @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
                                                 }
                                                 @if (Model.DisplayContactUsMenuItem)
                                                 {
-                                                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                                                                        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
                                                 }
                                                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter, additionalData = Model })
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">New Products</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">Top-Selling</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">Hot deals</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">Back in Stock</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">Refurbished</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">By supplier</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">Gifts</a>
-                                </li>
-                                <li class="top-menu-item">
-                                    <a href="#">See All</a>
-                                </li>
                             </ul>
                         </div>
                     </div>
                 </li>
+                <li class="top-menu-item">
+                    <a href="/Shop">Hot deals</a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop">Top-Selling</a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop">See All</a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                 <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                 <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                 <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+                <li class="top-menu-item">
+                    <a href="/Shop"></a>
+                </li>
+
+
             </ul>
         </div>
-        <div class="mobile-display">
-            <div class="toggle-nav-menu" id="toggle-menu">
-                <div class="burg-icon">
-                    <div class="burg"></div>
-                </div>
-            </div>
+    </div>
+    </li>
+    </ul>
+</div>
+<div class="mobile-display">
+    <div class="toggle-nav-menu" id="toggle-menu">
+        <div class="burg-icon">
+            <div class="burg"></div>
         </div>
-        <div class="mobile-menu-wrap" id="mobile-menu">
-            <nav class="mobile-menu navigation-menu">
-                <ul class="menu">
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">Get to know us</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">Our Solutions</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">Technology and Operations</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">Grossiste dropshipping</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">Auctions</a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="font-medium text-black" href="#">B2B Shop</a>
+    </div>
+</div>
+<div class="mobile-menu-wrap" id="mobile-menu">
+    <nav class="mobile-menu navigation-menu">
+        <ul class="menu">
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">Get to know us</a>
+            </li>
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">Our Solutions</a>
+            </li>
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">Technology and Operations</a>
+            </li>
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">Grossiste dropshipping</a>
+            </li>
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">Auctions</a>
+            </li>
+            <li class="menu-item">
+                <a class="font-medium text-black" href="#">B2B Shop</a>
 
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            </li>
+        </ul>
+    </nav>
+</div>
     </div>
 </div>
 

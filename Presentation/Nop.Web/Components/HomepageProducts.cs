@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Services.Catalog;
@@ -27,15 +28,13 @@ namespace Nop.Web.Components
             _storeMappingService = storeMappingService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int? productThumbPictureSize)
+
+        public async Task<IViewComponentResult> InvokeAsync(int categoryId, int? productThumbPictureSize)
         {
-            var products = await (await _productService.GetAllProductsDisplayedOnHomepageAsync())
-            //ACL and store mapping
-            .WhereAwait(async p => await _aclService.AuthorizeAsync(p) && await _storeMappingService.AuthorizeAsync(p))
-            //availability dates
-            .Where(p => _productService.ProductIsAvailable(p))
-            //visible individually
-            .Where(p => p.VisibleIndividually).ToListAsync();
+
+            var products = await _productService.SearchProductsAsync(0,
+               categoryIds: new List<int> { categoryId }
+               );
 
             if (!products.Any())
                 return Content("");

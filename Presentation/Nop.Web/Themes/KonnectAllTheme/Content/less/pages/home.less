@@ -143,6 +143,10 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+
+                @media (max-width:768px) {
+                    min-height: 130px;
+                }
             }
 
             .content-text {
@@ -251,7 +255,7 @@
 
             &:before {
                 content: "";
-                background-image: url("./assets/img/newsletter/arrow.png");
+                background-image: url("../images/newsletter/arrow.png");
                 width: 100px;
                 height: 20px;
                 position: absolute;
@@ -261,7 +265,7 @@
             }
 
             .content-newsletter {
-                background-image: url("./assets/img/newsletter/news-imgl.png");
+                background-image: url("../images/newsletter/news-imgl.png");
                 background-repeat: no-repeat;
                 background-size: contain;
                 padding-bottom: 30px;

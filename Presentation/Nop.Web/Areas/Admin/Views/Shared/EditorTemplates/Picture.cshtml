@@ -22,12 +22,12 @@
     <input type="hidden" asp-for="@Model" />
 </div>
 <div class="upload-picture-block">
-    <div class="picture-container">
-        <div id="@(clientId + "image")" class="uploaded-image">
+    <div class="picture-container" >
+        <div id="@(clientId + "image")" class="uploaded-image" style="background-color: #ccc;">
             <img src="@(await pictureService.GetPictureUrlAsync(Model, pictureSize, true))" />
         </div>
     </div>
-    <div class="upload-button-container">
+    <div class="upload-button-container" >
         @*fine uploader container*@
         <div id="@clientId" class="upload-image-button float-left px-md-1">
             <noscript>
@@ -87,7 +87,7 @@
             template: "@(clientId)-qq-template",
             multiple: false,
             validation: {
-                allowedExtensions: [ "bmp", "gif", "jpeg", "jpg", "jpe", "jfif", "pjpeg", "pjp", "png", "tiff", "tif", "webp"]
+                allowedExtensions: [ "bmp", "gif", "jpeg", "jpg", "jpe", "jfif", "pjpeg", "pjp", "png", "tiff", "tif", "webp", "svg"]
             }
         }).on("complete", function(event, id, name, responseJSON, xhr) {
             if (responseJSON.success) {

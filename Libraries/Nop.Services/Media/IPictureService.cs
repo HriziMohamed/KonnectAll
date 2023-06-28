@@ -258,5 +258,12 @@ namespace Nop.Services.Media
         /// The task result contains the picture binary
         /// </returns>
         Task<PictureBinary> GetPictureBinaryByPictureIdAsync(int pictureId);
+        /// <summary>
+        /// Convert image from SVG format to PNG
+        /// </summary>
+        /// <param name="filePath">SVG file path</param>
+        /// <returns>A task that represents the asynchronous operation
+        /// The task result contains the byte array</returns>
+        Task<byte[]> ConvertSvgToPngAsync(string filePath);
     }
 }

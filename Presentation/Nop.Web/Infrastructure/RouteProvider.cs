@@ -32,6 +32,11 @@ namespace Nop.Web.Infrastructure
                 pattern: $"{lang}",
                 defaults: new { controller = "Home", action = "Index" });
 
+            //B2B shop page
+            endpointRouteBuilder.MapControllerRoute(name: "B2BShop",
+                pattern: $"{lang}",
+                defaults: new { controller = "Shop", action = "Index" });
+
             //login
             endpointRouteBuilder.MapControllerRoute(name: "Login",
                 pattern: $"{lang}/login/",

@@ -21,11 +21,11 @@
     var urlBuilder = createProductsURLBuilder(this.settings.browserPath);
 
     if (pageNumber) {
-      urlBuilder.addParameter('pagenumber', pageNumber);
+      urlBuilder.addParameter("pagenumber", pageNumber);
     }
 
     var beforePayload = {
-      urlBuilder
+      urlBuilder,
     };
     $(this).trigger({ type: "before", payload: beforePayload });
 
@@ -40,9 +40,9 @@
       this.params.jqXHR = $.ajax({
         cache: false,
         url: urlBuilder.addBasePath(this.settings.fetchUrl).build(),
-        type: 'GET',
+        type: "GET",
         success: function (response) {
-          $('.products-wrapper').html(response);
+          $(".products-wrapper").html(response);
           $(self).trigger({ type: "loaded" });
         },
         error: function () {
@@ -50,13 +50,13 @@
         },
         complete: function () {
           self.setLoadWaiting();
-        }
+        },
       });
     }
   },
 
   setLoadWaiting(enable) {
-    var $busyEl = $('.ajax-products-busy');
+    var $busyEl = $(".ajax-products-busy");
     if (enable) {
       $busyEl.show();
     } else {
@@ -65,15 +65,56 @@
   },
 
   setBrowserHistory(url) {
-    window.history.replaceState({ path: url }, '', url);
-  }
-}
+    window.history.replaceState({ path: url }, "", url);
+  },
+  getCategoryProducts: function (pageNumber) {
+    if (this.params.jqXHR && this.params.jqXHR.readyState !== 4) {
+      this.params.jqXHR.abort();
+    }
+
+    var urlBuilder = createProductsURLBuilder(this.settings.browserPath);
+
+    if (pageNumber) {
+      urlBuilder.addParameter("pagenumber", pageNumber);
+    }
+
+    var beforePayload = {
+      urlBuilder,
+    };
+    $(this).trigger({ type: "before", payload: beforePayload });
+
+    this.setBrowserHistory(urlBuilder.build());
+
+    if (!this.settings.ajax) {
+      setLocation(urlBuilder.build());
+    } else {
+      this.setLoadWaiting(1);
+
+      var self = this;
+      this.params.jqXHR = $.ajax({
+        cache: false,
+        url: urlBuilder.addBasePath(this.settings.fetchUrl).build(),
+        type: "GET",
+        success: function (response) {
+          $(".products-wrapper").html(response);
+          $(self).trigger({ type: "loaded" });
+        },
+        error: function () {
+          $(self).trigger({ type: "error" });
+        },
+        complete: function () {
+          self.setLoadWaiting();
+        },
+      });
+    }
+  },
+};
 
 function createProductsURLBuilder(basePath) {
   return {
     params: {
       basePath: basePath,
-      query: {}
+      query: {},
     },
 
     addBasePath: function (url) {
@@ -90,9 +131,7 @@ function createProductsURLBuilder(basePath) {
       var query = $.param(this.params.query);
       var url = this.params.basePath;
 
-      return url.indexOf('?') !== -1
-        ? url + '&' + query
-        : url + '?' + query;
-    }
-  }
+      return url.indexOf("?") !== -1 ? url + "&" + query : url + "?" + query;
+    },
+  };
 }

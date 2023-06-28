@@ -1,16 +1,735 @@
-.shop-page .cosmetics .brand-cosmetics {
+/*main: ../../style.less*/
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# shop style page
+--------------------------------------------------------------*/
+.shop-page .services {
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+}
+@media (max-width: 768px) {
+  .shop-page .services {
+    margin: 25px 15px;
+  }
+}
+.shop-page .services .content-service {
   display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .shop-page .services .content-service {
+    justify-content: center;
+  }
+}
+.shop-page .services .content-service .icon-service {
+  transform: scale(0.8);
+  margin-right: 10px;
+}
+@media (max-width: 768px) {
+  .shop-page .services .content-service .icon-service {
+    width: 10%;
+  }
+}
+.shop-page .services .content-service p {
+  font-size: 12px;
+}
+.shop-page .collection {
+  margin: 25px auto;
+}
+.shop-page .collection .left-collection {
+  padding-left: 0;
+}
+@media (max-width: 768px) {
+  .shop-page .collection .left-collection {
+    padding-left: 15px;
+  }
+}
+.shop-page .collection .right-collection {
+  padding-right: 0;
+}
+@media (max-width: 768px) {
+  .shop-page .collection .right-collection {
+    padding-right: 15px;
+  }
+}
+.shop-page .collection img.collection-img {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .shop-page .collection .left-collection {
+    margin-bottom: 20px;
+  }
+}
+.shop-page .collection .content-collection-sect {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translateY(-50%) translateX(-20%);
+}
+.shop-page .collection .content-collection-sect h2 {
+  margin: 18px 0;
+}
+.shop-page .deals {
+  margin-top: 25px;
+}
+.shop-page .deals .head {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.shop-page .deals .head .title-sec {
+  text-align: left;
+  margin: 10px 0;
+}
+.shop-page .deals .head .title-sec h4 {
+  font-size: 18px;
+}
+.shop-page .deals .product-title {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.shop-page .deals .product-title .product-deals {
+  /*.bottom-info-deals {
+                    .row{
+                        margin-left: 0;
+                        margin-right: 0;
+                        display: flex;
+                        align-items: center;
+
+                        .left-content {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            padding: 5px 10px;
+                            margin-left: 5px;
+
+                            .input-number-decrement, .input-number-increment {
+                                transform: scale(0.7);
+                            }
+    
+                            input {
+                                border: 1px solid transparent !important;
+                                padding: unset;
+                            }
+                        }
+
+                        .right-content {
+                            width: 100%;
+                            position: relative;
+                            padding: 9px 22px;
+                            background-color: #ccc;
+                            border-radius: 5px;
+                            display: flex;
+                            justify-content: center;
+                            margin-right: 5px;
+
+                            .add-cart {
+                                &:before {
+                                    content: "";
+                                    background-image: url("./assets/img/product/cart-icon.png");
+                                    position: absolute;
+                                    width: 18px;
+                                    height: 20px;
+                                    left: 10px;
+                                    transform: scale(0.8);
+                                }
+                            }
+                        }
+                        
+                    }
+
+                    .social-media {
+                        margin:10px 0;
+
+                        .share-media {
+                            padding: 5px;
+                            border:1px solid #000;
+                            border-radius: 50%;
+                        }
+                    }
+                    
+                }*/
+}
+.shop-page .deals .product-title .product-deals .product-info .title-product {
+  font-size: 22px !important;
+  border-bottom: 1px solid #ccc !important;
+  font-size: 14px ;
+  line-height: 1.42857143 !important;
+  color: #333 !important;
+}
+.shop-page .deals .product-title .product-deals .product-info .info-product {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.shop-page .deals .product-title .product-deals .product-info .info-product .review {
+  margin: 10px 0;
+}
+.shop-page .deals .product-title .product-deals .product-info .info-product .price h3 {
+  margin-bottom: 0;
+}
+.shop-page .deals .product-title .product-deals .product-info .info-product .date .number-days {
+  color: #28befe;
+}
+.shop-page .deals .product-title .product-deals .product-info .info-product .size .lr,
+.shop-page .deals .product-title .product-deals .product-info .info-product .size .sm {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.shop-page .deals .product-title .product-deals .bottom-info-deals .social-media-icon {
+  padding: 0;
+}
+.shop-page .deals .product-title .product-deals .bottom-info-deals .social-media-icon .social-media {
+  position: relative;
+  /* .share-media::before {
+                                position: absolute;
+                                content: "";
+                                width: 1px;
+                                background-color: #bbb;
+                                right: 0;
+                                top: 0;
+                                height: 100%;
+                            }*/
+}
+.shop-page .deals .product-title .product-deals .bottom-info-deals .social-media-icon .social-media:before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  background-color: #bbb;
+  right: 8px;
+  top: 0;
+  height: 100%;
+}
+.shop-page .deals .product-title .product-deals .bottom-info-deals .wishlist-icon {
+  padding: 0;
+}
+.shop-page .deals .product-title .product-deals .bottom-info-deals .wishlist-icon .fa-heart::before {
+  border-color: transparent;
+}
+.shop-page .deals .product-section {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.shop-page .deals .img-product {
+  display: flex;
+}
+.shop-page .deals .img-product .secon-img img,
+.shop-page .deals .img-product .main-img img {
+  width: 100%;
+}
+.shop-page .deals .navbar {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  /*.content-navbar {
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                
+
+                .product-info {
+                   margin: 10px 15px;
+                  .review {
+                    display: flex;
+                    align-items: center;
+                  }
+                }
+            }*/
+}
+@media (max-width: 768px) {
+  .shop-page .deals .navbar {
+    margin: 15px;
+  }
+}
+.shop-page .deals .navbar .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.shop-page .deals .navbar .row .content-navbar {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+}
+.shop-page .deals .navbar .row .content-navbar .img {
+  background-color: #f6f6f6;
+  padding: 10px;
+  border-radius: 2px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+.shop-page .deals .navbar .row .content-navbar .review {
+  margin: 10px 0;
+}
+.shop-page .deals .navbar .row .content-navbar .product-info {
+  margin: 10px 15px;
+}
+.shop-page .deals .navbar .row .content-navbar .product-info .review {
+  display: flex;
+  align-items: center;
+}
+.shop-page .popular-categ {
+  background-color: #ededed;
+  margin-top: -65px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+.shop-page .popular-categ .head-popular-categ {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.shop-page .cosmetics .brand-cosmetics .cosmetics-brand {
+.shop-page .popular-categ .content-popular-categ {
+  /* display: flex;
+            overflow: hidden;
+            @media (max-width: 768px) {
+                display: block;
+            }*/
+  /* #item {
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(14rem,1fr));
+                grid-gap: 1rem;
+    
+                @media (max-width:1200px) {
+                    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+                    grid-gap: 4rem;
+                    padding-left: 15px;
+                }
+            }*/
+  /*.row {
+                display: flex;
+                margin-left: 0;
+                margin-right: 0;
+                @media (max-width: 768px) {
+                    margin-left: -15px;
+                    margin-right: -15px;
+                }
+            }*/
+}
+.shop-page .popular-categ .content-popular-categ .slide-container section .thumbnail {
+  background: transparent;
+  border-color: transparent;
+}
+.shop-page .popular-categ .content-popular-categ .slide-container section .thumbnail > img {
+  max-width: 170px;
+  margin-bottom: 10px;
+}
+.shop-page .popular-categ .content-popular-categ .slide-container section .thumbnail .product-details {
+  background-color: transparent;
+}
+.shop-page .popular-categ .content-popular-categ .product .product-img {
+  min-height: auto;
+  width: 142px;
+}
+.shop-page .popular-categ .content-popular-categ .product .product-img .prod-img {
+  width: 100%;
+}
+@media (max-width: 768px) {
+}
+.shop-page .popular-categ .content-popular-categ .info-product {
+  margin-top: 15px;
+}
+.shop-page .cosmetics,
+.shop-page .beverages {
+  margin: 50px auto;
+}
+@media (max-width: 991px) {
+  .shop-page .cosmetics .banner-beverage,
+  .shop-page .beverages .banner-beverage,
+  .shop-page .cosmetics .banner-cosmetic,
+  .shop-page .beverages .banner-cosmetic {
+    display: none;
+  }
+}
+.shop-page .cosmetics .cosmetic-banner,
+.shop-page .beverages .cosmetic-banner,
+.shop-page .cosmetics .beverage-banner,
+.shop-page .beverages .beverage-banner {
+  width: 100%;
+  max-height: 760px;
+}
+.shop-page .cosmetics .head-cosmetic,
+.shop-page .beverages .head-cosmetic,
+.shop-page .cosmetics .head-beverage,
+.shop-page .beverages .head-beverage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shop-page .cosmetics .content-banner-cosmetic,
+.shop-page .beverages .content-banner-cosmetic,
+.shop-page .cosmetics .content-banner-beverage,
+.shop-page .beverages .content-banner-beverage {
+  position: absolute;
+  left: 15%;
+  max-width: 200px;
+}
+.shop-page .cosmetics .content-banner-cosmetic h2,
+.shop-page .beverages .content-banner-cosmetic h2,
+.shop-page .cosmetics .content-banner-beverage h2,
+.shop-page .beverages .content-banner-beverage h2 {
+  margin: 5px 0;
+}
+.shop-page .cosmetics .content-banner-cosmetic span,
+.shop-page .beverages .content-banner-cosmetic span,
+.shop-page .cosmetics .content-banner-beverage span,
+.shop-page .beverages .content-banner-beverage span {
+  display: inline-flex;
+}
+.shop-page .cosmetics .content-banner-cosmetic span h2,
+.shop-page .beverages .content-banner-cosmetic span h2,
+.shop-page .cosmetics .content-banner-beverage span h2,
+.shop-page .beverages .content-banner-beverage span h2 {
+  padding: 0;
+  margin: 0;
+}
+.shop-page .cosmetics .content-banner-cosmetic .btn-sm-black,
+.shop-page .beverages .content-banner-cosmetic .btn-sm-black,
+.shop-page .cosmetics .content-banner-beverage .btn-sm-black,
+.shop-page .beverages .content-banner-beverage .btn-sm-black {
+  margin-top: 30px;
+}
+.shop-page .cosmetics .content-banner-cosmetic,
+.shop-page .beverages .content-banner-cosmetic {
+  top: 15%;
+}
+.shop-page .cosmetics .content-banner-beverage,
+.shop-page .beverages .content-banner-beverage {
+  top: 30%;
+}
+.shop-page .cosmetics .brand-cosmetics,
+.shop-page .beverages .brand-cosmetics,
+.shop-page .cosmetics .brand-beverages,
+.shop-page .beverages .brand-beverages {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 574px) {
+  .shop-page .cosmetics .brand-cosmetics,
+  .shop-page .beverages .brand-cosmetics,
+  .shop-page .cosmetics .brand-beverages,
+  .shop-page .beverages .brand-beverages {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand,
+.shop-page .beverages .brand-beverages .cosmetics-brand,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand,
+.shop-page .beverages .brand-cosmetics .beverages-brand,
+.shop-page .cosmetics .brand-beverages .beverages-brand,
+.shop-page .beverages .brand-beverages .beverages-brand {
   display: flex;
   flex-direction: column;
+  margin: 10px 21px;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand .img-brand,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand .img-brand,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand .img-brand,
+.shop-page .beverages .brand-beverages .cosmetics-brand .img-brand,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand .img-brand,
+.shop-page .beverages .brand-cosmetics .beverages-brand .img-brand,
+.shop-page .cosmetics .brand-beverages .beverages-brand .img-brand,
+.shop-page .beverages .brand-beverages .beverages-brand .img-brand {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 6px 0;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand img.prod-img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand img.prod-img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand img.prod-img,
+.shop-page .beverages .brand-beverages .cosmetics-brand img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand img.prod-img,
+.shop-page .beverages .brand-cosmetics .beverages-brand img.prod-img,
+.shop-page .cosmetics .brand-beverages .beverages-brand img.prod-img,
+.shop-page .beverages .brand-beverages .beverages-brand img.prod-img {
+  display: block;
+  background-color: #ccc;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand img.prod-img:hover,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand img.prod-img:hover,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand img.prod-img:hover,
+.shop-page .beverages .brand-beverages .cosmetics-brand img.prod-img:hover,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand img.prod-img:hover,
+.shop-page .beverages .brand-cosmetics .beverages-brand img.prod-img:hover,
+.shop-page .cosmetics .brand-beverages .beverages-brand img.prod-img:hover,
+.shop-page .beverages .brand-beverages .beverages-brand img.prod-img:hover {
+  /* background-color: @primary-color;*/
+  background-color: #28befe;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand img.hover_img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand img.hover_img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand img.hover_img,
+.shop-page .beverages .brand-beverages .cosmetics-brand img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand img.hover_img,
+.shop-page .beverages .brand-cosmetics .beverages-brand img.hover_img,
+.shop-page .cosmetics .brand-beverages .beverages-brand img.hover_img,
+.shop-page .beverages .brand-beverages .beverages-brand img.hover_img {
+  /*display: none;*/
+  width: 100%;
+  object-fit: cover;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:hover img.prod-img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:hover img.prod-img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:hover img.prod-img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:hover img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:hover img.prod-img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:hover img.prod-img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:hover img.prod-img,
+.shop-page .beverages .brand-beverages .beverages-brand:hover img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:active img.prod-img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:active img.prod-img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:active img.prod-img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:active img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:active img.prod-img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:active img.prod-img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:active img.prod-img,
+.shop-page .beverages .brand-beverages .beverages-brand:active img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:focus img.prod-img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:focus img.prod-img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:focus img.prod-img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:focus img.prod-img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:focus img.prod-img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:focus img.prod-img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:focus img.prod-img,
+.shop-page .beverages .brand-beverages .beverages-brand:focus img.prod-img {
+  /*display: none;*/
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid #28befe;
+  /*border-radius: 25px;*/
+  transition-duration: 0.4s;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:hover img.hover_img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:hover img.hover_img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:hover img.hover_img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:hover img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:hover img.hover_img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:hover img.hover_img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:hover img.hover_img,
+.shop-page .beverages .brand-beverages .beverages-brand:hover img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:active img.hover_img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:active img.hover_img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:active img.hover_img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:active img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:active img.hover_img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:active img.hover_img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:active img.hover_img,
+.shop-page .beverages .brand-beverages .beverages-brand:active img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand:focus img.hover_img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand:focus img.hover_img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand:focus img.hover_img,
+.shop-page .beverages .brand-beverages .cosmetics-brand:focus img.hover_img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand:focus img.hover_img,
+.shop-page .beverages .brand-cosmetics .beverages-brand:focus img.hover_img,
+.shop-page .cosmetics .brand-beverages .beverages-brand:focus img.hover_img,
+.shop-page .beverages .brand-beverages .beverages-brand:focus img.hover_img {
+  /*display: none;*/
+  width: 100%;
+  object-fit: cover;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand .product-details h6,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand .product-details h6,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand .product-details h6,
+.shop-page .beverages .brand-beverages .cosmetics-brand .product-details h6,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand .product-details h6,
+.shop-page .beverages .brand-cosmetics .beverages-brand .product-details h6,
+.shop-page .cosmetics .brand-beverages .beverages-brand .product-details h6,
+.shop-page .beverages .brand-beverages .beverages-brand .product-details h6 {
+  color: #737373;
+  font-size: 11px !important;
+  cursor: pointer;
+}
+.shop-page .cosmetics .brand-cosmetics .cosmetics-brand img,
+.shop-page .beverages .brand-cosmetics .cosmetics-brand img,
+.shop-page .cosmetics .brand-beverages .cosmetics-brand img,
+.shop-page .beverages .brand-beverages .cosmetics-brand img,
+.shop-page .cosmetics .brand-cosmetics .beverages-brand img,
+.shop-page .beverages .brand-cosmetics .beverages-brand img,
+.shop-page .cosmetics .brand-beverages .beverages-brand img,
+.shop-page .beverages .brand-beverages .beverages-brand img {
+  cursor: pointer;
+}
+.shop-page .cosmetics .brand-cosmetics .row,
+.shop-page .beverages .brand-cosmetics .row,
+.shop-page .cosmetics .brand-beverages .row,
+.shop-page .beverages .brand-beverages .row {
+  display: flex;
+  width: 100%;
+}
+.shop-page .cosmetics .brand-cosmetics .row .slide-container,
+.shop-page .beverages .brand-cosmetics .row .slide-container,
+.shop-page .cosmetics .brand-beverages .row .slide-container,
+.shop-page .beverages .brand-beverages .row .slide-container {
+  overflow: hidden;
+  width: 100%;
+}
+.shop-page .cosmetics .product-cosmetics,
+.shop-page .beverages .product-cosmetics {
+  padding: 1rem;
+}
+.shop-page .cosmetics .product-cosmetics .product-img,
+.shop-page .beverages .product-cosmetics .product-img {
+  min-height: 200px;
+  width: 175px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin: auto;
+}
+.shop-page .cosmetics .product-cosmetics .product-img .prod-img,
+.shop-page .beverages .product-cosmetics .product-img .prod-img {
+  width: 100%;
+  padding: 10px;
+  transform: scale(0.9);
+}
+.shop-page .cosmetics .product-cosmetics .name-product,
+.shop-page .beverages .product-cosmetics .name-product {
+  height: 37px;
+}
+.shop-page .middle-banner {
+  position: relative;
+}
+.shop-page .middle-banner .banner-middle {
+  width: 100%;
+  min-height: 120px;
+}
+.shop-page .middle-banner .content-banner {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  transform: translateY(-50%);
+  left: 110px;
+  align-items: center;
+}
+.shop-page .middle-banner .content-banner .number {
+  font-size: 75px;
+}
+.shop-page .middle-banner .content-banner .percent {
+  width: 60px;
+}
+.shop-page .middle-banner .content-banner .line-separate {
+  width: 2px;
+  height: 50px;
+  background-color: #fff;
+  display: block;
+  opacity: 0.8;
+  margin: 0 10px;
+}
+.shop-page .middle-banner .content-banner .desc-content {
+  margin-left: 20px;
+}
+.shop-page .middle-banner .content-banner .desc-content h3 {
+  display: inline-block;
+  white-space: nowrap;
+  margin-top: 0;
+}
+.shop-page .decora-crafts {
+  margin: 25px auto;
 }
 .shop-page .decora-crafts .img-decora {
   width: 100%;
+}
+.shop-page .decora-crafts .row {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .shop-page .decora-crafts .row {
+    display: inline flex;
+    /*.img-decora {
+                    width: auto;
+                }*/
+  }
+  .shop-page .decora-crafts .row .left-content {
+    order: 1;
+  }
+  .shop-page .decora-crafts .row .right-content {
+    order: 2;
+  }
+  .shop-page .decora-crafts .row .center-content {
+    display: none;
+  }
+}
+.shop-page .decora-crafts .mobile-content {
+  display: none;
+}
+@media (max-width: 768px) {
+  .shop-page .decora-crafts .mobile-content {
+    display: block;
+  }
+}
+.shop-page .decora-crafts .content-decora-sect {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  transform: translateY(-30%);
+}
+.shop-page .decora-crafts .content-decora-sect.content-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.shop-page .decora-crafts .content-decora-sect h2 {
+  margin: 10px 0;
+  line-height: 1.4 !important;
+}
+.shop-page .our-clients {
+  margin: 25px auto 50px auto;
 }
 .shop-page .our-clients .logo-clients {
   max-width: 134px;
   max-height: 100px;
   margin: 20px;
+}
+.shop-page .right-section {
+  display: flex;
+  cursor: pointer;
+  flex: 1;
+  justify-content: end;
+}
+.shop-page .right-section .arrow-next,
+.shop-page .right-section .arrow-prev,
+.shop-page .right-section .arrow-next1,
+.shop-page .right-section .arrow-prev1 {
+  padding: 12px;
+  border: 1px solid #d7d7d7;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 8px;
+  margin: 10;
+}
+.shop-page .right-section .arrow-next,
+.shop-page .right-section .arrow-prev1,
+.shop-page .right-section .arrow-prev {
+  margin-left: 10px;
+}
+.shop-page #slider1,
+.shop-page #slider2 {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 20px;
 }

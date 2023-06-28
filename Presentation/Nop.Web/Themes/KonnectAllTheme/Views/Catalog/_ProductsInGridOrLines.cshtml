@@ -1,4 +1,5 @@
-﻿@model CatalogProductsModel
+﻿@using Nop.Core.Domain.Orders
+@model CatalogProductsModel
 
 @if (!string.IsNullOrEmpty(Model.WarningMessage))
 {
@@ -11,16 +12,20 @@
 {
     <div class="@(Model.ViewMode == "list" ? "product-list" : "product-grid")">
         <div class="item-grid">
-            <div class="row">
-                @foreach (var product in Model.Products)
-                {
-                    <div class="item-box @(Model.ViewMode == "list" ? "col-xs-12 col-sm-12 col-md-12 product-align" : "col-xs-12 col-sm-4 col-md-4 product-align")">
-                        <div class="thumbnail">
-                            @await Html.PartialAsync("_ProductBox", product)
-                        </div>                        
-                    </div>
-                }
-            </div>            
+            <div class="row" style="margin-left:20px !important">
+
+                <ul id="item1">
+                    @foreach (var product in Model.Products)
+                    {
+                        <li class="myItem">
+                            <div class="product">
+                                @await Html.PartialAsync("_ProductBox", product)
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+            </div>
         </div>
     </div>
 

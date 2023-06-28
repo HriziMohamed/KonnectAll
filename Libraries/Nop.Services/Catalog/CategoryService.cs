@@ -595,7 +595,7 @@ namespace Nop.Services.Catalog
         public virtual async Task<IList<ProductCategory>> GetProductCategoriesByProductIdAsync(int productId, bool showHidden = false)
         {
             var store = await _storeContext.GetCurrentStoreAsync();
-
+            
             return await GetProductCategoriesByProductIdAsync(productId, store.Id, showHidden);
         }
 

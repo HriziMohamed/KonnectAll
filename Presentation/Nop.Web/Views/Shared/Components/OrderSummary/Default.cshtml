@@ -271,7 +271,7 @@
                         </div>
                         <div class="terms-of-service">
                             <input id="termsofservice" type="checkbox" name="termsofservice" />
-                            <label for="termsofservice">@T("Checkout.TermsOfService.IAccept")</label>
+                                <label for="termsofservice" >@T("Checkout.TermsOfService.IAccept")</label>
                             @if (Model.TermsOfServicePopup)
                             {
                                 <a class="read" id="read-terms">@T("Checkout.TermsOfService.Read")</a>
@@ -293,7 +293,7 @@
                             }
                         </div>
                     }
-                    <div class="checkout-buttons">
+                        <div class="checkout-buttons" >
                         @if (string.IsNullOrEmpty(Model.MinOrderSubtotalWarning) && !Model.HideCheckoutButton)
                         {
                             <script asp-location="Footer">

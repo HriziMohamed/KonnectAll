@@ -6,6 +6,23 @@
 @using Nop.Services.Media
 @inject IDownloadService downloadService
 @inject CatalogSettings catalogSettings
+<style>
+    .shopping-cart-page .selected-checkout-attributes {
+        float: right !important;
+        max-width: 395px !important;
+        margin: 15px 0;
+    }
+
+    .shopping-cart-page .checkout-attributes {
+        float: left !important;
+         max-width: 565px !important;
+        margin: -30px 0 15px;
+    }
+
+    .shopping-cart-page .cart-options {
+        overflow: hidden !important;
+    }
+</style>
 @if (Model.CheckoutAttributes.Count > 0)
 {
     var attributeChangeScriptsBuilder = new StringBuilder();

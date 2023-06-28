@@ -12,10 +12,8 @@
     await Html.RenderPartialAsync("_OldInternetExplorerWarning");
 }
 
-<div class="admin-header-link">
-    <ul>
-        @await Component.InvokeAsync("AdminHeaderLinks")
-    </ul>
+<div class="admin-header-links">
+    @await Component.InvokeAsync("AdminHeaderLinks")
 </div>
 @{
     await Html.RenderPartialAsync("_Header");
@@ -36,16 +34,18 @@
         <div class="slider">
             @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.AccountNavigationAfter })
 
+            <div class="overly">  </div>
 
-            <div class="overly">
-            </div>
-            <div class="container">
-                <div class="container content-slid">
-                    <h2 class="text-white">Baverage</h2>
-                    <h1 class="text-white">Coffee Collection</h1>
-                    <a class="btn btn-primary" href="#"><span>SHOP NOW</span></a>
-                </div>
-            </div>
+            @if (IsSectionDefined("Breadcrumb"))
+            {
+                @RenderSection("Breadcrumb")
+            }
+
+            @if (IsSectionDefined("CategoryDetailsAfterBreadcrumb"))
+            {
+                @RenderSection("CategoryDetailsAfterBreadcrumb")
+            }
+
         </div>
     }
     <div class="row">

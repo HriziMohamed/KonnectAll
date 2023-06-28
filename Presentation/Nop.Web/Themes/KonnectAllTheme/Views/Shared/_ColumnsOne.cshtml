@@ -2,7 +2,7 @@
     Layout = "_Root";
 }
 @await RenderSectionAsync("Breadcrumb", false)
-<div class="col-md-12">
+<div class="">
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
     @RenderBody()
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnAfter })

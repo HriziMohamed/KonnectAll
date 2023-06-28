@@ -36,10 +36,10 @@
 
             .btn-primary {
                 margin-top: 3.5rem;
-            
+
                 &:after {
                     content: "";
-                    background-image: url('./assets/img/banner/arrow-banner.png');
+                    background-image: url('../../images/banner/arrow-banner.png');
                     display: inline-block;
                     background-repeat: no-repeat;
                     width: 35px;
@@ -52,7 +52,7 @@
 
                 &:hover:after {
                     margin-left: 20px;
-                    background-image: url('assets/img/category/arrow-sidebar.png');
+                    background-image: url('../../images/category/arrow-sidebar.png');
                 }
             }
         }
@@ -72,12 +72,12 @@
                 }
             }
 
-            #item , #item1{
+            #item, #item1 {
                 list-style: none;
                 display: grid;
                 grid-template-columns: repeat(auto-fit,minmax(17rem,1fr));
                 grid-gap: 1rem;
-    
+
                 @media (max-width:1200px) {
                     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
                     grid-gap: 4rem;
@@ -94,17 +94,17 @@
 
             .banner-mobile {
                 display: none;
+
                 @media (max-width:991px) {
                     display: block;
                 }
             }
 
             #sidebar-content {
-                
-              }
+            }
 
             .sidebar-content {
-               /*@media(max-width:991px) {
+                /*@media(max-width:991px) {
                 position: absolute;
                 top: 0;
                 background-color: #fff;
@@ -112,12 +112,13 @@
                 width: 320px;
                 padding: 20px;
                 }*/
-              }
+            }
 
             .sidebar-main {
                 .filter-sidebar {
                     display: none;
                 }
+
                 @media(max-width:991px) {
                     display: none;
                     position: absolute;
@@ -127,12 +128,13 @@
                     top: 0;
                     padding: 20px;
                     padding-top: 0;
+
                     .filter-sidebar {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
                     }
-                  /*  &.show {
+                    /*  &.show {
                         position: absolute;
                         top: 0;
                         background-color: white;
@@ -142,11 +144,11 @@
                         display: block;
                     }*/
                 }
-               
             }
 
             .konn-off-layer {
                 display: none;
+
                 @media(max-width:991px) {
                     &.visible {
                         z-index: 1;
@@ -155,7 +157,7 @@
                         position: absolute;
                         top: 0;
                     }
-                  /*  z-index: 1;
+                    /*  z-index: 1;
                     display: block;
                     height: 100vh;
                     position: absolute;
@@ -167,10 +169,10 @@
                 padding-top: 10px;
 
                 @media (max-width: 991px) {
-                 //   display: none !important;
+                    //   display: none !important;
 
                     &.show {
-                       // display: block !important;
+                        // display: block !important;
                     }
                 }
             }
@@ -193,6 +195,7 @@
 
                     + .sidebar-content {
                         display: none;
+
                         @media (max-width:991px) {
                             position: absolute;
                             background-color: @white-color;
@@ -217,40 +220,42 @@
                     .accordeon-title h5 {
                         text-align: left;
                     }
-                    
+
                     .sidebar-content {
                         display: none;
+
                         &.show {
                             display: block;
                         }
                     }
 
-                        .sidebar-title.active h5 {
-                            text-align: left;
-                            &:after {
-                                content: '+';
-                                font-size: 25px;
-                                top: -4px;
-                              }
-                        }
+                    .sidebar-title.active h5 {
+                        text-align: left;
 
-                        .sidebar-content {
-                            display: none;
+                        &:after {
+                            content: '+';
+                            font-size: 25px;
+                            top: -4px;
                         }
+                    }
+
+                    .sidebar-content {
+                        display: none;
+                    }
                 }
 
                 .sidebar-title {
                     cursor: pointer;
                     border-bottom: 1px solid @black-color;
                     position: relative;
-        
+
                     &:before {
                         content: "";
                         position: absolute;
                         border-bottom: 5px solid @black-color;
                         width: 150px;
                         bottom: 0;
-                        }
+                    }
 
                     h5 {
                         margin-top: 20px !important;
@@ -263,7 +268,7 @@
                             font-size: 47px;
                             font-weight: 300;
                             top: -22px;
-                          }
+                        }
                     }
                 }
             }
@@ -271,8 +276,10 @@
             .sidebar-img {
                 position: relative;
                 margin-top: 25px;
+
                 .img-sidebar {
                     width: 100%;
+
                     @media (max-width:768px) {
                         width: unset;
                     }
@@ -280,14 +287,14 @@
 
                 .content-sidebar {
                     position: absolute;
-                    top:2.5rem;
+                    top: 2.5rem;
                     left: 10px;
 
                     h3 {
                         font-weight: 300 !important;
                         margin-top: 0 !important;
                     }
-        
+
                     h2 {
                         line-height: 0.5 !important;
                         margin: 0;
@@ -299,10 +306,11 @@
                         color: @white-color !important;
                         background-color: transparent !important;
                         border: 1px solid @white-color !important;
-                    
+                        margin-left: 27px;
+
                         &:after {
                             content: "";
-                            background-image: url('./assets/img/category/arrow-sidebar.png');
+                            background-image: url('../../images/category/arrow-sidebar.png');
                             display: inline-block;
                             background-repeat: no-repeat;
                             width: 32px;
@@ -316,7 +324,7 @@
                         &:hover {
                             background-color: transparent !important;
                         }
-        
+
                         &:hover:after {
                             margin-left: 20px;
                         }
@@ -327,6 +335,7 @@
 
         .banner {
             display: block;
+
             @media (max-width:991px) {
                 display: none;
             }
@@ -334,9 +343,11 @@
 
         .banner-top {
             margin: 50px 0;
+
             @media (max-width:991px) {
                 margin: 10px 0;
             }
+
             img {
                 display: block;
                 width: 100%;
@@ -363,8 +374,7 @@
             .name-product {
                 text-align: center;
             }
-
-           /* .price-product {
+            /* .price-product {
                 font-weight: 400;
                 text-align: center;
                 padding: 5px;
@@ -372,7 +382,6 @@
         }
 
         .toolbar-products {
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -384,11 +393,11 @@
                 @media (max-width:576px) {
                     form {
                         max-width: 142px;
-                      }
+                    }
                 }
             }
 
-            
+
             .filter-toggle {
                 cursor: pointer;
                 display: none;
@@ -432,20 +441,20 @@
                 select {
                     position: relative;
                     margin: 1em;
-                      margin-left: 1em;
+                    margin-left: 1em;
                     max-width: 220px;
                     margin-left: auto;
                     padding: 7px;
-                  }
+                }
             }
 
             .mode {
                 .fas.Active:before {
-                    color:@black-color;
+                    color: @black-color;
                 }
-                
+
                 .fas:before {
-                    color:@gray-light2;
+                    color: @gray-light2;
                     font-size: 16px;
                     cursor: pointer;
                 }

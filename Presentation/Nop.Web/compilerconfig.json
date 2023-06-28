@@ -1,0 +1,22 @@
+﻿[
+  {
+    "outputFile": "Themes/KonnectAllTheme/Content/less/styles.css",
+    "inputFile": "Themes/KonnectAllTheme/Content/less/styles.less"
+  },
+  {
+    "outputFile": "Themes/KonnectAllTheme/Content/less/pages/shop.css",
+    "inputFile": "Themes/KonnectAllTheme/Content/less/pages/shop.less"
+  },
+  {
+    "outputFile": "Themes/KonnectAllTheme/Content/less/variables.css",
+    "inputFile": "Themes/KonnectAllTheme/Content/less/variables.less"
+  },
+  {
+    "outputFile": "Themes/KonnectAllTheme/Content/less/typography.css",
+    "inputFile": "Themes/KonnectAllTheme/Content/less/typography.less"
+  },
+  {
+    "outputFile": "Themes/KonnectAllTheme/Content/less/pages/b2b-category.css",
+    "inputFile": "Themes/KonnectAllTheme/Content/less/pages/b2b-category.less"
+  }
+]

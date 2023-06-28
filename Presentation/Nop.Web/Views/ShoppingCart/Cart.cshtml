@@ -7,6 +7,7 @@
     //page class
     NopHtml.AppendPageCssClassParts("html-shopping-cart-page");
 }
+
 @if (!Model.OnePageCheckoutEnabled)
 {
     @await Component.InvokeAsync("CheckoutProgress", new {step = CheckoutProgressStep.Cart})

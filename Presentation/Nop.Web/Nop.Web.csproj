@@ -31,12 +31,22 @@
     <!-- We copy the entire \App_Data directory. But we ignore JSON files and data protection keys  -->
     <Content Include="App_Data\**" CopyToPublishDirectory="PreserveNewest" Exclude="App_Data\*.json" />
     <Content Remove="App_Data\*.json" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\**" />
+    <Content Remove="wwwroot\js\KonnectAll\**" />
     <Content Update="App_Data\DataProtectionKeys\*.xml" CopyToPublishDirectory="Never" />
 
     <Compile Remove="Plugins\**;Themes\**" />
+
+    <Compile Remove="Themes\KonnectAllTheme\Content\js\old\**" />
+
+    <Compile Remove="wwwroot\js\KonnectAll\**" />
     <Content Remove="Plugins\**;Themes\**" />
     <EmbeddedResource Remove="Plugins\**;Themes\**" />
+    <EmbeddedResource Remove="Themes\KonnectAllTheme\Content\js\old\**" />
+    <EmbeddedResource Remove="wwwroot\js\KonnectAll\**" />
     <None Remove="Plugins\**;Themes\**" />
+    <None Remove="Themes\KonnectAllTheme\Content\js\old\**" />
+    <None Remove="wwwroot\js\KonnectAll\**" />
 
     <Content Include="Plugins\bin\placeholder.txt" CopyToPublishDirectory="PreserveNewest" />
     <None Include="Plugins\**" CopyToPublishDirectory="PreserveNewest" Exclude="Plugins\**\runtimes\**;Plugins\**\ref\**;Plugins\**\*.pdb" />
@@ -45,6 +55,16 @@
 
     <!-- We copy the \Logs directory -->
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <Content Remove="compilerconfig.json" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\header-footer.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\jquery-ui.min.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\layout.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\listerners.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\main.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\slide-product.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\slider.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\sliders.js" />
+    <Content Remove="Themes\KonnectAllTheme\Content\js\old\store.js" />
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -65,9 +85,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Themes\KonnectAllTheme\Content\js\jquery-ui.min.js">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.
@@ -125,5 +143,7 @@
       More details here: https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals#concurrent-garbage-collection-->
     <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <AvoidCycleErrorOnSelfReference>true</AvoidCycleErrorOnSelfReference>
+  </PropertyGroup>
 </Project>

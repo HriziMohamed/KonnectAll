@@ -32,7 +32,7 @@ class MyHeader extends HTMLElement {
                     <div class="mega-menu-products-inners container">
                         <ul class="top-menu">
                             <li class="top-menu-item">
-                                <a href="#">What is Konnect all?</a>
+                                <a href="get-to-know.html">What is Konnect all?</a>
                             </li>
                             <li class="top-menu-item">
                                 <a href="about-us.html">About us</a>
@@ -256,64 +256,25 @@ class MyHeader extends HTMLElement {
                                                 <a href="#" class="icon-wishlist-contents">
                                                     <span class="lnr lnr-heart"></span>
                                                 </a>
-                                                <span class="mini-item-counter mini-item-counter--wishlist mf-background-primary">0
+                                                <span class="mini-item-counter">0
                                                 </span>
                                             </li>
                                             <li class="menu-item-cart">
                                                 <a href="#" class="icon-cart-contents">
                                                     <span class="lnr lnr-cart"></span>
                                                 </a>
-                                                <span class="mini-item-counter mf-background-primary">0</span>
+                                                <span class="mini-item-counter cart-counter">0</span>
 
 
                                                 <div  class="cart-dropdown-wrap">
-                                                    <ul>
-                                                        <li>
-                                                            <div class="shopping-cart-img">
-                                                                <a  href="#" class="">
-                                                                    <img  alt="" src="./assets/img/product/product1.png">
-                                                                </a>
-                                                            </div>
-                                                            <div class="shopping-cart-title">
-                                                                <h6>
-                                                                    <a  href="/en/product/b3c0ad0c6caa4e31bd2fd27f5842e981" class="">MINNEN</a>
-                                                                </h6>
-                                                                <h6>
-                                                                    <span >2 × </span>SAR 1620.34
-                                                                </h6>
-                                                            </div>
-                                                            <div class="shopping-cart-delete">
-                                                                <a href="#">
-                                                                    <i class="fas fa-times"></i>
-                                                                </a>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="shopping-cart-img">
-                                                                <a  href="/en/product" class="">
-                                                                    <img  alt="" src="./assets/img/product/product2.png">
-                                                                </a>
-                                                            </div>
-                                                            <div class="shopping-cart-title">
-                                                                <h6>
-                                                                    <a  href="/en/product/b3c0ad0c6caa4e31bd2fd27f5842e981" class="">MINNEN</a>
-                                                                </h6>
-                                                                <h6>
-                                                                    <span >2 × </span>SAR 1620.34
-                                                                </h6>
-                                                            </div>
-                                                            <div class="shopping-cart-delete">
-                                                                <a href="#">
-                                                                    <i class="fas fa-times"></i>
-                                                                </a>
-                                                            </div>
-                                                        </li>
+                                                    <ul class="cart-items">
+                                                       
                                                     </ul>
                                                     <div class="shopping-cart-footer">
                                                         <div class="shopping-cart-total">
                                                             <h6>
-                                                                <span>Total </span>
-                                                                <span >SAR 1620.34</span>
+                                                                <strong>Total </strong>
+                                                                <span class="cart-total-price">SAR 0</span>
                                                             </h6>
                                                         </div>
                                                         <div class="shopping-cart-button">
@@ -355,10 +316,10 @@ class MyHeader extends HTMLElement {
                                             <a href="#">What is Konnect all?</a>
                                         </li>
                                         <li class="top-menu-item">
-                                            <a href="#">About us</a>
+                                            <a href="about-us.html">About us</a>
                                         </li>
                                         <li class="top-menu-item">
-                                            <a href="#">Join the team</a>
+                                            <a href="join-the-team.html">Join the team</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -366,7 +327,6 @@ class MyHeader extends HTMLElement {
                         </li>
                         <li class="menu-item menu-item-has-children">
                             <a class="font-medium text-black" href="our-solutions.html">Our Solutions
-                            <i class="fas fa-solid fa-chevron-down" aria-hidden="true"></i>
                             </a>
                         </li>
                         <li class="menu-item menu-item-has-children">
@@ -849,6 +809,12 @@ function setClass(els, className, fnName) {
         els[i].classList[fnName](className);
     }
 }
+
+
+
+
+
+
 
 window.onload = function () {
     mobile_menu_toggle();

@@ -91,6 +91,10 @@
         /// Type
         /// </summary>
         public static string ImageWebp => "image/webp";
+        /// <summary>
+        /// Type
+        /// </summary>
+        public static string ImageSvg => "image/svg+xml";
 
         #endregion
 

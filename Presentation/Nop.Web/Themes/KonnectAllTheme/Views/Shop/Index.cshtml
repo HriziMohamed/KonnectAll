@@ -1,0 +1,81 @@
+﻿@model ShopModel
+@using Nop.Core.Domain.Common
+@using Nop.Core.Domain.Seo
+@inject Nop.Core.IWebHelper webHelper
+@inject SeoSettings seoSettings
+@inject CommonSettings commonSettings
+
+
+@{
+    Layout = "_Root";
+    ViewBag.BodyClass = "shop-page";
+    //title
+    if (!string.IsNullOrEmpty(seoSettings.HomepageTitle))
+    {
+        NopHtml.AddTitleParts(seoSettings.HomepageTitle);
+    }
+
+    //meta
+    if (!string.IsNullOrEmpty(seoSettings.HomepageDescription))
+    {
+        NopHtml.AddMetaDescriptionParts(seoSettings.HomepageDescription);
+    }
+
+    //page class
+    NopHtml.AppendPageCssClassParts("html-shop-page");
+}
+
+@section HomePageSlider{
+    <div class="slider">
+        <img alt="" src="./assets/img/banner/slid-categ.png" class="banner-slid" />
+    </div>
+}
+
+@{
+    await Html.RenderPartialAsync("ShippingMethods.cshtml");
+}
+
+<section class="container collection sec-desc-categ">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 left-collection">
+            <img alt="" src="./assets/img/b2b-category/first-section/banner-1.png" class="collection-img">
+            <div class="content-collection-sect ">
+                <div class="font-normal text-white text-small">Big benefit</div>
+                <h2 class="text-white text-left">Dates Collections</h2>
+                <a href="#" class="btn-sm-white">
+                    <span class="text-white font-normal">shop now</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 right-collection">
+            <img alt="" src="./assets/img/b2b-category/first-section/banner2.png" class="collection-img">
+            <div class="content-collection-sect ">
+                <div class="font-normal text-black  text-small">chocolate</div>
+                <h2 class="text-black text-left">Chocolate Cake</h2>
+                <a href="#" class="btn-sm-black btn-border">
+                    <span class="text-black font-normal">shop now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@await Component.InvokeAsync("HomepageDealOfDay")
+@await Component.InvokeAsync("HomepageBestSellers")
+
+
+@foreach (var item in Model.Categories)
+{
+    await Html.RenderPartialAsync("CategoryDetails.cshtml", item);
+}
+
+<script src="../Themes/KonnectAllTheme/Content/js/slide-product.js"></script>
+<script src="../Themes/KonnectAllTheme/Content/js/layout.js"></script>
+
+
+<middle-banner></middle-banner>
+
+<my-decoracrafts></my-decoracrafts>
+
+<our-clients></our-clients>
+

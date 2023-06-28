@@ -7,7 +7,7 @@
 body {
     color: #000;
     background-color: #FFF;
-    font: normal 16px/24px "Gotham", sans-serif ;
+    font: normal 16px/24px "Gotham", sans-serif;
     line-height: 1.5;
     font-weight: 300;
     position: relative;
@@ -37,16 +37,31 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3rem !important;
     padding: 2.3rem 0;
-    @media(max-width: 1200px) { font-size: 2.5rem !important; }
-    @media(max-width: 991px) { font-size: 2rem !important; }
-    @media(max-width: 768px) { font-size: 1.8rem !important; }
+
+    @media(max-width: 1200px) {
+        font-size: 2.5rem !important;
+    }
+
+    @media(max-width: 991px) {
+        font-size: 2rem !important;
+    }
+
+    @media(max-width: 768px) {
+        font-size: 1.8rem !important;
+    }
 }
 
 h2 {
     font-size: 2.5rem !important;
     line-height: 2.5;
-    @media (max-width: 991px) { font-size: 1.8rem !important; }
-    @media (max-width: 768px) { font-size: 1.5rem !important; }
+
+    @media (max-width: 991px) {
+        font-size: 1.8rem !important;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem !important;
+    }
 }
 
 h3 {
@@ -86,11 +101,10 @@ h6 {
     line-height: 1.2 !important;
     color: #333c4e;
     font-weight: 400 !important;
-    
+
     @media (max-width: 768px) {
         font-size: 1.2rem !important;
     }
-
 }
 
 .text-big {
@@ -199,13 +213,13 @@ mark, ins {
 .text-black {
     color: @black-color !important;
 }
-  
+
 .text-white {
     color: @white-color !important;
 }
-  
+
 .text-gray {
-    color:@gray-color !important;
+    color: @gray-color !important;
 }
 
 .text-red {
@@ -245,20 +259,20 @@ mark, ins {
 }
 
 /* reset */
-body,p,a,ul,li{
+body, p, a, ul, li {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
-li{
+
+li {
     list-style-type: none;
 }
 /* base styles */
-body{
+body {
     overflow-x: hidden;
     font-family: 'Gotham' !important;
     background-color: @white-color;
-    
 }
 
 /*--------------------------------------------------------------
@@ -275,12 +289,12 @@ ul {
     padding-left: 0;
 
     li {
-       // padding-top: 1rem ;
+        // padding-top: 1rem ;
 
         a {
             text-decoration: none;
             font-size: 19px;
-            color:@gray-color;
+            color: @gray-color;
 
             @media (max-width: 576px) {
                 padding: 0 0.4rem;
@@ -288,23 +302,9 @@ ul {
             }
 
             &:hover {
-                color:@primary-color;
+                color: @primary-color;
                 text-decoration: underline;
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

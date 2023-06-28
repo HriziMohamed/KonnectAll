@@ -130,6 +130,18 @@
     {
       "SystemName": "NopStation.Plugin.Widgets.Announcement",
       "Version": "4.50.1.0"
+    },
+    {
+      "SystemName": "Widgets.qBoSlider",
+      "Version": "1.4.1"
+    },
+    {
+      "SystemName": "Nop.Front.Api",
+      "Version": "4.5.0"
+    },
+    {
+      "SystemName": "Konnectall.Plugin.Payment",
+      "Version": "1.58"
     }
   ],
   "PluginNamesToUninstall": [],

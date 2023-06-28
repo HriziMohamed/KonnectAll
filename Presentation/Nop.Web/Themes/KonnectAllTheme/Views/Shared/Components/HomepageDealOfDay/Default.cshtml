@@ -1,0 +1,259 @@
+﻿@using Nop.Web.Models.Catalog;
+@using System.Globalization
+@using Nop.Core.Domain
+@using Nop.Core.Domain.Localization
+@using Nop.Services.Customers
+@using Nop.Services.Helpers
+@using Nop.Services.Security
+@using Nop.Web.Framework.UI
+@inject IDateTimeHelper dateTimeHelper
+@model Nop.Web.Models.Discounts.ProductsDealModel
+@functions {
+    string FormatProductName(string productName, int length)
+    {
+        string result = productName;
+        if (productName.Length > length)
+        {
+            result = result.Substring(0, length);
+        }
+        if (productName.Length < length)
+        {
+            int nbreEspace = length - productName.Length;
+            for (int j = 0; j <= nbreEspace; j++)
+            {
+                result = result + " ";
+            }
+        }
+        return result;
+    }
+}
+@{
+    var productBigShow = Model.Products.FirstOrDefault();
+}
+
+
+<section class="container deals">
+    <div class="row" >
+        <div class="col-md-8 col-sm-8" >
+            <div class="product-title">
+                <div class="head">
+                    <div class="title-sec ">
+                        <h4 class="text-black text-left">
+                            @Model.Discount.Name
+                        </h4>
+                        <span class="line-after"></span>
+                    </div>
+                </div>
+                <div class="row product-section">
+                    <div class="col-md-6">
+                        <div class="row img-product">
+                            <div class="col-md-3 secon-img">
+                                <img alt="" src="@productBigShow.DefaultPictureModel.ImageUrl">
+                                <img alt="" src="@productBigShow.DefaultPictureModel.ImageUrl">
+                            </div>
+                            <div class="col-md-9 main-img">
+                                <img alt="" src="@productBigShow.DefaultPictureModel.ImageUrl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 product-deals">
+                        <div class="product-info">
+                            <div class="title-product text-left">@FormatProductName(@productBigShow.Name,28)</div>
+                            <div class="info-product" style="padding-top:20px;">
+                                <div class="price" style="padding-bottom:10px;">
+                                    @if (!string.IsNullOrEmpty(productBigShow.ProductPrice.OldPrice))
+                                    {
+                                        <span class="price-product old-price" style="font-size: 2.2rem !important;text-decoration: line-through;
+                                             line-height: 2 !important;font-weight: 700 !important;clear: both;">
+                                             @productBigShow.ProductPrice.OldPrice - </span>
+                                    }
+                                    <span class="price-product" style="font-size: 2.2rem !important;
+                                             line-height: 2 !important;font-weight: 700 !important;clear: both;">@productBigShow.ProductPrice.Price</span>
+
+                                </div>
+                                @if (@Model.Discount.EndDateUtc.HasValue)
+                                {
+                                    <div class="date" style="font-size: 14px;line-height: 1.42857143;color: #333;font-family: 'Gotham' !important;">
+
+                                            Offre Ends In:
+                                        <span class="number-days font-medium" style="color: #28befe;font-weight:500;font-size: 12px;
+                                            line-height: 1.42857143;font-family: 'Gotham' !important;">
+
+                                            @((await dateTimeHelper.ConvertToUserTimeAsync(Model.Discount.EndDateUtc.Value)).ToString("f", CultureInfo.CurrentCulture))
+
+                                            </span>
+
+                                    </div>
+                                }
+                                <div class="review">
+                                    <div class="reviews-star">
+                                        <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                        <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                        <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                        <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                        <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-gray.png">
+                                    </div>
+                                </div>
+                                <div class="size">
+                                    <span>size : </span>
+                                    <span class="lr">Large</span>
+                                    <span class="sm">Small</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bottom-info-deals">
+                            <div class="row">
+                                <div class="col-md-6 left-content">
+                                    <input type="text" size="20" value="1" id="count">
+                                    <span class="input-number-increment"><i class="fas fa-minus" onclick="minus()"></i></span>
+                                    <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus()"></i></span>
+                                </div>
+                                <div class="col-md-6 right-content">
+                                    <a href="#" class="add-cart"><span class="text-uppercase text-black font-normal">add to cart</span></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 social-media-icon">
+                                    <div class="social-media">
+                                        <a href="#" target="_blank" class="icon-twitter">
+                                            <i class="share-media fab fa-twitter">
+                                            </i>
+                                        </a>
+                                        <a href="#" target="_blank" class="icon-facebook">
+                                            <i class="share-media fab fa-facebook-f">
+                                            </i>
+                                        </a>
+                                        <a href="#" target="_blank" class="icon-instagram">
+                                            <i class="share-media fab fa-instagram">
+                                            </i>
+                                        </a>
+                                        <a href="#" target="_blank" class="icon-tele">
+                                            <i class="share-media fa fa-phone" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 wishlist-icon">
+                                    <a href="#" class="wishlist">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 navbar">
+            <div class="head">
+                <div class="title-sec">
+                    <h4 class="text-black text-left">
+                        @Model.Discount.Name
+                    </h4>
+                    <span class="line-after"></span>
+                </div>
+            </div>
+            <div class="row" style="height: 375px;overflow-y: auto;">
+
+                @if (Model.Products.Count() > 0)
+                {
+                    foreach (var product in Model.Products.Where(p => p.Id != productBigShow.Id))
+                    {
+                                 <div class="content-navbar" >
+                                    <div class="img" style="min-width:80px;background: #ffffff !important;">
+                                                <img alt="" src="@product.DefaultPictureModel.ImageUrl">
+                                    </div>
+                                    <div class="product-info text-left">
+                                <div class="title font-normal" style="font-family: 'Gotham' !important;
+                                     font-size: 14px;
+                                     line-height: 1.42857143;
+                                     font-weight:400;
+                                     color: #333;">
+                                  @FormatProductName(  @product.Name,20)
+                                </div>
+                                        <div class="review">
+                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-gray.png">
+                                        </div>
+                                        <div class="price font-normal text-uppercase">
+                                    @product.ProductPrice.Price
+                                        </div>
+                                    </div>
+                                </div>
+                    }
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+<script>
+    function ShowProductsOfCategory_details(parentCategId, selectedSubCateg) {
+        console.log("selectedSubCateg");
+        console.log(selectedSubCateg);
+        console.log("parentCategId");
+        console.log(parentCategId);
+        var categoryId = selectedSubCateg;
+        /* $.ajax({
+                 type: "POST",
+                 url: "/Shop/ProductList",
+                 data: { "categoryId": categoryId },
+                 success: function (response) {
+                     console.log(response);
+                     $("#categoryProducts").html(response);
+                 },
+                 failure: function (response) {
+                     alert(response.responseText);
+                 },
+                 error: function (response) {
+                     alert(response.responseText);
+                 }
+             }); */
+        loadComponentView(parentCategId, categoryId);
+    }
+    function loadComponentView(parentCategId, categoryId) {
+
+        /* var paramsFromForm = {};
+         $.each($("#partialformAjaxWithComponent").serializeArray(), function (index, value) {
+             paramsFromForm[value.name] = paramsFromForm[value.name] ? paramsFromForm[value.name] || value.value : value.value;
+         }); */
+
+        var componentData = { "categoryId": categoryId };
+
+        /* componentData.standardValidation = paramsFromForm;
+         componentData.screenWidth = document.documentElement.clientWidth;*/
+        var idDiv ="";/* idDivSubCatProd ;*/
+        console.log(idDiv);
+        console.log(componentData);
+
+        $.ajax({
+            url: window.location.origin + "/Shop/LoadComponent",
+            type: "post",
+            dataType: "json",
+            beforeSend: function (x) {
+                if (x && x.overrideMimeType) {
+                    x.overrideMimeType("application/json;charset=UTF-8");
+                };
+                x.setRequestHeader('RequestVerificationToken', document.getElementById('RequestVerificationToken').value);
+            },
+            data: componentData,
+            complete: function (result) {
+                //console.log(result.responseText);
+                //$("#categoryProducts").html(result.responseText);
+                //$('#'+categoryId).css("display", "block");
+                //$('#'+categoryId).html(result.responseText);
+                $('#' + parentCategId).html(result.responseText);
+
+            }
+        });
+    };
+</script>

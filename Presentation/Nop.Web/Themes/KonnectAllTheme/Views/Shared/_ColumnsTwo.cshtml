@@ -35,7 +35,7 @@
     }
 }
 @await RenderSectionAsync("Breadcrumb", false)
-
+@await RenderSectionAsync("CategoryDetailsAfterBreadcrumb", false)
 
 @if (IsSectionDefined("PageSlider"))
 {
@@ -50,51 +50,115 @@
     @await Component.InvokeAsync("Widget", new { widgetZone = "banner-middle" })
 </div>
 <div class="category-content container">
+
+
+    @if (IsSectionDefined("TopBanner"))
+    {
+        @RenderSection("TopBanner")
+    }
+
     <div class="row">
-        <div class="col-md-3 sidebar">
+
+        @if (IsSectionDefined("right"))
+        {
+            <div class="product-page">
+                <div class="row card-section">
+                    <div class="col-md-9 col-sm-9 left-section">
+                        <div class="banner">
+                            @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ" })
+                        </div>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
+                        @RenderBody()
+                        <div class="banner">
+                            @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ2" })
+                        </div>
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnAfter })
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 right-section">
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
+                        @await RenderSectionAsync("right")
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+                    </div>
+                </div>
+                @if (IsSectionDefined("BottomSection"))
+                {
+                    @RenderSection("BottomSection")
+                }
+
+            </div>
+        }
+        else
+        {
+
             @if (IsSectionDefined("left"))
             {
-                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
-                @await RenderSectionAsync("left")
-                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+               <div class="col-md-3 sidebar">
+                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
+                    @await RenderSectionAsync("left")
+                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+                    @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
+
+                </div>
+                @*<div class="col-md-3 sidebar">
+                    <div class="sidebar-content" id="sidebar-content">
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
+
+                        @await RenderSectionAsync("left")
+                        @await RenderSectionAsync("CatalogFilters")
+                        @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
+                        @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
+                        @await Component.InvokeAsync("VendorNavigation")
+                        @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
+                        @await Component.InvokeAsync("PopularProductTags")
+                        @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+
+                    </div>
+                </div>*@
             }
             else
             {
-                <div class="sidebar-content" id="sidebar-content">
-                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
-                    @await RenderSectionAsync("CatalogFilters", false)
-                   
-                    @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
-                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
-                    @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
-                    @await Component.InvokeAsync("VendorNavigation")
-                    @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
-                    @await Component.InvokeAsync("PopularProductTags")
-                    @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
-                    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+                <div class="col-md-3 sidebar">
+                    <div class="sidebar-content" id="sidebar-content">
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBefore })
 
-                    <div class="sidebar-img">
-                        <img class="img-sidebar" src="../images/category/sidebar-banner.png">
-                        <div class="content-sidebar">
-                            <h3 class="text-white">Our Catalog</h3>
-                            <h2 class="text-white">Electronics</h2>
-                            <a class="btn btn-primary" href="#"><span>SHOP NOW</span></a>
-                        </div>
+                        @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
+
+                         @await RenderSectionAsync("CatalogFilters", false)                       
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfterCategoryNavigation })
+                        @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
+                        @await Component.InvokeAsync("VendorNavigation")
+                        @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
+                        @await Component.InvokeAsync("PopularProductTags")
+                        @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
+                        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnAfter })
+
                     </div>
                 </div>
+
             }
-        </div>
-        <div class="main-content col-md-9">
-            <div class="banner">
-                @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ" })
+
+            <div class="col-md-9">
+                <div class="banner">
+                    @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ" })
+                </div>
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
+                @RenderBody()
+                <div class="banner">
+                    @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ2" })
+                </div>
+                @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnAfter })
             </div>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnBefore })
-            @RenderBody()
-            <div class="banner">
-                @await Component.InvokeAsync("Widget", new { widgetZone = "banner-categ2" })
-            </div>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MainColumnAfter })
-        </div>
+
+        }
+
+
+
+
+
+
     </div>
 </div>
 

@@ -36,10 +36,10 @@
 
             .btn-primary {
                 margin-top: 3.5rem;
-            
+
                 &:after {
                     content: "";
-                    background-image: url('./assets/img/banner/arrow-banner.png');
+                    background-image: url('../../images/banner/arrow-banner.png');
                     display: inline-block;
                     background-repeat: no-repeat;
                     width: 35px;
@@ -52,7 +52,7 @@
 
                 &:hover:after {
                     margin-left: 20px;
-                    background-image: url('assets/img/category/arrow-sidebar.png');
+                    background-image: url('../../images/category/arrow-sidebar.png');
                 }
             }
         }
@@ -71,82 +71,82 @@
                 margin: 10px 0;
             }
 
-                &:before {
-                    content:"";
-                    position: absolute;
-                    top: 50%;
-                    width: 20px;
-                    height: 20px;
-                    display: block;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    transform: translateY(-53%);
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                display: block;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transform: translateY(-53%);
+                left: 45px;
+
+                @media(max-width:1200px) {
+                    left: 20px;
+                }
+
+                @media (max-width:991px) {
+                    left: 5px;
+                    transform: scale(0.7);
+                    top: 15px;
+                }
+
+                @media (max-width:768px) {
+                    transform: unset;
                     left: 45px;
+                }
+            }
 
-                    @media(max-width:1200px) {
-                        left: 20px;
-                    }
-
-                    @media (max-width:991px) {
-                        left: 5px;
-                        transform: scale(0.7);
-                        top: 15px;
-                    }
-
-                    @media (max-width:768px) {
-                        transform: unset;
-                        left: 45px;
-                    }
+            span {
+                @media (max-width:991px) {
+                    font-size: 12px;
                 }
 
-                span {
-                    @media (max-width:991px) {
-                        font-size: 12px;
-                    }
-
-                    @media (max-width:768px) {
-                        font-size: unset;
-                    }
+                @media (max-width:768px) {
+                    font-size: unset;
                 }
-            
+            }
+
 
             &.first-auct:before {
-                background-image: url('./assets/img/auction/all-auction/black-all-auction.png');
+                background-image: url('../../images/auction/all-auction/black-all-auction.png');
             }
 
             &.current-auct:before {
-                background-image: url('./assets/img/auction/all-auction/current-auction.png');
+                background-image: url('../../images/auction/all-auction/current-auction.png');
             }
 
             &.upcomining-auct:before {
-                background-image: url('./assets/img/auction/all-auction/upcoming.png');
+                background-image: url('../../images/auction/all-auction/upcoming.png');
             }
 
             &.ended-auct:before {
-                background-image: url('./assets/img/auction/all-auction/ended-auction.png');
+                background-image: url('../../images/auction/all-auction/ended-auction.png');
             }
 
             &.first-auct:hover:before {
-                background-image: url('./assets/img/auction/all-auction/all-auction.png');
+                background-image: url('../../images/auction/all-auction/all-auction.png');
             }
 
             &.current-auct:hover:before {
-                background-image: url('./assets/img/auction/all-auction/current-aucti-white.png');
+                background-image: url('../../images/auction/all-auction/current-aucti-white.png');
             }
 
             &.upcomining-auct:hover:before {
-                background-image: url('./assets/img/auction/all-auction/upcoming-white.png');
+                background-image: url('../../images/auction/all-auction/upcoming-white.png');
             }
 
             &.ended-auct:hover:before {
-                background-image: url('./assets/img/auction/all-auction/ended-auction-white.png');
+                background-image: url('../../images/auction/all-auction/ended-auction-white.png');
             }
 
             &:hover {
                 background-color: @gray-dark3;
-                color:@white-color;
+                color: @white-color;
             }
-          }
+        }
     }
 
     .services-content1 {
@@ -181,7 +181,7 @@
                 grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
                 grid-gap: 1rem;
                 width: 100%;
-    
+
                 @media (max-width:1200px) {
                     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
                     grid-gap: 4rem;
@@ -200,12 +200,12 @@
                         top: 0;
 
                         @media (max-width:1200px) {
-                            background-color: transparent; 
+                            background-color: transparent;
                         }
                     }
                 }
 
-                .myItem:first-child:after{
+                .myItem:first-child:after {
                     content: "";
                     position: absolute;
                     width: 1px;
@@ -227,7 +227,7 @@
             }
         }
     }
-    
+
     .auction-categ {
         position: relative;
 
@@ -235,6 +235,7 @@
             position: absolute;
             left: -20px;
             top: 0;
+
             .prev {
                 position: absolute;
                 top: 190px;
@@ -253,24 +254,23 @@
 
                 &:hover {
                     background-color: @primary-color;
-                    color:@white-color;
+                    color: @white-color;
                 }
             }
-
             /*.next {
                 position: absolute;
                 top: 190px;
                 width: 100%;
                 font-size: 15px;
             }*/
+        }
 
-          }
-
-          .right-next {
+        .right-next {
             position: absolute;
             right: 0;
             top: 0;
-            .next{
+
+            .next {
                 position: absolute;
                 top: 190px;
                 width: 100%;
@@ -287,11 +287,10 @@
 
                 &:hover {
                     background-color: @primary-color;
-                    color:@white-color;
+                    color: @white-color;
                 }
             }
-          }
-
+        }
         /*&:before , &:after{
             position: absolute;
             top: 46%;
@@ -330,6 +329,7 @@
 
             .card-section {
                 position: relative;
+
                 .auction-img {
                     width: 100%;
                 }
@@ -339,15 +339,15 @@
                     top: 10px;
                     left: 10px;
                     right: 10px;
-                    bottom: 10px; 
+                    bottom: 10px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-    
+
                     .top-content {
                         display: flex;
                         justify-content: space-between;
-    
+
                         .current {
                             .cur-attri {
                                 background-color: @white-color;
@@ -356,7 +356,7 @@
                                 font-weight: 400;
                                 margin-right: 5px;
                             }
-    
+
                             .type-attri {
                                 background-color: @blue-color;
                                 padding: 2px 10px;
@@ -365,46 +365,49 @@
                             }
                         }
                     }
-                    
+
                     .bottom-content {
                         .timing {
                             display: flex;
+
                             .time-run {
                                 background-color: @gray-dark3;
                                 padding: 5px;
                                 border-radius: 5px;
                                 margin-right: 5px;
+
                                 h4 {
                                     margin: 0;
                                     line-height: 22px !important;
                                 }
+
                                 span {
                                     font-size: 12px;
                                 }
                             }
                         }
-                    }                
+                    }
                 }
             }
-    
+
             .desc-auct {
                 padding: 10px;
             }
-    
+
             .numb-partici {
                 background-color: @gray-dark2;
                 padding: 10px;
-                border-radius: 0 0  15px 15px;
+                border-radius: 0 0 15px 15px;
                 margin-top: -16px;
                 z-index: -1;
                 position: relative;
                 padding-top: 26px;
             }
-    
+
             .participate {
                 background-color: @gray-light4;
                 padding: 10px;
-                border-radius: 0 0  15px 15px;
+                border-radius: 0 0 15px 15px;
                 margin-top: -16px;
                 z-index: -2;
                 position: relative;
@@ -423,27 +426,28 @@
                 }
             }
         }
-        
-            @media (max-width:768px) {
-                .col-md-3.col-sm-6 {
-                    display: block;
-                    width: 50%;
-                    float: left;
 
-                    .categ-auction {
-                        height: 550px;
-                    }
+        @media (max-width:768px) {
+            .col-md-3.col-sm-6 {
+                display: block;
+                width: 50%;
+                float: left;
+
+                .categ-auction {
+                    height: 550px;
                 }
             }
-        
-            @media (max-width:576px) {
-                .col-md-3.col-sm-6 {
-                    width: 100%;
-                    .categ-auction {
-                        height: unset;
-                    }
+        }
+
+        @media (max-width:576px) {
+            .col-md-3.col-sm-6 {
+                width: 100%;
+
+                .categ-auction {
+                    height: unset;
                 }
-            } 
+            }
+        }
     }
 
     .sec-desc-categ1 {

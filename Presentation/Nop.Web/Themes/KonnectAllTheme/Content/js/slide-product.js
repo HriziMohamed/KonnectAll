@@ -13,29 +13,29 @@ let buttonLeft2 = document.getElementById('arrow-next1');
 
 
 //console.log(buttonRight1);
-buttonLeft.addEventListener('click', function(){
+buttonLeft?.addEventListener('click', function(){
     slider.scrollLeft -= 225;
     
 })
 
-buttonRight.addEventListener('click', function(){
+buttonRight?.addEventListener('click', function(){
     slider.scrollLeft += 225;
    //");
 })
 
-buttonLeft1.addEventListener('click', function(){
+buttonLeft1?.addEventListener('click', function(){
     slider1.scrollLeft -= 125;     
  })
  
- buttonRight1.addEventListener('click', function(){
+buttonRight1?.addEventListener('click', function(){
     slider1.scrollLeft += 125;
     //");
  })
- buttonLeft2.addEventListener('click', function(){
+buttonLeft2?.addEventListener('click', function(){
     slider2.scrollLeft -= 125;     
  })
  
- buttonRight2.addEventListener('click', function(){
+buttonRight2?.addEventListener('click', function(){
     slider2.scrollLeft += 125;
     //");
  })

@@ -4444,10 +4444,10 @@
     <Value>Specify a value of "Cache-Control" header value for static content (in seconds).</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.AppSettings.Common.SupportPreviousNopcommerceVersions">
-    <Value>Support previous nopCommerce versions</Value>
+    <Value>Support previous KonnectAll versions</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.AppSettings.Common.SupportPreviousNopcommerceVersions.Hint">
-    <Value>Specify a value indicating whether we should support previous nopCommerce versions (it can slightly improve performance). In this case, old URLs (from previous nopCommerce versions) will redirect to new ones. Enable it only if you upgraded from one of the previous nopCommerce versions.</Value>
+    <Value>Specify a value indicating whether we should support previous KonnectAll versions (it can slightly improve performance). In this case, old URLs (from previous KonnectAll versions) will redirect to new ones. Enable it only if you upgraded from one of the previous KonnectAll versions.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.AppSettings.Common.UserAgentStringsPath">
     <Value>User agent strings path</Value>
@@ -4615,7 +4615,7 @@
     <Value>CSS bundling and minification</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.AppSettings.WebOptimizer.EnableCssBundling.Hint">
-    <Value>Enable to combine (bundle) multiple CSS files into a single file. Do not enable if you're running nopCommerce in IIS virtual directory. And please note it could take up to two minutes for changes to existing files to be applied (when enabled).</Value>
+    <Value>Enable to combine (bundle) multiple CSS files into a single file. Do not enable if you're running KonnectAll in IIS virtual directory. And please note it could take up to two minutes for changes to existing files to be applied (when enabled).</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.AppSettings.WebOptimizer.EnableDiskCache">
     <Value>Enable disk cache</Value>
@@ -5338,7 +5338,7 @@
     <Value><![CDATA[You can download more nopCommerce plugins in our <a href="{0}" target="_blank">marketplace</a>]]></Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Plugins.Description.Step1">
-    <Value>Upload the plugin to the /plugins folder in your nopCommerce directory.</Value>
+    <Value>Upload the plugin to the /plugins folder in your KonnectAll directory.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Plugins.Description.Step2">
     <Value>Restart your application (or click 'Reload list of plugins' button).</Value>
@@ -13471,7 +13471,7 @@
     <Value>Shipping not required</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.PageTitle">
-    <Value>nopCommerce administration</Value>
+    <Value>KonnectAll administration</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Picture.RemovePicture">
     <Value>Remove picture</Value>
@@ -15403,10 +15403,10 @@
     <Value>A list of loaded assemblies.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.System.SystemInfo.NopVersion">
-    <Value>nopCommerce version</Value>
+    <Value>KonnectAll version</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.System.SystemInfo.NopVersion.Hint">
-    <Value>nopCommerce version.</Value>
+    <Value>KonnectAll version.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.System.SystemInfo.OperatingSystem">
     <Value>Operating system</Value>
