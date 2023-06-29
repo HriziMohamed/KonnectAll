@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Nop.Web.Framework.Models;
+using Nop.Web.Models.Media;
 
 namespace Nop.Web.Models.Catalog
 {
@@ -8,6 +9,7 @@ namespace Nop.Web.Models.Catalog
         public CategorySimpleModel()
         {
             SubCategories = new List<CategorySimpleModel>();
+            PictureModel = new PictureModel();
         }
 
         public string Name { get; set; }
@@ -23,5 +25,7 @@ namespace Nop.Web.Models.Catalog
         public bool HaveSubCategories { get; set; }
 
         public string Route { get; set; }
+
+        public PictureModel PictureModel { get; set; }
     }
 }

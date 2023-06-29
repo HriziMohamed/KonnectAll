@@ -700,7 +700,7 @@ namespace Nop.Web.Factories
             //view mode
             await PrepareViewModesAsync(model, command);
             //page size
-            await PreparePageSizeOptionsAsync(model, command, category.AllowCustomersToSelectPageSize, 
+            await PreparePageSizeOptionsAsync(model, command, category.AllowCustomersToSelectPageSize,
                 category.PageSizeOptions, category.PageSize);
 
             var categoryIds = new List<int> { category.Id };
@@ -786,7 +786,7 @@ namespace Nop.Web.Factories
 
             return model;
         }
-        
+
         /// <summary>
         /// Prepare category (simple) models
         /// </summary>
@@ -828,14 +828,39 @@ namespace Nop.Web.Factories
             var store = await _storeContext.GetCurrentStoreAsync();
             var allCategories = await _categoryService.GetAllCategoriesAsync(storeId: store.Id);
             var categories = allCategories.Where(c => c.ParentCategoryId == rootCategoryId).OrderBy(c => c.DisplayOrder).ToList();
+            var pictureSize = _mediaSettings.CategoryThumbPictureSize;
+            var currentStore = await _storeContext.GetCurrentStoreAsync();
             foreach (var category in categories)
             {
+                var categoryPictureCacheKey = _staticCacheManager.PrepareKeyForDefaultCache(NopModelCacheDefaults.CategoryPictureModelKey, category,
+                      pictureSize, true, await _workContext.GetWorkingLanguageAsync(), _webHelper.IsCurrentConnectionSecured(),
+                      currentStore);
                 var categoryModel = new CategorySimpleModel
                 {
                     Id = category.Id,
                     Name = await _localizationService.GetLocalizedAsync(category, x => x.Name),
                     SeName = await _urlRecordService.GetSeNameAsync(category),
-                    IncludeInTopMenu = category.IncludeInTopMenu
+                    IncludeInTopMenu = category.IncludeInTopMenu,
+                    PictureModel = await _staticCacheManager.GetAsync(categoryPictureCacheKey, async () =>
+                    {
+                        var picture = await _pictureService.GetPictureByIdAsync(category.PictureId);
+                        string fullSizeImageUrl, imageUrl;
+
+                        (fullSizeImageUrl, picture) = await _pictureService.GetPictureUrlAsync(picture);
+                        (imageUrl, _) = await _pictureService.GetPictureUrlAsync(picture, pictureSize);
+
+                        var pictureModel = new PictureModel
+                        {
+                            FullSizeImageUrl = fullSizeImageUrl,
+                            ImageUrl = imageUrl,
+                            Title = string.Format(await _localizationService
+                                .GetResourceAsync("Media.Category.ImageLinkTitleFormat"), category.Name),
+                            AlternateText = string.Format(await _localizationService
+                                .GetResourceAsync("Media.Category.ImageAlternateTextFormat"), category.Name)
+                        };
+
+                        return pictureModel;
+                    })
                 };
 
                 //number of products in each category
@@ -902,7 +927,7 @@ namespace Nop.Web.Factories
                 return XDocument.Parse(xml);
             });
         }
-        
+
         #endregion
 
         #region Manufacturers
@@ -1850,7 +1875,7 @@ namespace Nop.Web.Factories
         #endregion
 
         #region Common
-        
+
         /// <summary>
         /// Prepare sorting options
         /// </summary>
@@ -1998,7 +2023,7 @@ namespace Nop.Web.Factories
 
             return Task.CompletedTask;
         }
-        
+
         #endregion
     }
 }
