@@ -54,9 +54,9 @@
 
             <div class="content-banner-beverage">
                 <div class="font-light text-black-light text-capitalize text-small">for your need</div>
-                <h2 class="text-black-light text-left text-capitalize">fruit collection</h2>
+                <h2 class="text-black-light text-left text-capitalize">@Model.Name</h2>
                 <span class="font-light text-black-light text-small">from <h2 class="text-red text-uppercase font-normal">sar 5.00</h2></span>
-                <a href="#" class="btn-sm-black btn-border">
+                <a href="@Url.RouteUrl("Category", new { SeName = @Model.SeName })" class="btn-sm-black btn-border">
                     <span class="btn-sm text-black-light  font-normal">shop now</span>
                 </a>
             </div>

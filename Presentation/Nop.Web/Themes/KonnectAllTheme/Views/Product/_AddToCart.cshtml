@@ -6,6 +6,17 @@
 }
 @if (!Model.DisableBuyButton || Model.CustomerEntersPrice)
 {
+@*
+     <div class="col-md-6 left-content">
+                            <input type="text" size="20" value="1" id="count">
+                            <span class="input-number-increment"><i class="fas fa-minus" onclick="minus()"></i></span>
+                            <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus()"></i></span>
+                            </div> 
+                            <div class="col-md-6 right-content">
+                                  <a href="#" class="add-cart shop-item-button"><span class="text-uppercase text-black font-normal shop-item-button">add to cart</span></a> 
+                            </div>*@
+
+
     <div class="add-to-cart">
         @if (Model.CustomerEntersPrice)
         {
@@ -27,7 +38,7 @@
         @if (!Model.DisableBuyButton)
         {
                <div class="bottom-info-deals">
-                @* <label asp-for="EnteredQuantity" asp-postfix=":" class="qty-label"></label> *@
+                 <label asp-for="EnteredQuantity" asp-postfix=":" class="qty-label"></label> 
                 <div class="row">              
                 @if (Model.AllowedQuantities.Count > 0)
                 {
@@ -47,12 +58,13 @@
                 else
                 {
                  <div class="col-md-6 left-content">
+                    <input asp-for="EnteredQuantity" type="hidden" id="product_enteredQuantity_@Model.ProductId" /> 
                     <input type="text" size="20" value="1" id="count">
-                    <span class="input-number-increment"><i class="fas fa-minus" onclick="minus()"></i></span>
-                    <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus()"></i></span>
+                    <span class="input-number-increment"><i class="fas fa-minus" onclick="minus();document.getElementById('product_enteredQuantity_@Model.ProductId').value = document.getElementById('count').value;"></i></span>
+                    <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus();document.getElementById('product_enteredQuantity_@Model.ProductId').value = document.getElementById('count').value;"></i></span>
                  </div>  
                     
-                    @* <input asp-for="EnteredQuantity" id="product_enteredQuantity_@Model.ProductId" class="qty-input" type="text" aria-label=@T("Products.Qty.AriaLabel")/> *@
+                   
                     <script asp-location="Footer">
                         //when a customer clicks 'Enter' button we submit the "add to cart" button (if visible)
                         $(document).ready(function() {
@@ -92,11 +104,18 @@
                         }
                     }
                     <div class="col-md-6 right-content">
-                        <button type="button" id="add-to-cart-button-@Model.ProductId" class="button-1 add-to-cart-button" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.ShoppingCart})', '#product-details-form');return false;">@addToCartText</button>
+                    <a href="javascript:$('#add-to-cart-button-@Model.ProductId').click();">
+                        <span class="text-uppercase text-black font-normal">
+                            @addToCartText
+                        </span>
+                     </a>
+
+                     <button type="button" id="add-to-cart-button-@Model.ProductId" class="hidden" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.ShoppingCart})', '#product-details-form');return false;"></button>
                     </div>                                  
                 }
                 </div>
              </div> 
+
             if (!string.IsNullOrEmpty(Model.PreOrderAvailabilityStartDateTimeUserTime))
             {
                 <div class="pre-order-availability-date">

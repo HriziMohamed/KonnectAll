@@ -33,8 +33,8 @@
 
 
 <section class="container deals">
-    <div class="row" >
-        <div class="col-md-8 col-sm-8" >
+    <div class="row">
+        <div class="col-md-8 col-sm-8">
             <div class="product-title">
                 <div class="head">
                     <div class="title-sec ">
@@ -65,7 +65,8 @@
                                     {
                                         <span class="price-product old-price" style="font-size: 2.2rem !important;text-decoration: line-through;
                                              line-height: 2 !important;font-weight: 700 !important;clear: both;">
-                                             @productBigShow.ProductPrice.OldPrice - </span>
+                                            @productBigShow.ProductPrice.OldPrice -
+                                        </span>
                                     }
                                     <span class="price-product" style="font-size: 2.2rem !important;
                                              line-height: 2 !important;font-weight: 700 !important;clear: both;">@productBigShow.ProductPrice.Price</span>
@@ -75,13 +76,13 @@
                                 {
                                     <div class="date" style="font-size: 14px;line-height: 1.42857143;color: #333;font-family: 'Gotham' !important;">
 
-                                            Offre Ends In:
+                                        Offre Ends In:
                                         <span class="number-days font-medium" style="color: #28befe;font-weight:500;font-size: 12px;
                                             line-height: 1.42857143;font-family: 'Gotham' !important;">
 
                                             @((await dateTimeHelper.ConvertToUserTimeAsync(Model.Discount.EndDateUtc.Value)).ToString("f", CultureInfo.CurrentCulture))
 
-                                            </span>
+                                        </span>
 
                                     </div>
                                 }
@@ -101,16 +102,24 @@
                                 </div>
                             </div>
                         </div>
+                        @{
+                            var addToCartText = T("ShoppingCart.AddToCart").Text; ;
 
+                        }
                         <div class="bottom-info-deals">
                             <div class="row">
                                 <div class="col-md-6 left-content">
+                                    @*<input asp-for="EnteredQuantity" type="hidden" id="product_enteredQuantity" />*@
                                     <input type="text" size="20" value="1" id="count">
-                                    <span class="input-number-increment"><i class="fas fa-minus" onclick="minus()"></i></span>
-                                    <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus()"></i></span>
+                                    <span class="input-number-increment"><i class="fas fa-minus" onclick="minus();document.getElementById('product_enteredQuantity').value = document.getElementById('count').value;"></i></span>
+                                    <span class="input-number-decrement"><i class="fas fa-solid fa-plus" onclick="plus();document.getElementById('product_enteredQuantity').value = document.getElementById('count').value;"></i></span>
                                 </div>
                                 <div class="col-md-6 right-content">
-                                    <a href="#" class="add-cart"><span class="text-uppercase text-black font-normal">add to cart</span></a>
+                                    <a href="javascript:$('#add-to-cart-button').click();">
+                                        <span class="text-uppercase text-black font-normal">
+                                            @addToCartText
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="row">
@@ -162,30 +171,30 @@
                 {
                     foreach (var product in Model.Products.Where(p => p.Id != productBigShow.Id))
                     {
-                                 <div class="content-navbar" >
-                                    <div class="img" style="min-width:80px;background: #ffffff !important;">
-                                                <img alt="" src="@product.DefaultPictureModel.ImageUrl">
-                                    </div>
-                                    <div class="product-info text-left">
+                        <div class="content-navbar">
+                            <div class="img" style="min-width:80px;background: #ffffff !important;">
+                                <img alt="" src="@product.DefaultPictureModel.ImageUrl">
+                            </div>
+                            <div class="product-info text-left">
                                 <div class="title font-normal" style="font-family: 'Gotham' !important;
                                      font-size: 14px;
                                      line-height: 1.42857143;
                                      font-weight:400;
                                      color: #333;">
-                                  @FormatProductName(  @product.Name,20)
+                                    @FormatProductName(  @product.Name,20)
                                 </div>
-                                        <div class="review">
-                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
-                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
-                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
-                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
-                                            <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-gray.png">
-                                        </div>
-                                        <div class="price font-normal text-uppercase">
+                                <div class="review">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-yellow.png">
+                                    <img alt="" src="./assets/img/b2b-category/deals-day/product-desc/star-gray.png">
+                                </div>
+                                <div class="price font-normal text-uppercase">
                                     @product.ProductPrice.Price
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
+                        </div>
                     }
                 }
 
@@ -231,7 +240,7 @@
 
         /* componentData.standardValidation = paramsFromForm;
          componentData.screenWidth = document.documentElement.clientWidth;*/
-        var idDiv ="";/* idDivSubCatProd ;*/
+        var idDiv = "";/* idDivSubCatProd ;*/
         console.log(idDiv);
         console.log(componentData);
 
