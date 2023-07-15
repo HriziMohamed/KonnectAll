@@ -5,6 +5,25 @@
 @using Nop.Core.Domain.Tax
 @inject CatalogSettings catalogSettings
 @inject IWorkContext workContext
+@functions {
+    string FormatProductName(string productName)
+    {
+        string result = productName;
+        if (productName.Length > 50)
+        {
+            result = result.Substring(0, 50);
+        }
+        if (productName.Length < 50)
+        {
+            int nbreEspace = 50 - productName.Length;
+            for (int j = 0; j <= nbreEspace; j++)
+            {
+                result = result + " ";
+            }
+        }
+        return result;
+    }
+}
 @{
     //prepare "Add to cart" AJAX link
     var addtocartlink = "";
@@ -29,9 +48,9 @@
             <img class="prod-img" alt="@Model.DefaultPictureModel.AlternateText" data-src="@Model.DefaultPictureModel.ImageUrl" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" />
         </a>
     </div>
-    <div class="info-product">
-        <a class="name-product text-black" style="max-height:40px;overflow:auto" href="@Url.RouteUrl("Product", new {SeName = Model.SeName})" title="@Model.Name">
-            @Model.Name
+    <div class="info-product" style="padding-bottom:20px !important;">
+        <a style="min-height:75px !important; " class="name-product text-black" href="@Url.RouteUrl("Product", new {SeName = Model.SeName})" title="@Model.Name">
+            @FormatProductName(@Model.Name)
         </a>
         @if (catalogSettings.ShowSkuOnCatalogPages && !string.IsNullOrEmpty(Model.Sku))
         {

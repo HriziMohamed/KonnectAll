@@ -27,11 +27,13 @@
                 <li class="myItem">
                     <div class="product">
                         <div class="product-img">
-                            <img  alt="@product.Name" class="prod-img shop-item-image" src="@product.DefaultPictureModel.FullSizeImageUrl">
+                        <a  href="@Url.RouteUrl("Product", new {SeName = @product.SeName})" title="@product.Name">
+                                <img onMouseOver="this.style.cursor='pointer'" alt="@product.Name" class="prod-img shop-item-image" src="@product.DefaultPictureModel.ImageUrl">
+                        </a>
                         </div>
                         <div class="info-product">
-                            <a class="name-product" style="overflow: auto;" href="@Url.RouteUrl("Product", new {SeName = @product.SeName})" title="@product.Name">
-                                @product.Name
+                            <a style="min-height:75px !important; " class="name-product" href="@Url.RouteUrl("Product", new {SeName = @product.SeName})" title="@product.Name">
+                                @FormatProductName(@product.Name)
                             </a>
                             <div class="price-product shop-item-price">
                                 @product.ProductPrice.Price

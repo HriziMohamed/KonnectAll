@@ -157,11 +157,12 @@
                         <span class="text-capitalize">(3 reviews)</span>
                     </div>
                     <div class="price">
-                        <h6 class="text-left">@Model.ProductPrice.Price - @Model.ProductPrice.OldPrice</h6>
+                        @*<h6 class="text-left">@Model.ProductPrice.Price - @Model.ProductPrice.OldPrice</h6>*@
+                        <h6 class="text-left">@Model.ProductPrice.Price </h6>
                     </div>
                     @if (string.IsNullOrEmpty(Model.StockAvailability))
                     {
-                                 Model.StockAvailability = "0";                                                  
+                                 Model.StockAvailability = "0 in the stock";                                                  
                     }
                      <div class="available">
                                                                                         Availability:@Model.StockAvailability
@@ -241,7 +242,7 @@
                                     var dataDictAddToCart = new ViewDataDictionary(ViewData);
                                     dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
                                     @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart) 
-                                     @await Html.PartialAsync("_ProductEstimateShipping", Model.ProductEstimateShipping) 
+                                    @* @await Html.PartialAsync("_ProductEstimateShipping", Model.ProductEstimateShipping) *@
                                 }
                         </div>
                         @* <div class="row">

@@ -3869,3 +3869,286 @@
         .eu-cookie-bar-notification a:focus {
             text-decoration: underline;
         }
+
+
+/* ONE PAGE CHECKOUT STYLE */
+.checkout-data .opc {
+    padding: 0;
+    overflow: hidden;
+}
+
+.opc {
+    margin: 0 0 10px 0;
+}
+
+    .opc li {
+        list-style: none;
+    }
+
+        .opc li.tab-section {
+            border: 1px solid #DDD;
+            float: left;
+            width: 100%;
+            background: #f1f1f1;
+        }
+
+    .opc .step-title:after {
+        display: block;
+        content: ".";
+        clear: both;
+        font-size: 0;
+        line-height: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .opc .buttons .back-link small {
+        display: none;
+    }
+
+    .opc .buttons .back-link a {
+        margin-right: 10px;
+    }
+
+        .opc .buttons .back-link a i {
+            margin-right: 5px;
+        }
+
+    .opc .buttons.disabled button {
+        display: none;
+    }
+
+    .opc .buttons .please-wait {
+        height: 21px;
+        line-height: 21px;
+        float: right;
+        clear: both;
+    }
+
+    .opc .ul {
+        list-style: disc outside;
+        padding-left: 18px;
+    }
+
+    .opc .step-title {
+        padding: 6px 8px;
+        text-align: right;
+    }
+
+        .opc .step-title .number {
+            float: left;
+            background-color: #646464;
+            border: 1px solid #646464;
+            padding: 0 7px;
+            margin: 0 8px 0 0;
+            font-size: 13px;
+            line-height: 20px;
+            color: #FFF;
+            font-weight: bold;
+        }
+
+    .opc .active .step-title .number {
+        background-color: #65c178;
+        border: 1px solid #65c178;
+        font-weight: 700;
+    }
+
+    .opc .step-title h2 {
+        float: left;
+        margin: 0;
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 21px;
+        font-weight: normal;
+        color: #646464;
+    }
+
+    .opc .allow .step-title {
+        cursor: pointer;
+    }
+
+    .opc .active .step-title {
+        padding-bottom: 5px;
+        color: #f18200;
+        cursor: default;
+        border-bottom: 1px solid #DDD;
+        background: #f1f1f1;
+    }
+
+    .opc .active .step.a-item {
+        margin-bottom: 3px;
+    }
+
+    .opc .tab-section {
+        margin-bottom: 10px;
+    }
+
+    .opc .active .step-title h2 {
+        font-weight: 700;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .opc .step {
+        border-top: 0;
+        padding: 15px;
+        position: relative;
+        float: left;
+        width: 100%;
+    }
+
+    .opc .order-summary-content .cart-footer {
+        background: none !important;
+    }
+
+    .opc .section.payment-info label {
+        display: inline;
+    }
+
+.new-billing-address, .new-shipping-address {
+    background: #fff;
+    padding: 0;
+}
+
+.checkout-page .opc .tab-section.allow.active {
+    background: #fff;
+}
+
+#checkout-confirm-order-load .billing-info .payment-method, #checkout-confirm-order-load .shipping-info .shipping-method {
+    padding: 0;
+}
+
+#checkout-shipping-method-load .shipping-method,
+#checkout-payment-method-load .payment-method,
+#checkout-payment-info-load .payment-info,
+#checkout-order-completed-load .order-completed {
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#checkout-step-billing form, #checkout-step-shipping form, #checkout-step-shipping-method form, #checkout-step-payment-method form, #checkout-step-payment-info form {
+    margin-bottom: 0;
+}
+
+.section.select-billing-address select, .section.select-shipping-address select, .checkout-page .category-iteam {
+    text-align: left;
+}
+
+.section.order-completed .title {
+    margin: 0;
+}
+
+.checkout-page #billing-buttons-container, .next-btn-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.checkout-page .section.payment-info table {
+    background-color: transparent;
+}
+
+.checkout-data .shipping-method .method-name .radio, .checkout-data .payment-method .method-name .radio {
+    float: left;
+}
+
+.checkout-data .shipping-method .method-name .method-description, .checkout-data .shipping-method ul li, .checkout-data .shipping-method ul, .checkout-data .payment-method ul, .checkout-data .payment-method ul li {
+    float: left;
+    width: 100%;
+}
+
+.checkout-data .payment-method .method-name {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+    .checkout-data .payment-method .method-name .payment-logo > label {
+        float: left;
+        margin-right: 10px;
+    }
+
+    .checkout-data .payment-method .method-name .payment-details {
+        float: left;
+        margin-top: 5px;
+    }
+
+.payment-method .label, .shipping-method .label, .payment-method-status .label, .shipping-status .label {
+    color: #646464;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#checkout-steps .buttons {
+    clear: both;
+    float: right;
+}
+
+.checkout-data #checkout-steps .btn.btn-default {
+    background: url(../images/continue-arrow.png) no-repeat #646464 80px center;
+    padding-right: 35px;
+    float: right;
+}
+
+    .checkout-data #checkout-steps .btn.btn-default:hover {
+        background: url(../images/continue-arrow.png) no-repeat #65c178 80px center
+    }
+
+.checkout-data #confirm-order-buttons-container .btn.btn-default {
+    background: url(../images/continue-arrow.png) no-repeat #646464 70px center;
+    padding-right: 30px;
+    float: right;
+}
+
+    .checkout-data #confirm-order-buttons-container .btn.btn-default:hover {
+        background: url(../images/continue-arrow.png) no-repeat #65c178 70px center
+    }
+
+.next-btn-wrapper .btn.btn-primary {
+    background: url(../images/continue-arrow.png) no-repeat #65c178 50px center;
+    padding-right: 30px;
+    float: left;
+    margin-top: 20px;
+}
+
+    .next-btn-wrapper .btn.btn-primary:hover {
+        background: url(../images/continue-arrow.png) no-repeat #646464 50px center
+    }
+
+.checkout-data .enter-address .edit-address .form-group {
+    margin-bottom: 30px;
+}
+
+.checkout-page .back-link {
+    float: left;
+}
+
+.checkout-page .order-summary-content .order-review-data .title {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.section.payment-info .message-error .validation-summary-errors ul {
+    margin-bottom: 15px;
+}
+
+.checkout-data .shipping-method .method-name .method-description {
+    padding-right: 10px;
+}
+
+.billing-info-wrap ul, .shipping-info-wrap ul {
+    padding-left: 0px;
+}
+
+.billing-info-wrap, .shipping-info-wrap {
+    margin-bottom: 15px;
+}
+
+.checkout-page .confirm-order .primary-buttons {
+    border: none;
+    border-radius: 0px;
+    margin: 10px 0px 0px;
+    padding: 0px;
+}
