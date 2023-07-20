@@ -1,5 +1,6 @@
 ﻿using FluentMigrator;
 using Nop.Core.Domain.Affiliates;
+using Nop.Core.Domain.Auctions;
 using Nop.Core.Domain.Blogs;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
@@ -161,6 +162,9 @@ namespace Nop.Data.Migrations.Installation
             Create.TableFor<VendorAttribute>();
             Create.TableFor<VendorAttributeValue>();
             Create.TableFor<VendorNote>();
+            Create.TableFor<Auction>();
+            Create.TableFor<AuctionBrochure>();
+            Create.TableFor<AuctionItem>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Nop.Core.Caching;
+using Nop.Core.Domain.Auctions;
 using Nop.Core.Domain.Catalog;
 
 namespace Nop.Services.Catalog
@@ -125,6 +126,8 @@ namespace Nop.Services.Catalog
         /// {2} : show hidden records?
         /// </remarks>
         public static CacheKey CategoriesAllCacheKey => new("Nop.category.all.{0}-{1}-{2}", NopEntityCacheDefaults<Category>.AllPrefix);
+
+        public static CacheKey AuctionAllCacheKey => new("Nop.category.all.{0}-{1}-{2}", NopEntityCacheDefaults<Auction>.AllPrefix);
 
         /// <summary>
         /// Gets a key for caching

@@ -79,6 +79,10 @@ namespace Nop.Web.Infrastructure
             endpointRouteBuilder.MapControllerRoute(name: "ProductsByTag",
                 pattern: genericPattern,
                 defaults: new { controller = "Catalog", action = "ProductsByTag" });
+
+            endpointRouteBuilder.MapControllerRoute(name: "Auction",
+               pattern: genericPattern,
+               defaults: new { controller = "Auction", action = "Index" });
         }
 
         #endregion
